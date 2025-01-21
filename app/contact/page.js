@@ -23,7 +23,8 @@ export default function Contact() {
             icon: <Phone className="w-6 h-6" />,
             title: "Phone",
             details: ["+91 990-852-6444"],
-            action: "tel:+919908526444"
+            action: "tel:+919908526444",
+            isPhone: true
         },
         {
             icon: <Mail className="w-6 h-6" />,
@@ -133,7 +134,10 @@ export default function Contact() {
                                         {info.details.map((detail, idx) => (
                                             <p key={idx} className="text-gray-600">
                                                 {info.action ? (
-                                                    <a href={info.action} className="hover:text-[#43c3ff]">
+                                                    <a 
+                                                        href={info.action} 
+                                                        className={`hover:text-[#43c3ff] ${info.isPhone ? 'font-mono tracking-wider' : ''}`}
+                                                    >
                                                         {detail}
                                                     </a>
                                                 ) : (

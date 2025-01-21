@@ -31,6 +31,45 @@ import BenefitsTimeline from '@/components/sections/BenefitsTimeline';
 import AwardsSection from '@/components/sections/AwardsSection';
 import ComparisonTable from '@/components/sections/ComparisonTable';
 import Footer from '@/components/elements/Footer';
+import { Phone } from 'lucide-react';
+
+function CallButtons() {
+  const handleCall = () => {
+    window.location.href = 'tel:+919908526444';
+  };
+
+  return (
+    <>
+      {/* Mobile Fixed Bottom Bar */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg z-[9999] 
+                    flex justify-around items-center py-3 px-4 space-x-4">
+        <button
+          onClick={handleCall}
+          className="flex-1 bg-green-500 text-white py-2 px-4 rounded-full 
+                   flex items-center justify-center space-x-2 shadow-md
+                   active:scale-95 transition-transform"
+        >
+          <Phone className="w-5 h-5" />
+          <span className="text-sm font-medium">Call Now</span>
+        </button>
+      </div>
+
+      {/* Desktop Floating Button */}
+      <button
+        onClick={handleCall}
+        className="fixed bottom-6 right-6 z-[9999] bg-green-500 hover:bg-green-600 
+                 text-white rounded-full p-4 shadow-lg transform hover:scale-110 
+                 transition-all duration-300 hidden md:flex items-center justify-center
+                 animate-bounce hover:animate-none group"
+        aria-label="Call us"
+      >
+        <Phone className="w-6 h-6 group-hover:animate-wiggle" />
+      </button>
+    </>
+  );
+}
+
+
 
 export default function Home() {
   const router = useRouter(); // Add this line
@@ -149,6 +188,7 @@ export default function Home() {
       <div className="flex-1 md:ml-[20%] ml-0 mt-[60px] md:mt-0 relative" data-scroll-container>
         <main className="w-full flex flex-col">
           {/* Hero Section */}
+          <CallButtons />
           <div className='min-h-screen w-full relative overflow-hidden flex-none px-4 md:px-8'>
             {/* Gradient Background */}
             <div
@@ -169,7 +209,6 @@ export default function Home() {
               <div className='w-full flex flex-col md:flex-row justify-between items-center py-4 hidden md:flex'>
                 <div className='flex items-center'>
                   <Image src={logo} alt="Logo" className='w-20 md:w-28' width={100} height={100} />
-                  <h1 className='text-sm md:text-md'>Sampoorn <br /> Arogya</h1>
                 </div>
                 <div className='mt-4 md:mt-0'>
                   <Button className="bg-orange-500 hover:bg-orange-400"><a href='/contact'>Contact Us </a></Button>

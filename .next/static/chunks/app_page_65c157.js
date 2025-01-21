@@ -9,9 +9,9 @@
     "static/chunks/node_modules_next_9cd228._.js",
     "static/chunks/node_modules_swiper_e9b520._.js",
     "static/chunks/node_modules_matter-js_build_matter_b3f8fc.js",
-    "static/chunks/node_modules_f3cb9d._.js",
+    "static/chunks/node_modules_26dfeb._.js",
     "static/chunks/node_modules_swiper_7f4167._.css",
-    "static/chunks/node_modules_locomotive-scroll_dist_locomotive-scroll_esm_6c2d22.js"
+    "static/chunks/node_modules_locomotive-scroll_dist_locomotive-scroll_esm_80db9d.js"
   ],
   "source": "dynamic"
 });

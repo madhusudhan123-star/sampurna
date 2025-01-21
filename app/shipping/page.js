@@ -1,11 +1,19 @@
 "use client";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from "@/components/ui/button"
 import Navbar from '@/components/elements/Navbar';
 
 export default function ShippingPolicy() {
     const router = useRouter();
+    const [gradientPosition, setGradientPosition] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setGradientPosition((prev) => (prev + 1) % 360);
+        }, 50);
+        return () => clearInterval(interval);
+    }, []);
 
     const policyPoints = [
         {
@@ -49,6 +57,82 @@ export default function ShippingPolicy() {
             ]
         },
         {
+            title: "5. Delivery Guidelines",
+            sections: [
+                {
+                    subtitle: "Delivery Attempts",
+                    content: "A maximum of 3 delivery attempts will be made. Delivery reattempts are scheduled within 24 hours. Customers will be notified before each delivery attempt. Orders returned to the seller after 3 failed attempts may incur reshipping fees. Refunds will be processed for the product price, excluding initial shipping charges."
+                },
+                {
+                    subtitle: "Delivery Verification",
+                    content: "Valid ID proof may be required for specific items. Digital signature capture is required at delivery. Unattended delivery is not permitted."
+                }
+            ]
+        },
+        {
+            title: "6. Special Cases",
+            sections: [
+                {
+                    subtitle: "Bulk Orders",
+                    content: "Special shipping arrangements are available for bulk orders. Custom delivery timelines can be discussed with our team. Additional handling charges may apply."
+                }
+            ]
+        },
+        {
+            title: "7. Shipping Restrictions",
+            sections: [
+                {
+                    subtitle: "Weather Conditions",
+                    content: "Delivery times may be affected during severe weather conditions, natural disasters, or local disturbances. In such cases, orders will be rescheduled, and customers will be notified with updated timelines."
+                }
+            ]
+        },
+        {
+            title: "8. Lost or Damaged Shipments",
+            sections: [
+                {
+                    subtitle: "Lost Packages",
+                    content: "Investigations are initiated within 24 hours of receiving a complaint. Regular updates will be provided to the customer. Refunds or resolutions are provided within 15 business days for eligible cases, including the full product and shipping cost."
+                },
+                {
+                    subtitle: "Damaged Packages",
+                    content: "Refuse delivery if external damage is visible. Report damage within 24 hours of delivery with photo documentation. Replacement or refunds are processed after an investigation."
+                }
+            ]
+        },
+        {
+            title: "9. Holiday Shipping",
+            sections: [
+                {
+                    subtitle: "Peak Seasons",
+                    content: "Processing times may be extended during festivals and peak seasons. We recommend additional delivery buffer time during these periods. Customers will be notified of any delays."
+                },
+                {
+                    subtitle: "Business Hours",
+                    content: "Order processing: Monday to Sunday, 9 AM to 6 PM IST. Customer service is available: Monday to Saturday, 9 AM to 8 PM IST."
+                }
+            ]
+        },
+        {
+            title: "10. Environmental Commitment",
+            sections: [
+                {
+                    subtitle: "Packaging",
+                    content: "We use eco-friendly packaging materials with minimal plastic usage. Packaging materials are made from recycled sources where possible. We ensure right-sized packaging to reduce waste."
+                }
+            ]
+        },
+        {
+            title: "11. Communication",
+            content: "Shipping Updates: Customers receive:",
+            list: [
+                "Order confirmation emails",
+                "Shipping confirmations with tracking details",
+                "Delivery attempt notifications",
+                "Delivery completion confirmations"
+            ]
+        },
+        {
             title: "12. Customer Support",
             sections: [
                 {
@@ -57,7 +141,7 @@ export default function ShippingPolicy() {
                 },
                 {
                     subtitle: "Phone",
-                    content: "990-852-6444"
+                    content: <span className="phone-number">+91 990-852-6444</span>
                 },
                 {
                     subtitle: "Response time",
@@ -73,20 +157,30 @@ export default function ShippingPolicy() {
 
     return (
         <div className="flex relative bg-white min-h-screen">
+            {/* Navbar */}
             <div className='fixed left-0 top-0 w-1/5 h-screen bg-transparent z-[999]'>
                 <Navbar />
             </div>
 
+            {/* Main Content */}
             <div className="flex-1 ml-[0%] md:ml-[20%]">
-                <div className="max-w-4xl mx-auto px-4 py-12">
-                    {/* Header */}
-                    <div className="text-center mb-12">
-                        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-                            Shipping Policy
-                        </h1>
-                        <p className="text-gray-600">
-                            Last Updated: December 2024
-                        </p>
+                <div className="max-w-4xl mx-auto px-4 py-16">
+                    {/* Header with gradient */}
+                    <div className="relative mb-12 p-8 rounded-lg overflow-hidden">
+                        <div
+                            className="absolute inset-0 z-0 transition-all duration-1000 ease-in-out opacity-20"
+                            style={{
+                                background: `linear-gradient(${gradientPosition}deg, 
+                                    #2A6177, 
+                                    #43c3ff, 
+                                    #8de8f8
+                                )`,
+                            }}
+                        />
+                        <div className="relative z-10">
+                            <h1 className="text-4xl font-bold text-center mb-2">Shipping Policy</h1>
+                            <p className="text-center text-gray-600">Last Updated: December 2024</p>
+                        </div>
                     </div>
 
                     {/* Policy Content */}

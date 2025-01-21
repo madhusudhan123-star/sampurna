@@ -418,6 +418,21 @@ var _s = __turbopack_refresh__.signature();
 function CancellationPolicy() {
     _s();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
+    const [gradientPosition, setGradientPosition] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(0);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "CancellationPolicy.useEffect": ()=>{
+            const interval = setInterval({
+                "CancellationPolicy.useEffect.interval": ()=>{
+                    setGradientPosition({
+                        "CancellationPolicy.useEffect.interval": (prev)=>(prev + 1) % 360
+                    }["CancellationPolicy.useEffect.interval"]);
+                }
+            }["CancellationPolicy.useEffect.interval"], 50);
+            return ({
+                "CancellationPolicy.useEffect": ()=>clearInterval(interval)
+            })["CancellationPolicy.useEffect"];
+        }
+    }["CancellationPolicy.useEffect"], []);
     const policyPoints = [
         {
             title: "1. Cancellation Period",
@@ -430,7 +445,16 @@ function CancellationPolicy() {
             title: "2. How to Cancel Your Order",
             content: [
                 "To cancel your order, please follow these steps:",
-                "Contact Us Immediately: Reach out to our customer support team at +91990-852-6444 within 24 hours of your order.",
+                "Contact Us Immediately: Reach out to our customer support team at ",
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                    className: "phone-number",
+                    children: "+91 990-852-6444"
+                }, "phone", false, {
+                    fileName: "[project]/app/cancel/page.js",
+                    lineNumber: 31,
+                    columnNumber: 17
+                }, this),
+                " within 24 hours of your order.",
                 "Provide Order Details: Include your order number and reason for cancellation in your message to help us process your request faster."
             ]
         },
@@ -463,42 +487,65 @@ function CancellationPolicy() {
                 className: "fixed left-0 top-0 w-1/5 h-screen bg-transparent z-[999]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$elements$2f$Navbar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                     fileName: "[project]/app/cancel/page.js",
-                    lineNumber: 52,
+                    lineNumber: 63,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/cancel/page.js",
-                lineNumber: 51,
+                lineNumber: 62,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex-1 ml-[0%] md:ml-[20%]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "max-w-4xl mx-auto px-4 py-12",
+                    className: "max-w-4xl mx-auto px-4 py-16",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "text-center mb-12",
+                            className: "relative mb-12 p-8 rounded-lg overflow-hidden",
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                    className: "text-4xl font-bold text-gray-900 mb-4",
-                                    children: "Cancellation Policy"
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "absolute inset-0 z-0 transition-all duration-1000 ease-in-out opacity-20",
+                                    style: {
+                                        background: `linear-gradient(${gradientPosition}deg, 
+                                    #2A6177, 
+                                    #43c3ff, 
+                                    #8de8f8
+                                )`
+                                    }
                                 }, void 0, false, {
                                     fileName: "[project]/app/cancel/page.js",
-                                    lineNumber: 59,
+                                    lineNumber: 71,
                                     columnNumber: 25
                                 }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-gray-600",
-                                    children: "Last Updated: December 2024"
-                                }, void 0, false, {
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "relative z-10",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                            className: "text-4xl font-bold text-center mb-2",
+                                            children: "Cancellation Policy"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/cancel/page.js",
+                                            lineNumber: 82,
+                                            columnNumber: 29
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-center text-gray-600",
+                                            children: "Last Updated: December 2024"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/cancel/page.js",
+                                            lineNumber: 83,
+                                            columnNumber: 29
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/app/cancel/page.js",
-                                    lineNumber: 62,
+                                    lineNumber: 81,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/cancel/page.js",
-                            lineNumber: 58,
+                            lineNumber: 70,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -511,58 +558,60 @@ function CancellationPolicy() {
                                             children: point.title
                                         }, void 0, false, {
                                             fileName: "[project]/app/cancel/page.js",
-                                            lineNumber: 71,
+                                            lineNumber: 91,
                                             columnNumber: 33
                                         }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "space-y-3",
-                                            children: point.content.map((item, itemIndex)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                            children: point.content.map((text, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                     className: "text-gray-600 leading-relaxed",
-                                                    children: item
-                                                }, itemIndex, false, {
+                                                    children: text
+                                                }, idx, false, {
                                                     fileName: "[project]/app/cancel/page.js",
-                                                    lineNumber: 76,
+                                                    lineNumber: 96,
                                                     columnNumber: 41
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/app/cancel/page.js",
-                                            lineNumber: 74,
+                                            lineNumber: 94,
                                             columnNumber: 33
                                         }, this)
                                     ]
                                 }, index, true, {
                                     fileName: "[project]/app/cancel/page.js",
-                                    lineNumber: 70,
+                                    lineNumber: 90,
                                     columnNumber: 29
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/app/cancel/page.js",
-                            lineNumber: 68,
+                            lineNumber: 88,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "mt-12 bg-[#8de8f825] p-6 rounded-lg border border-[#43c3ff]/20",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-gray-700 text-center",
-                                    children: "We aim to provide a seamless experience, and our customer service team is here to assist you with any issues you may encounter."
-                                }, void 0, false, {
-                                    fileName: "[project]/app/cancel/page.js",
-                                    lineNumber: 87,
-                                    columnNumber: 25
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-gray-700 text-center mt-4",
-                                    children: "Thank you for choosing Sampoorna Arogya. We appreciate your understanding and support!"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/cancel/page.js",
-                                    lineNumber: 90,
-                                    columnNumber: 25
-                                }, this)
-                            ]
-                        }, void 0, true, {
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-gray-700 text-center",
+                                children: [
+                                    "For cancellation requests, contact us at",
+                                    ' ',
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
+                                        href: "mailto:israelitesshopping171@gmail.com",
+                                        className: "text-[#2A6177] hover:underline",
+                                        children: "israelitesshopping171@gmail.com"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/cancel/page.js",
+                                        lineNumber: 109,
+                                        columnNumber: 29
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/cancel/page.js",
+                                lineNumber: 107,
+                                columnNumber: 25
+                            }, this)
+                        }, void 0, false, {
                             fileName: "[project]/app/cancel/page.js",
-                            lineNumber: 86,
+                            lineNumber: 106,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -573,33 +622,33 @@ function CancellationPolicy() {
                                 children: "Back to Previous Page"
                             }, void 0, false, {
                                 fileName: "[project]/app/cancel/page.js",
-                                lineNumber: 97,
+                                lineNumber: 120,
                                 columnNumber: 25
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/cancel/page.js",
-                            lineNumber: 96,
+                            lineNumber: 119,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/cancel/page.js",
-                    lineNumber: 56,
+                    lineNumber: 68,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/cancel/page.js",
-                lineNumber: 55,
+                lineNumber: 67,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/cancel/page.js",
-        lineNumber: 50,
+        lineNumber: 60,
         columnNumber: 9
     }, this);
 }
-_s(CancellationPolicy, "fN7XvhJ+p5oE6+Xlo0NJmXpxjC8=", false, function() {
+_s(CancellationPolicy, "I/viNVmoQUF/au8VrteVFs1O62g=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
     ];

@@ -1,11 +1,13 @@
 "use client";
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';  // Add this import
 import Navbar from '@/components/elements/Navbar';
 import logo from '../just_logo.png';
 import Image from 'next/image';
-import Footer from '@/components/elements/Footer';
+import { Button } from '@/components/ui/button';
 
 export default function PrivacyPolicy() {
+    const router = useRouter();  // Add this line
     const [gradientPosition, setGradientPosition] = useState(0);
 
     const privacyData = {
@@ -98,8 +100,14 @@ export default function PrivacyPolicy() {
                     </div>
 
                     {/* Footer Section */}
-                    <Footer />
-
+                    <div className="mt-8 text-center">
+                        <Button
+                            onClick={() => router.back()}
+                            className="bg-[#43c3ff] hover:bg-[#43c3ff]/90 text-white"
+                        >
+                            Back to Previous Page
+                        </Button>
+                    </div>
                 </div>
             </div>
         </div>

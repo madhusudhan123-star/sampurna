@@ -1,9 +1,12 @@
 "use client";
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';  // Add this import
 import Navbar from '@/components/elements/Navbar';
 import Footer from '@/components/elements/Footer';
+import { Button } from '@/components/ui/button';  // Make sure Button is imported
 
 export default function ReturnPolicy() {
+    const router = useRouter();  // Add this line
     const [gradientPosition, setGradientPosition] = useState(0);
 
     const returnData = {
@@ -44,7 +47,7 @@ export default function ReturnPolicy() {
 
             {/* Main Content */}
             <div className="flex-1 ml-[0%] md:ml-[20%]">
-                <div className="">
+                <div className="max-w-4xl mx-auto px-4 py-12">
                     {/* Header with gradient */}
                     <div className="relative mb-12 p-8 rounded-lg overflow-hidden">
                         <div
@@ -85,7 +88,14 @@ export default function ReturnPolicy() {
                     </div>
 
                     {/* Footer */}
-                    <Footer />
+                    <div className="mt-8 text-center">
+                        <Button
+                            onClick={() => router.back()}
+                            className="bg-[#43c3ff] hover:bg-[#43c3ff]/90 text-white"
+                        >
+                            Back to Previous Page
+                        </Button>
+                    </div>
                 </div>
             </div>
         </div>

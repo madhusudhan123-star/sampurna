@@ -1,11 +1,19 @@
 "use client";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from "@/components/ui/button"
 import Navbar from '@/components/elements/Navbar';
 
 export default function CancellationPolicy() {
     const router = useRouter();
+    const [gradientPosition, setGradientPosition] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setGradientPosition((prev) => (prev + 1) % 360);
+        }, 50);
+        return () => clearInterval(interval);
+    }, []);
 
     const policyPoints = [
         {
@@ -19,7 +27,9 @@ export default function CancellationPolicy() {
             title: "2. How to Cancel Your Order",
             content: [
                 "To cancel your order, please follow these steps:",
-                "Contact Us Immediately: Reach out to our customer support team at +91990-852-6444 within 24 hours of your order.",
+                "Contact Us Immediately: Reach out to our customer support team at ",
+                <span key="phone" className="phone-number">+91 990-852-6444</span>,
+                " within 24 hours of your order.",
                 "Provide Order Details: Include your order number and reason for cancellation in your message to help us process your request faster."
             ]
         },
@@ -48,20 +58,30 @@ export default function CancellationPolicy() {
 
     return (
         <div className="flex relative bg-white min-h-screen">
+            {/* Navbar */}
             <div className='fixed left-0 top-0 w-1/5 h-screen bg-transparent z-[999]'>
                 <Navbar />
             </div>
 
+            {/* Main Content */}
             <div className="flex-1 ml-[0%] md:ml-[20%]">
-                <div className="max-w-4xl mx-auto px-4 py-12">
-                    {/* Header Section */}
-                    <div className="text-center mb-12">
-                        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-                            Cancellation Policy
-                        </h1>
-                        <p className="text-gray-600">
-                            Last Updated: December 2024
-                        </p>
+                <div className="max-w-4xl mx-auto px-4 py-16">
+                    {/* Header with gradient */}
+                    <div className="relative mb-12 p-8 rounded-lg overflow-hidden">
+                        <div
+                            className="absolute inset-0 z-0 transition-all duration-1000 ease-in-out opacity-20"
+                            style={{
+                                background: `linear-gradient(${gradientPosition}deg, 
+                                    #2A6177, 
+                                    #43c3ff, 
+                                    #8de8f8
+                                )`,
+                            }}
+                        />
+                        <div className="relative z-10">
+                            <h1 className="text-4xl font-bold text-center mb-2">Cancellation Policy</h1>
+                            <p className="text-center text-gray-600">Last Updated: December 2024</p>
+                        </div>
                     </div>
 
                     {/* Policy Content */}
@@ -71,24 +91,27 @@ export default function CancellationPolicy() {
                                 <h2 className="text-xl font-semibold text-[#2A6177] mb-4">
                                     {point.title}
                                 </h2>
-                                <ul className="space-y-3">
-                                    {point.content.map((item, itemIndex) => (
-                                        <li key={itemIndex} className="text-gray-600 leading-relaxed">
-                                            {item}
-                                        </li>
+                                <div className="space-y-3">
+                                    {point.content.map((text, idx) => (
+                                        <p key={idx} className="text-gray-600 leading-relaxed">
+                                            {text}
+                                        </p>
                                     ))}
-                                </ul>
+                                </div>
                             </div>
                         ))}
                     </div>
 
-                    {/* Footer Note */}
+                    {/* Contact Information */}
                     <div className="mt-12 bg-[#8de8f825] p-6 rounded-lg border border-[#43c3ff]/20">
                         <p className="text-gray-700 text-center">
-                            We aim to provide a seamless experience, and our customer service team is here to assist you with any issues you may encounter.
-                        </p>
-                        <p className="text-gray-700 text-center mt-4">
-                            Thank you for choosing Sampoorna Arogya. We appreciate your understanding and support!
+                            For cancellation requests, contact us at{' '}
+                            <a
+                                href="mailto:israelitesshopping171@gmail.com"
+                                className="text-[#2A6177] hover:underline"
+                            >
+                                israelitesshopping171@gmail.com
+                            </a>
                         </p>
                     </div>
 

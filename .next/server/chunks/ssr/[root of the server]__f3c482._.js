@@ -415,6 +415,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$elements$2f$Na
 ;
 function ShippingPolicy() {
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
+    const [gradientPosition, setGradientPosition] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(0);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const interval = setInterval(()=>{
+            setGradientPosition((prev)=>(prev + 1) % 360);
+        }, 50);
+        return ()=>clearInterval(interval);
+    }, []);
     const policyPoints = [
         {
             title: "1. Shipping Coverage",
@@ -462,6 +469,82 @@ function ShippingPolicy() {
             ]
         },
         {
+            title: "5. Delivery Guidelines",
+            sections: [
+                {
+                    subtitle: "Delivery Attempts",
+                    content: "A maximum of 3 delivery attempts will be made. Delivery reattempts are scheduled within 24 hours. Customers will be notified before each delivery attempt. Orders returned to the seller after 3 failed attempts may incur reshipping fees. Refunds will be processed for the product price, excluding initial shipping charges."
+                },
+                {
+                    subtitle: "Delivery Verification",
+                    content: "Valid ID proof may be required for specific items. Digital signature capture is required at delivery. Unattended delivery is not permitted."
+                }
+            ]
+        },
+        {
+            title: "6. Special Cases",
+            sections: [
+                {
+                    subtitle: "Bulk Orders",
+                    content: "Special shipping arrangements are available for bulk orders. Custom delivery timelines can be discussed with our team. Additional handling charges may apply."
+                }
+            ]
+        },
+        {
+            title: "7. Shipping Restrictions",
+            sections: [
+                {
+                    subtitle: "Weather Conditions",
+                    content: "Delivery times may be affected during severe weather conditions, natural disasters, or local disturbances. In such cases, orders will be rescheduled, and customers will be notified with updated timelines."
+                }
+            ]
+        },
+        {
+            title: "8. Lost or Damaged Shipments",
+            sections: [
+                {
+                    subtitle: "Lost Packages",
+                    content: "Investigations are initiated within 24 hours of receiving a complaint. Regular updates will be provided to the customer. Refunds or resolutions are provided within 15 business days for eligible cases, including the full product and shipping cost."
+                },
+                {
+                    subtitle: "Damaged Packages",
+                    content: "Refuse delivery if external damage is visible. Report damage within 24 hours of delivery with photo documentation. Replacement or refunds are processed after an investigation."
+                }
+            ]
+        },
+        {
+            title: "9. Holiday Shipping",
+            sections: [
+                {
+                    subtitle: "Peak Seasons",
+                    content: "Processing times may be extended during festivals and peak seasons. We recommend additional delivery buffer time during these periods. Customers will be notified of any delays."
+                },
+                {
+                    subtitle: "Business Hours",
+                    content: "Order processing: Monday to Sunday, 9 AM to 6 PM IST. Customer service is available: Monday to Saturday, 9 AM to 8 PM IST."
+                }
+            ]
+        },
+        {
+            title: "10. Environmental Commitment",
+            sections: [
+                {
+                    subtitle: "Packaging",
+                    content: "We use eco-friendly packaging materials with minimal plastic usage. Packaging materials are made from recycled sources where possible. We ensure right-sized packaging to reduce waste."
+                }
+            ]
+        },
+        {
+            title: "11. Communication",
+            content: "Shipping Updates: Customers receive:",
+            list: [
+                "Order confirmation emails",
+                "Shipping confirmations with tracking details",
+                "Delivery attempt notifications",
+                "Delivery completion confirmations"
+            ]
+        },
+        {
             title: "12. Customer Support",
             sections: [
                 {
@@ -470,7 +553,14 @@ function ShippingPolicy() {
                 },
                 {
                     subtitle: "Phone",
-                    content: "990-852-6444"
+                    content: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                        className: "phone-number",
+                        children: "+91 990-852-6444"
+                    }, void 0, false, {
+                        fileName: "[project]/app/shipping/page.js",
+                        lineNumber: 144,
+                        columnNumber: 30
+                    }, this)
                 },
                 {
                     subtitle: "Response time",
@@ -490,42 +580,65 @@ function ShippingPolicy() {
                 className: "fixed left-0 top-0 w-1/5 h-screen bg-transparent z-[999]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$elements$2f$Navbar$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                     fileName: "[project]/app/shipping/page.js",
-                    lineNumber: 77,
+                    lineNumber: 162,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/shipping/page.js",
-                lineNumber: 76,
+                lineNumber: 161,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex-1 ml-[0%] md:ml-[20%]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "max-w-4xl mx-auto px-4 py-12",
+                    className: "max-w-4xl mx-auto px-4 py-16",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "text-center mb-12",
+                            className: "relative mb-12 p-8 rounded-lg overflow-hidden",
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                    className: "text-4xl font-bold text-gray-900 mb-4",
-                                    children: "Shipping Policy"
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "absolute inset-0 z-0 transition-all duration-1000 ease-in-out opacity-20",
+                                    style: {
+                                        background: `linear-gradient(${gradientPosition}deg, 
+                                    #2A6177, 
+                                    #43c3ff, 
+                                    #8de8f8
+                                )`
+                                    }
                                 }, void 0, false, {
                                     fileName: "[project]/app/shipping/page.js",
-                                    lineNumber: 84,
+                                    lineNumber: 170,
                                     columnNumber: 25
                                 }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-gray-600",
-                                    children: "Last Updated: December 2024"
-                                }, void 0, false, {
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "relative z-10",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                            className: "text-4xl font-bold text-center mb-2",
+                                            children: "Shipping Policy"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/shipping/page.js",
+                                            lineNumber: 181,
+                                            columnNumber: 29
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-center text-gray-600",
+                                            children: "Last Updated: December 2024"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/shipping/page.js",
+                                            lineNumber: 182,
+                                            columnNumber: 29
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/app/shipping/page.js",
-                                    lineNumber: 87,
+                                    lineNumber: 180,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/shipping/page.js",
-                            lineNumber: 83,
+                            lineNumber: 169,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -538,7 +651,7 @@ function ShippingPolicy() {
                                             children: point.title
                                         }, void 0, false, {
                                             fileName: "[project]/app/shipping/page.js",
-                                            lineNumber: 96,
+                                            lineNumber: 190,
                                             columnNumber: 33
                                         }, this),
                                         point.sections ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -550,7 +663,7 @@ function ShippingPolicy() {
                                                             children: section.subtitle
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/shipping/page.js",
-                                                            lineNumber: 103,
+                                                            lineNumber: 197,
                                                             columnNumber: 49
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -558,18 +671,18 @@ function ShippingPolicy() {
                                                             children: section.content
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/shipping/page.js",
-                                                            lineNumber: 106,
+                                                            lineNumber: 200,
                                                             columnNumber: 49
                                                         }, this)
                                                     ]
                                                 }, sIndex, true, {
                                                     fileName: "[project]/app/shipping/page.js",
-                                                    lineNumber: 102,
+                                                    lineNumber: 196,
                                                     columnNumber: 45
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/app/shipping/page.js",
-                                            lineNumber: 100,
+                                            lineNumber: 194,
                                             columnNumber: 37
                                         }, this) : point.list ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                                             children: [
@@ -578,7 +691,7 @@ function ShippingPolicy() {
                                                     children: point.content
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/shipping/page.js",
-                                                    lineNumber: 114,
+                                                    lineNumber: 208,
                                                     columnNumber: 41
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -588,12 +701,12 @@ function ShippingPolicy() {
                                                             children: item
                                                         }, lIndex, false, {
                                                             fileName: "[project]/app/shipping/page.js",
-                                                            lineNumber: 117,
+                                                            lineNumber: 211,
                                                             columnNumber: 49
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/shipping/page.js",
-                                                    lineNumber: 115,
+                                                    lineNumber: 209,
                                                     columnNumber: 41
                                                 }, this)
                                             ]
@@ -602,18 +715,18 @@ function ShippingPolicy() {
                                             children: point.content
                                         }, void 0, false, {
                                             fileName: "[project]/app/shipping/page.js",
-                                            lineNumber: 124,
+                                            lineNumber: 218,
                                             columnNumber: 37
                                         }, this)
                                     ]
                                 }, index, true, {
                                     fileName: "[project]/app/shipping/page.js",
-                                    lineNumber: 95,
+                                    lineNumber: 189,
                                     columnNumber: 29
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/app/shipping/page.js",
-                            lineNumber: 93,
+                            lineNumber: 187,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -629,18 +742,18 @@ function ShippingPolicy() {
                                         children: "israelitesshopping171@gmail.com"
                                     }, void 0, false, {
                                         fileName: "[project]/app/shipping/page.js",
-                                        lineNumber: 136,
+                                        lineNumber: 230,
                                         columnNumber: 29
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/shipping/page.js",
-                                lineNumber: 134,
+                                lineNumber: 228,
                                 columnNumber: 25
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/shipping/page.js",
-                            lineNumber: 133,
+                            lineNumber: 227,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -651,29 +764,29 @@ function ShippingPolicy() {
                                 children: "Back to Previous Page"
                             }, void 0, false, {
                                 fileName: "[project]/app/shipping/page.js",
-                                lineNumber: 147,
+                                lineNumber: 241,
                                 columnNumber: 25
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/shipping/page.js",
-                            lineNumber: 146,
+                            lineNumber: 240,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/shipping/page.js",
-                    lineNumber: 81,
+                    lineNumber: 167,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/shipping/page.js",
-                lineNumber: 80,
+                lineNumber: 166,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/shipping/page.js",
-        lineNumber: 75,
+        lineNumber: 159,
         columnNumber: 9
     }, this);
 }

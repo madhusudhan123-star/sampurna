@@ -2,132 +2,122 @@
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import logo from '@/app/just_logo.png';
+import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react'; // Add this import
 
 export default function Footer() {
     const router = useRouter();
 
     return (
-        <footer className="w-full bg-white px-4 md:px-20 py-12">
+        <footer className="w-full bg-white px-4 md:px-8 lg:px-20 py-8 md:py-12">
             <div className="max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    {/* Logo and Description */}
-                    <div className="col-span-1">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 lg:gap-8">
+                    {/* Logo, Description and Social Icons */}
+                    <div className="col-span-1 max-w-xs">
                         <div className="flex items-center gap-2 mb-4">
                             <Image
                                 src={logo}
                                 alt="Logo"
-                                className='w-16'
+                                className='w-12 md:w-16'
                                 width={64}
                                 height={64}
                                 priority
                             />
-                            <h3 className='text-sm font-semibold'>Sampoorn <br /> Arogya</h3>
+                            <h3 className='text-xs md:text-sm font-semibold'>Sampoorn <br /> Arogya</h3>
                         </div>
-                        <p className="text-gray-600 text-sm">
+                        <p className="text-gray-600 text-xs md:text-sm break-words mb-4">
                             Your trusted partner in natural digestive health solutions.
                         </p>
+                        {/* Social Icons */}
+                        <div className="flex gap-4 items-center">
+                            <a
+                                href="https://www.facebook.com/index.php?next=https%3A%2F%2Fwww.facebook.com%2Fpages%2F%3Fcategory%3Dyour_pages%26ref%3Dbookmarks&deoia=1&no_universal_links=1"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-gray-600 hover:text-[#43c3ff] transition-colors duration-200"
+                            >
+                                <Facebook className="w-5 h-5" />
+                            </a>
+                            <a
+                                href="https://www.instagram.com/sampoornarogya/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-gray-600 hover:text-[#43c3ff] transition-colors duration-200"
+                            >
+                                <Instagram className="w-5 h-5" />
+                            </a>
+                            <a
+                                href="https://youtube.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-gray-600 hover:text-[#43c3ff] transition-colors duration-200"
+                            >
+                                <Youtube className="w-5 h-5" />
+                            </a>
+                        </div>
                     </div>
 
                     {/* Quick Links */}
-                    <div>
-                        <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-                        <ul className="space-y-2">
-                            <li>
-                                <button
-                                    onClick={() => router.push('/')}
-                                    className="text-gray-600 hover:text-[#43c3ff] transition-colors duration-200"
-                                >
-                                    Home
-                                </button>
-                            </li>
-                            <li>
-                                <button
-                                    onClick={() => router.push('/about')}
-                                    className="text-gray-600 hover:text-[#43c3ff] transition-colors duration-200"
-                                >
-                                    About Us
-                                </button>
-                            </li>
-                            <li>
-                                <button
-                                    onClick={() => router.push('/product')}
-                                    className="text-gray-600 hover:text-[#43c3ff] transition-colors duration-200"
-                                >
-                                    Products
-                                </button>
-                            </li>
-                            <li>
-                                <button
-                                    onClick={() => router.push('/contact')}
-                                    className="text-gray-600 hover:text-[#43c3ff] transition-colors duration-200"
-                                >
-                                    Contact
-                                </button>
-                            </li>
+                    <div className="w-full">
+                        <h4 className="text-base md:text-lg font-semibold mb-3">Quick Links</h4>
+                        <ul className="space-y-1.5">
+                            {["Home", "About Us", "Products", "Contact"].map((item) => (
+                                <li key={item}>
+                                    <button
+                                        onClick={() => router.push(`/${item.toLowerCase().replace(' ', '')}`)}
+                                        className="text-sm text-gray-600 hover:text-[#43c3ff] transition-colors duration-200"
+                                    >
+                                        {item}
+                                    </button>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
                     {/* Contact Info */}
-                    <div>
-                        <h4 className="text-lg font-semibold mb-4 mr-5">Contact</h4>
-                        <ul className="space-y-2 text-sm text-gray-600">
-                            <li>Email: israelitesshopping171@gmail.com</li>
-                            <li>Phone: +91 990-852-6444</li>
-                            <li>Location: Bangalore, India</li>
+                    <div className="w-full">
+                        <h4 className="text-base md:text-lg font-semibold mb-3">Contact</h4>
+                        <ul className="space-y-1.5">
+                            <li className="text-xs md:text-sm text-gray-600 break-words">
+                                Email: israelitesshopping171@gmail.com
+                            </li>
+                            <li className="text-xs md:text-sm font-mono text-gray-600">
+                                Phone: +91 990-852-6444
+                            </li>
+                            <li className="text-xs md:text-sm text-gray-600">
+                                Location: Bangalore, India
+                            </li>
                         </ul>
                     </div>
 
                     {/* Legal Links */}
-                    <div>
-                        <h4 className="text-lg font-semibold mb-4">Legal</h4>
-                        <ul className="space-y-2">
-                            <li>
-                                <button
-                                    onClick={() => router.push('/private')}
-                                    className="text-gray-600 hover:text-[#43c3ff] transition-colors duration-200"
-                                >
-                                    Privacy Policy
-                                </button>
-                            </li>
-                            <li>
-                                <button
-                                    onClick={() => router.push('/term')}
-                                    className="text-gray-600 hover:text-[#43c3ff] transition-colors duration-200"
-                                >
-                                    Terms of Service
-                                </button>
-                            </li>
-                            <li>
-                                <button
-                                    onClick={() => router.push('/shipping')}
-                                    className="text-gray-600 hover:text-[#43c3ff] transition-colors duration-200"
-                                >
-                                    Shipping Policy
-                                </button>
-                            </li>
-                            <li>
-                                <button
-                                    onClick={() => router.push('/cancel')}
-                                    className="text-gray-600 hover:text-[#43c3ff] transition-colors duration-200"
-                                >
-                                    Cancellation Policy
-                                </button>
-                            </li>
-                            <li>
-                                <button
-                                    onClick={() => router.push('/return')}
-                                    className="text-gray-600 hover:text-[#43c3ff] transition-colors duration-200"
-                                >
-                                    Return Policy
-                                </button>
-                            </li>
+                    <div className="w-full">
+                        <h4 className="text-base md:text-lg font-semibold mb-3">Legal</h4>
+                        <ul className="space-y-1.5">
+                            {[
+                                ["Privacy Policy", "private"],
+                                ["Terms of Service", "term"],
+                                ["Shipping Policy", "shipping"],
+                                ["Cancellation Policy", "cancel"],
+                                ["Return Policy", "return"]
+                            ].map(([label, path]) => (
+                                <li key={path}>
+                                    <button
+                                        onClick={() => router.push(`/${path}`)}
+                                        className="text-sm text-gray-600 hover:text-[#43c3ff] transition-colors duration-200"
+                                    >
+                                        {label}
+                                    </button>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
 
                 {/* Copyright */}
-                <div className="border-t mt-8 pt-8 text-center text-gray-600 text-sm">
-                    <p>© {new Date().getFullYear()} Sampoorna Arogya. All rights reserved.</p>
+                <div className="border-t mt-6 md:mt-8 pt-4 md:pt-6">
+                    <p className="text-center text-xs md:text-sm text-gray-600">
+                        © {new Date().getFullYear()} Sampoorna Arogya. All rights reserved.
+                    </p>
                 </div>
             </div>
         </footer>
