@@ -807,6 +807,16 @@ body {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.translate-y-0 {
+  --tw-translate-y: 0px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.translate-y-10 {
+  --tw-translate-y: 2.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .rotate-\[270deg\] {
   --tw-rotate: 270deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1493,6 +1503,10 @@ body {
   opacity: .2;
 }
 
+.opacity-100 {
+  opacity: 1;
+}
+
 .shadow {
   --tw-shadow: 0 1px 3px 0 #0000001a, 0 1px 2px -1px #0000001a;
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
@@ -1566,6 +1580,12 @@ body {
   transition-duration: .15s;
 }
 
+.transition {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: .15s;
+}
+
 .duration-1000 {
   transition-duration: 1s;
 }
@@ -1582,12 +1602,20 @@ body {
   transition-duration: .3s;
 }
 
+.duration-700 {
+  transition-duration: .7s;
+}
+
 .ease-in-out {
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
 }
 
 .ease-linear {
   transition-timing-function: linear;
+}
+
+.ease-out {
+  transition-timing-function: cubic-bezier(0, 0, .2, 1);
 }
 
 @keyframes enter {
@@ -1620,12 +1648,20 @@ body {
   animation-duration: .3s;
 }
 
+.duration-700 {
+  animation-duration: .7s;
+}
+
 .ease-in-out {
   animation-timing-function: cubic-bezier(.4, 0, .2, 1);
 }
 
 .ease-linear {
   animation-timing-function: linear;
+}
+
+.ease-out {
+  animation-timing-function: cubic-bezier(0, 0, .2, 1);
 }
 
 body {

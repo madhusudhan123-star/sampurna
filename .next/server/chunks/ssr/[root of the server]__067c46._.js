@@ -1772,12 +1772,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$Be
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$AwardsSection$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/sections/AwardsSection.jsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$ComparisonTable$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/sections/ComparisonTable.jsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$elements$2f$Footer$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/elements/Footer.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$intersection$2d$observer$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/react-intersection-observer/dist/index.mjs [app-ssr] (ecmascript)"); // Add this import
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$modules$2f$effect$2d$coverflow$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__EffectCoverflow$3e$__ = __turbopack_import__("[project]/node_modules/swiper/modules/effect-coverflow.mjs [app-ssr] (ecmascript) <export default as EffectCoverflow>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$modules$2f$pagination$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Pagination$3e$__ = __turbopack_import__("[project]/node_modules/swiper/modules/pagination.mjs [app-ssr] (ecmascript) <export default as Pagination>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$modules$2f$autoplay$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Autoplay$3e$__ = __turbopack_import__("[project]/node_modules/swiper/modules/autoplay.mjs [app-ssr] (ecmascript) <export default as Autoplay>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/plus.js [app-ssr] (ecmascript) <export default as Plus>"); // Add this import at the top
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$minus$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Minus$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/minus.js [app-ssr] (ecmascript) <export default as Minus>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$phone$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Phone$3e$__ = __turbopack_import__("[project]/node_modules/lucide-react/dist/esm/icons/phone.js [app-ssr] (ecmascript) <export default as Phone>");
 "use client";
 ;
 ;
@@ -1813,63 +1813,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 ;
 ;
 ;
-function CallButtons() {
-    const handleCall = ()=>{
-        window.location.href = 'tel:+919908526444';
-    };
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
-        children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg z-[9999]    flex justify-around items-center py-3 px-4 space-x-4",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                    onClick: handleCall,
-                    className: "flex-1 bg-green-500 text-white py-2 px-4 rounded-full    flex items-center justify-center space-x-2 shadow-md   active:scale-95 transition-transform",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$phone$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Phone$3e$__["Phone"], {
-                            className: "w-5 h-5"
-                        }, void 0, false, {
-                            fileName: "[project]/app/page.js",
-                            lineNumber: 52,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "text-sm font-medium",
-                            children: "Call Now"
-                        }, void 0, false, {
-                            fileName: "[project]/app/page.js",
-                            lineNumber: 53,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/app/page.js",
-                    lineNumber: 46,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/app/page.js",
-                lineNumber: 44,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                onClick: handleCall,
-                className: "fixed bottom-6 right-6 z-[9999] bg-green-500 hover:bg-green-600    text-white rounded-full p-4 shadow-lg transform hover:scale-110    transition-all duration-300 hidden md:flex items-center justify-center   animate-bounce hover:animate-none group",
-                "aria-label": "Call us",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$phone$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Phone$3e$__["Phone"], {
-                    className: "w-6 h-6 group-hover:animate-wiggle"
-                }, void 0, false, {
-                    fileName: "[project]/app/page.js",
-                    lineNumber: 66,
-                    columnNumber: 9
-                }, this)
-            }, void 0, false, {
-                fileName: "[project]/app/page.js",
-                lineNumber: 58,
-                columnNumber: 7
-            }, this)
-        ]
-    }, void 0, true);
-}
 function Home() {
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])(); // Add this line
     const videoRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
@@ -1903,6 +1846,23 @@ function Home() {
     ];
     // Add scroll instance ref
     const locomotiveScrollRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    // Add these refs for animations
+    const [featureRef, featureInView] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$intersection$2d$observer$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useInView"])({
+        triggerOnce: true,
+        threshold: 0.2
+    });
+    const [benefitsRef, benefitsInView] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$intersection$2d$observer$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useInView"])({
+        triggerOnce: true,
+        threshold: 0.2
+    });
+    const [productRef, productInView] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$intersection$2d$observer$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useInView"])({
+        triggerOnce: true,
+        threshold: 0.2
+    });
+    // Add CSS classes for animations
+    const fadeInUp = "transition-all duration-700 ease-out";
+    const fadeInUpVisible = "translate-y-0 opacity-100";
+    const fadeInUpHidden = "translate-y-10 opacity-0";
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const interval = setInterval(()=>{
             setGradientPosition((prev)=>(prev + 1) % 360);
@@ -1920,12 +1880,12 @@ function Home() {
                 className: "fixed left-0 top-0 md:w-1/5 w-full md:h-screen bg-transparent z-[999]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$elements$2f$Navbar$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                     fileName: "[project]/app/page.js",
-                    lineNumber: 184,
+                    lineNumber: 167,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/page.js",
-                lineNumber: 183,
+                lineNumber: 166,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1934,11 +1894,6 @@ function Home() {
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
                     className: "w-full flex flex-col",
                     children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CallButtons, {}, void 0, false, {
-                            fileName: "[project]/app/page.js",
-                            lineNumber: 191,
-                            columnNumber: 11
-                        }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "min-h-screen w-full relative overflow-hidden flex-none px-4 md:px-8",
                             children: [
@@ -1955,7 +1910,7 @@ function Home() {
                                     }
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.js",
-                                    lineNumber: 194,
+                                    lineNumber: 176,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1974,12 +1929,12 @@ function Home() {
                                                         height: 100
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 211,
+                                                        lineNumber: 193,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 210,
+                                                    lineNumber: 192,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1991,23 +1946,23 @@ function Home() {
                                                             children: "Contact Us "
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/page.js",
-                                                            lineNumber: 214,
+                                                            lineNumber: 196,
                                                             columnNumber: 73
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 214,
+                                                        lineNumber: 196,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 213,
+                                                    lineNumber: 195,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/page.js",
-                                            lineNumber: 209,
+                                            lineNumber: 191,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2024,7 +1979,7 @@ function Home() {
                                                                     children: "Sampoorn Arogya"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/page.js",
-                                                                    lineNumber: 222,
+                                                                    lineNumber: 204,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2032,13 +1987,13 @@ function Home() {
                                                                     children: "Your"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/page.js",
-                                                                    lineNumber: 223,
+                                                                    lineNumber: 205,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/page.js",
-                                                            lineNumber: 221,
+                                                            lineNumber: 203,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2046,13 +2001,13 @@ function Home() {
                                                             children: "Digestive Health Solution"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/page.js",
-                                                            lineNumber: 225,
+                                                            lineNumber: 207,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 220,
+                                                    lineNumber: 202,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2060,7 +2015,7 @@ function Home() {
                                                     children: "Discover the Secret to a Healthy Digestive System with Sampoorna Arogya!"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 229,
+                                                    lineNumber: 211,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -2069,25 +2024,25 @@ function Home() {
                                                     children: "Explore Our Products"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 233,
+                                                    lineNumber: 215,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/page.js",
-                                            lineNumber: 219,
+                                            lineNumber: 201,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/page.js",
-                                    lineNumber: 207,
+                                    lineNumber: 189,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/page.js",
-                            lineNumber: 192,
+                            lineNumber: 174,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2104,7 +2059,7 @@ function Home() {
                                                     children: "Your Health Journey"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 248,
+                                                    lineNumber: 230,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2112,19 +2067,19 @@ function Home() {
                                                     children: "Experience the power of natural healing with our holistic approach to digestive wellness."
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 249,
+                                                    lineNumber: 231,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/page.js",
-                                            lineNumber: 247,
+                                            lineNumber: 229,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "w-full h-[300px] relative",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("iframe", {
-                                                src: "https://www.youtube.com/embed/AR0LKoBvSs0?enablejsapi=1&autoplay=1&mute=1&controls=1&rel=0&loop=1&playlist=AR0LKoBvSs0",
+                                                src: "https://www.youtube.com/embed/AR0LKoBvSs0?enablejsapi=1&controls=1&rel=0&loop=1&playlist=AR0LKoBvSs0",
                                                 title: "YouTube video",
                                                 frameBorder: "0",
                                                 allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
@@ -2132,12 +2087,12 @@ function Home() {
                                                 className: "w-full h-full"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/page.js",
-                                                lineNumber: 256,
+                                                lineNumber: 238,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/page.js",
-                                            lineNumber: 255,
+                                            lineNumber: 237,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2148,7 +2103,7 @@ function Home() {
                                                     children: "Natural Solutions"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 267,
+                                                    lineNumber: 249,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2156,19 +2111,19 @@ function Home() {
                                                     children: "Discover traditional remedies combined with modern wellness practices for optimal digestive health."
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 268,
+                                                    lineNumber: 250,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/page.js",
-                                            lineNumber: 266,
+                                            lineNumber: 248,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/page.js",
-                                    lineNumber: 246,
+                                    lineNumber: 228,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2183,7 +2138,7 @@ function Home() {
                                                     children: "Your Health Journey"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 281,
+                                                    lineNumber: 263,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2191,33 +2146,46 @@ function Home() {
                                                     children: "Experience the power of natural healing with our holistic approach to digestive wellness."
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 282,
+                                                    lineNumber: 264,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/page.js",
-                                            lineNumber: 277,
+                                            lineNumber: 259,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "absolute inset-0 pointer-events-none",
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("iframe", {
-                                                ref: videoRef,
-                                                src: "https://www.youtube.com/embed/AR0LKoBvSs0?enablejsapi=1&autoplay=1&mute=1&controls=1&rel=0&loop=1&playlist=AR0LKoBvSs0",
-                                                title: "YouTube video",
-                                                frameBorder: "0",
-                                                allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
-                                                allowFullScreen: true,
-                                                className: "w-full h-full transition-transform duration-150 ease-linear"
+                                            className: "absolute inset-0",
+                                            style: {
+                                                pointerEvents: 'auto'
+                                            },
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "relative w-full h-full",
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("iframe", {
+                                                    ref: videoRef,
+                                                    src: "https://www.youtube.com/embed/AR0LKoBvSs0?enablejsapi=1&controls=1&rel=0&loop=1&playlist=AR0LKoBvSs0",
+                                                    title: "YouTube video",
+                                                    frameBorder: "0",
+                                                    allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
+                                                    allowFullScreen: true,
+                                                    className: "w-full h-full transition-transform duration-150 ease-linear",
+                                                    style: {
+                                                        pointerEvents: 'auto'
+                                                    }
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/page.js",
+                                                    lineNumber: 272,
+                                                    columnNumber: 19
+                                                }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/page.js",
-                                                lineNumber: 289,
+                                                lineNumber: 271,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/page.js",
-                                            lineNumber: 288,
+                                            lineNumber: 270,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2229,7 +2197,7 @@ function Home() {
                                                     children: "Natural Solutions"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 305,
+                                                    lineNumber: 290,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2237,36 +2205,45 @@ function Home() {
                                                     children: "Discover traditional remedies combined with modern wellness practices for optimal digestive health."
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 306,
+                                                    lineNumber: 291,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/page.js",
-                                            lineNumber: 301,
+                                            lineNumber: 286,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "absolute inset-0 z-[55]"
+                                            className: "absolute inset-0 z-[55]",
+                                            style: {
+                                                pointerEvents: 'none',
+                                                background: 'transparent'
+                                            }
                                         }, void 0, false, {
                                             fileName: "[project]/app/page.js",
-                                            lineNumber: 312,
+                                            lineNumber: 297,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/page.js",
-                                    lineNumber: 275,
+                                    lineNumber: 257,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/page.js",
-                            lineNumber: 244,
+                            lineNumber: 226,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex-none px-4 md:px-20",
+                            ref: featureRef,
+                            className: `flex-none px-4 md:px-20 ${fadeInUp}`,
+                            style: {
+                                transform: featureInView ? 'translateY(0)' : 'translateY(50px)',
+                                opacity: featureInView ? 1 : 0
+                            },
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex flex-col justify-start items-center gap-8 md:gap-10",
                                 children: [
@@ -2275,7 +2252,7 @@ function Home() {
                                         children: "The Problem which it Solves"
                                     }, void 0, false, {
                                         fileName: "[project]/app/page.js",
-                                        lineNumber: 319,
+                                        lineNumber: 317,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2292,12 +2269,12 @@ function Home() {
                                                             className: "w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/page.js",
-                                                            lineNumber: 323,
+                                                            lineNumber: 321,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 322,
+                                                        lineNumber: 320,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -2305,7 +2282,7 @@ function Home() {
                                                         children: "Natural Herbs"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 329,
+                                                        lineNumber: 327,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2313,13 +2290,13 @@ function Home() {
                                                         children: " Pure herbal ingredients sourced from nature best resources "
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 330,
+                                                        lineNumber: 328,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/page.js",
-                                                lineNumber: 321,
+                                                lineNumber: 319,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2333,12 +2310,12 @@ function Home() {
                                                             className: "w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/page.js",
-                                                            lineNumber: 335,
+                                                            lineNumber: 333,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 334,
+                                                        lineNumber: 332,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -2346,7 +2323,7 @@ function Home() {
                                                         children: "Heart Health"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 341,
+                                                        lineNumber: 339,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2354,13 +2331,13 @@ function Home() {
                                                         children: "Supports cardiovascular health and overall well-being"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 342,
+                                                        lineNumber: 340,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/page.js",
-                                                lineNumber: 333,
+                                                lineNumber: 331,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2374,12 +2351,12 @@ function Home() {
                                                             className: "w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/page.js",
-                                                            lineNumber: 349,
+                                                            lineNumber: 347,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 348,
+                                                        lineNumber: 346,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -2387,7 +2364,7 @@ function Home() {
                                                         children: "Quick Relief"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 355,
+                                                        lineNumber: 353,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2395,13 +2372,13 @@ function Home() {
                                                         children: "Fast-acting formula for digestive discomfort"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 356,
+                                                        lineNumber: 354,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/page.js",
-                                                lineNumber: 347,
+                                                lineNumber: 345,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2415,12 +2392,12 @@ function Home() {
                                                             className: "w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/page.js",
-                                                            lineNumber: 363,
+                                                            lineNumber: 361,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 362,
+                                                        lineNumber: 360,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -2428,7 +2405,7 @@ function Home() {
                                                         children: "Anti-Bloating"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 369,
+                                                        lineNumber: 367,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2436,30 +2413,30 @@ function Home() {
                                                         children: "Reduces bloating and improves digestive comfort"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 370,
+                                                        lineNumber: 368,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/page.js",
-                                                lineNumber: 361,
+                                                lineNumber: 359,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/page.js",
-                                        lineNumber: 320,
+                                        lineNumber: 318,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/page.js",
-                                lineNumber: 318,
+                                lineNumber: 316,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/page.js",
-                            lineNumber: 317,
+                            lineNumber: 308,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2470,7 +2447,7 @@ function Home() {
                                     children: "KEY INGREDIENTS"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.js",
-                                    lineNumber: 380,
+                                    lineNumber: 378,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2509,7 +2486,7 @@ function Home() {
                                                         alt: "Nature 1"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 405,
+                                                        lineNumber: 403,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2520,7 +2497,7 @@ function Home() {
                                                                 children: "Ingredient 1"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/page.js",
-                                                                lineNumber: 411,
+                                                                lineNumber: 409,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2528,19 +2505,19 @@ function Home() {
                                                                 children: "Description of the ingredient and its benefits"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/page.js",
-                                                                lineNumber: 412,
+                                                                lineNumber: 410,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 410,
+                                                        lineNumber: 408,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/page.js",
-                                                lineNumber: 404,
+                                                lineNumber: 402,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -2552,7 +2529,7 @@ function Home() {
                                                         alt: "Nature 2"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 418,
+                                                        lineNumber: 416,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2564,7 +2541,7 @@ function Home() {
                                                                 children: "Ingredient 2"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/page.js",
-                                                                lineNumber: 424,
+                                                                lineNumber: 422,
                                                                 columnNumber: 21
                                                             }, this),
                                                             " ",
@@ -2573,20 +2550,20 @@ function Home() {
                                                                 children: "Description of the ingredient and its benefits"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/page.js",
-                                                                lineNumber: 425,
+                                                                lineNumber: 423,
                                                                 columnNumber: 21
                                                             }, this),
                                                             " "
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 423,
+                                                        lineNumber: 421,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/page.js",
-                                                lineNumber: 417,
+                                                lineNumber: 415,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -2598,7 +2575,7 @@ function Home() {
                                                         alt: "Nature 2"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 429,
+                                                        lineNumber: 427,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2610,7 +2587,7 @@ function Home() {
                                                                 children: "Ingredient 2"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/page.js",
-                                                                lineNumber: 435,
+                                                                lineNumber: 433,
                                                                 columnNumber: 21
                                                             }, this),
                                                             " ",
@@ -2619,20 +2596,20 @@ function Home() {
                                                                 children: "Description of the ingredient and its benefits"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/page.js",
-                                                                lineNumber: 436,
+                                                                lineNumber: 434,
                                                                 columnNumber: 21
                                                             }, this),
                                                             " "
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 434,
+                                                        lineNumber: 432,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/page.js",
-                                                lineNumber: 428,
+                                                lineNumber: 426,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -2644,7 +2621,7 @@ function Home() {
                                                         alt: "Nature 2"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 440,
+                                                        lineNumber: 438,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2656,7 +2633,7 @@ function Home() {
                                                                 children: "Ingredient 2"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/page.js",
-                                                                lineNumber: 446,
+                                                                lineNumber: 444,
                                                                 columnNumber: 21
                                                             }, this),
                                                             " ",
@@ -2665,20 +2642,20 @@ function Home() {
                                                                 children: "Description of the ingredient and its benefits"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/page.js",
-                                                                lineNumber: 447,
+                                                                lineNumber: 445,
                                                                 columnNumber: 21
                                                             }, this),
                                                             " "
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 445,
+                                                        lineNumber: 443,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/page.js",
-                                                lineNumber: 439,
+                                                lineNumber: 437,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$swiper$2f$swiper$2d$react$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SwiperSlide"], {
@@ -2690,7 +2667,7 @@ function Home() {
                                                         alt: "Nature 2"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 451,
+                                                        lineNumber: 449,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2702,7 +2679,7 @@ function Home() {
                                                                 children: "Ingredient 2"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/page.js",
-                                                                lineNumber: 457,
+                                                                lineNumber: 455,
                                                                 columnNumber: 21
                                                             }, this),
                                                             " ",
@@ -2711,44 +2688,50 @@ function Home() {
                                                                 children: "Description of the ingredient and its benefits"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/page.js",
-                                                                lineNumber: 458,
+                                                                lineNumber: 456,
                                                                 columnNumber: 21
                                                             }, this),
                                                             " "
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 456,
+                                                        lineNumber: 454,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/page.js",
-                                                lineNumber: 450,
+                                                lineNumber: 448,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/page.js",
-                                        lineNumber: 382,
+                                        lineNumber: 380,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.js",
-                                    lineNumber: 381,
+                                    lineNumber: 379,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/page.js",
-                            lineNumber: 379,
+                            lineNumber: 377,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            ref: productRef,
                             className: "w-full bg-[#8de8f825] p-4 md:p-6",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex flex-col md:flex-row justify-center gap-6 md:gap-10 items-center",
+                                    className: `flex flex-col md:flex-row justify-center gap-6 md:gap-10 items-center ${fadeInUp}`,
+                                    style: {
+                                        transform: productInView ? 'translateY(0)' : 'translateY(50px)',
+                                        opacity: productInView ? 1 : 0,
+                                        transitionDelay: '200ms'
+                                    },
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "w-full md:w-1/2",
@@ -2757,12 +2740,12 @@ function Home() {
                                                 className: "w-full"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/page.js",
-                                                lineNumber: 469,
+                                                lineNumber: 477,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/page.js",
-                                            lineNumber: 468,
+                                            lineNumber: 476,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2773,30 +2756,35 @@ function Home() {
                                                     children: "Tailwind CSS Component"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 472,
+                                                    lineNumber: 480,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                     children: "Yes, there are several alternative tools related to Google that can help with PPC campaign management, keyword research, and competitor analysis. These tools leverage Google’s data and insights to help businesses optimize their digital advertising strategies. Here’s a list of alternatives:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 473,
+                                                    lineNumber: 481,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/page.js",
-                                            lineNumber: 471,
+                                            lineNumber: 479,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/page.js",
-                                    lineNumber: 467,
+                                    lineNumber: 468,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex flex-col md:flex-row justify-center gap-6 md:gap-10 items-center mt-10",
+                                    className: `flex flex-col md:flex-row justify-center gap-6 md:gap-10 items-center mt-10 ${fadeInUp}`,
+                                    style: {
+                                        transform: productInView ? 'translateY(0)' : 'translateY(50px)',
+                                        opacity: productInView ? 1 : 0,
+                                        transitionDelay: '400ms'
+                                    },
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "w-full md:w-1/2",
@@ -2806,20 +2794,20 @@ function Home() {
                                                     children: "Tailwind CSS Component"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 478,
+                                                    lineNumber: 493,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                     children: "Yes, there are several alternative tools related to Google that can help with PPC campaign management, keyword research, and competitor analysis. These tools leverage Google’s data and insights to help businesses optimize their digital advertising strategies. Here’s a list of alternatives:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 479,
+                                                    lineNumber: 494,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/page.js",
-                                            lineNumber: 477,
+                                            lineNumber: 492,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2829,51 +2817,63 @@ function Home() {
                                                 className: "w-full"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/page.js",
-                                                lineNumber: 482,
+                                                lineNumber: 497,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/page.js",
-                                            lineNumber: 481,
+                                            lineNumber: 496,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/page.js",
-                                    lineNumber: 476,
+                                    lineNumber: 484,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/page.js",
-                            lineNumber: 466,
+                            lineNumber: 464,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "w-full bg-[#8de8f825] py-16",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$elements$2f$ReviewSection$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                 fileName: "[project]/app/page.js",
-                                lineNumber: 489,
+                                lineNumber: 504,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/page.js",
-                            lineNumber: 488,
+                            lineNumber: 503,
                             columnNumber: 11
                         }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$BenefitsTimeline$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            ref: benefitsRef,
+                            className: `${fadeInUp}`,
+                            style: {
+                                transform: benefitsInView ? 'translateY(0)' : 'translateY(50px)',
+                                opacity: benefitsInView ? 1 : 0
+                            },
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$BenefitsTimeline$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                                fileName: "[project]/app/page.js",
+                                lineNumber: 516,
+                                columnNumber: 13
+                            }, this)
+                        }, void 0, false, {
                             fileName: "[project]/app/page.js",
-                            lineNumber: 493,
+                            lineNumber: 508,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$AwardsSection$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                             fileName: "[project]/app/page.js",
-                            lineNumber: 494,
+                            lineNumber: 518,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$ComparisonTable$2e$jsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                             fileName: "[project]/app/page.js",
-                            lineNumber: 495,
+                            lineNumber: 519,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2884,13 +2884,19 @@ function Home() {
                                     children: "Frequently Asked Questions"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.js",
-                                    lineNumber: 499,
+                                    lineNumber: 523,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "max-w-3xl mx-auto space-y-4",
                                     children: faqData.map((faq, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "bg-white rounded-lg shadow-sm overflow-hidden",
+                                            style: {
+                                                transform: `translateY(${openFaq === index ? '0' : '20px'})`,
+                                                opacity: openFaq === index ? 1 : 0.7,
+                                                transition: 'all 0.5s ease',
+                                                transitionDelay: `${index * 100}ms`
+                                            },
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                     className: "w-full px-6 py-4 text-left flex items-center justify-between",
@@ -2901,26 +2907,26 @@ function Home() {
                                                             children: faq.question
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/page.js",
-                                                            lineNumber: 510,
+                                                            lineNumber: 540,
                                                             columnNumber: 21
                                                         }, this),
                                                         openFaq === index ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$minus$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Minus$3e$__["Minus"], {
                                                             className: "h-5 w-5 text-[#2A6177]"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/page.js",
-                                                            lineNumber: 512,
+                                                            lineNumber: 542,
                                                             columnNumber: 23
                                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__["Plus"], {
                                                             className: "h-5 w-5 text-[#2A6177]"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/page.js",
-                                                            lineNumber: 514,
+                                                            lineNumber: 544,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 506,
+                                                    lineNumber: 536,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2930,51 +2936,51 @@ function Home() {
                                                         children: faq.answer
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 521,
+                                                        lineNumber: 551,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 517,
+                                                    lineNumber: 547,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, index, true, {
                                             fileName: "[project]/app/page.js",
-                                            lineNumber: 502,
+                                            lineNumber: 526,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.js",
-                                    lineNumber: 500,
+                                    lineNumber: 524,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/page.js",
-                            lineNumber: 498,
+                            lineNumber: 522,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$elements$2f$Footer$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                             fileName: "[project]/app/page.js",
-                            lineNumber: 529,
+                            lineNumber: 559,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/page.js",
-                    lineNumber: 189,
+                    lineNumber: 172,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/page.js",
-                lineNumber: 188,
+                lineNumber: 171,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/page.js",
-        lineNumber: 181,
+        lineNumber: 164,
         columnNumber: 5
     }, this);
 }

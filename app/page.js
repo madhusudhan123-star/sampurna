@@ -31,45 +31,7 @@ import BenefitsTimeline from '@/components/sections/BenefitsTimeline';
 import AwardsSection from '@/components/sections/AwardsSection';
 import ComparisonTable from '@/components/sections/ComparisonTable';
 import Footer from '@/components/elements/Footer';
-import { Phone } from 'lucide-react';
-
-function CallButtons() {
-  const handleCall = () => {
-    window.location.href = 'tel:+919908526444';
-  };
-
-  return (
-    <>
-      {/* Mobile Fixed Bottom Bar */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg z-[9999] 
-                    flex justify-around items-center py-3 px-4 space-x-4">
-        <button
-          onClick={handleCall}
-          className="flex-1 bg-green-500 text-white py-2 px-4 rounded-full 
-                   flex items-center justify-center space-x-2 shadow-md
-                   active:scale-95 transition-transform"
-        >
-          <Phone className="w-5 h-5" />
-          <span className="text-sm font-medium">Call Now</span>
-        </button>
-      </div>
-
-      {/* Desktop Floating Button */}
-      <button
-        onClick={handleCall}
-        className="fixed bottom-6 right-6 z-[9999] bg-green-500 hover:bg-green-600 
-                 text-white rounded-full p-4 shadow-lg transform hover:scale-110 
-                 transition-all duration-300 hidden md:flex items-center justify-center
-                 animate-bounce hover:animate-none group"
-        aria-label="Call us"
-      >
-        <Phone className="w-6 h-6 group-hover:animate-wiggle" />
-      </button>
-    </>
-  );
-}
-
-
+import { useInView } from 'react-intersection-observer'; // Add this import
 
 export default function Home() {
   const router = useRouter(); // Add this line
@@ -108,6 +70,27 @@ export default function Home() {
 
   // Add scroll instance ref
   const locomotiveScrollRef = useRef(null);
+
+  // Add these refs for animations
+  const [featureRef, featureInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2
+  });
+
+  const [benefitsRef, benefitsInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2
+  });
+
+  const [productRef, productInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2
+  });
+
+  // Add CSS classes for animations
+  const fadeInUp = "transition-all duration-700 ease-out";
+  const fadeInUpVisible = "translate-y-0 opacity-100";
+  const fadeInUpHidden = "translate-y-10 opacity-0";
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -188,7 +171,6 @@ export default function Home() {
       <div className="flex-1 md:ml-[20%] ml-0 mt-[60px] md:mt-0 relative" data-scroll-container>
         <main className="w-full flex flex-col">
           {/* Hero Section */}
-          <CallButtons />
           <div className='min-h-screen w-full relative overflow-hidden flex-none px-4 md:px-8'>
             {/* Gradient Background */}
             <div
@@ -254,7 +236,7 @@ export default function Home() {
               {/* Mobile Video Container */}
               <div className="w-full h-[300px] relative">
                 <iframe
-                  src="https://www.youtube.com/embed/AR0LKoBvSs0?enablejsapi=1&autoplay=1&mute=1&controls=1&rel=0&loop=1&playlist=AR0LKoBvSs0"
+                  src="https://www.youtube.com/embed/AR0LKoBvSs0?enablejsapi=1&controls=1&rel=0&loop=1&playlist=AR0LKoBvSs0"
                   title="YouTube video"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -285,16 +267,19 @@ export default function Home() {
               </div>
 
               {/* YouTube video */}
-              <div className="absolute inset-0 pointer-events-none">
-                <iframe
-                  ref={videoRef}
-                  src="https://www.youtube.com/embed/AR0LKoBvSs0?enablejsapi=1&autoplay=1&mute=1&controls=1&rel=0&loop=1&playlist=AR0LKoBvSs0"
-                  title="YouTube video"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className='w-full h-full transition-transform duration-150 ease-linear'
-                ></iframe>
+              <div className="absolute inset-0" style={{ pointerEvents: 'auto' }}>
+                <div className="relative w-full h-full">
+                  <iframe
+                    ref={videoRef}
+                    src="https://www.youtube.com/embed/AR0LKoBvSs0?enablejsapi=1&controls=1&rel=0&loop=1&playlist=AR0LKoBvSs0"
+                    title="YouTube video"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className='w-full h-full transition-transform duration-150 ease-linear'
+                    style={{ pointerEvents: 'auto' }}
+                  ></iframe>
+                </div>
               </div>
 
               {/* Right text */}
@@ -309,12 +294,25 @@ export default function Home() {
               </div>
 
               {/* Scrollability overlay */}
-              <div className="absolute inset-0 z-[55]"></div>
+              <div
+                className="absolute inset-0 z-[55]"
+                style={{
+                  pointerEvents: 'none',
+                  background: 'transparent'
+                }}
+              ></div>
             </div>
           </div>
 
           {/* Features Grid - Updated for mobile */}
-          <div className='flex-none px-4 md:px-20'>
+          <div
+            ref={featureRef}
+            className={`flex-none px-4 md:px-20 ${fadeInUp}`}
+            style={{
+              transform: featureInView ? 'translateY(0)' : 'translateY(50px)',
+              opacity: featureInView ? 1 : 0,
+            }}
+          >
             <div className='flex flex-col justify-start items-center gap-8 md:gap-10'>
               <h1 className='text-3xl md:text-5xl text-center'>The Problem which it Solves</h1>
               <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-20'>
@@ -463,8 +461,18 @@ export default function Home() {
           </div>
 
           {/* Product Sections - Updated for mobile */}
-          <div className='w-full bg-[#8de8f825] p-4 md:p-6'>
-            <div className="flex flex-col md:flex-row justify-center gap-6 md:gap-10 items-center">
+          <div
+            ref={productRef}
+            className='w-full bg-[#8de8f825] p-4 md:p-6'
+          >
+            <div
+              className={`flex flex-col md:flex-row justify-center gap-6 md:gap-10 items-center ${fadeInUp}`}
+              style={{
+                transform: productInView ? 'translateY(0)' : 'translateY(50px)',
+                opacity: productInView ? 1 : 0,
+                transitionDelay: '200ms'
+              }}
+            >
               <div className='w-full md:w-1/2'>
                 <Image src={product1} className='w-full' />
               </div>
@@ -473,7 +481,14 @@ export default function Home() {
                 <p>Yes, there are several alternative tools related to Google that can help with PPC campaign management, keyword research, and competitor analysis. These tools leverage Google’s data and insights to help businesses optimize their digital advertising strategies. Here’s a list of alternatives:</p>
               </div>
             </div>
-            <div className="flex flex-col md:flex-row justify-center gap-6 md:gap-10 items-center mt-10">
+            <div
+              className={`flex flex-col md:flex-row justify-center gap-6 md:gap-10 items-center mt-10 ${fadeInUp}`}
+              style={{
+                transform: productInView ? 'translateY(0)' : 'translateY(50px)',
+                opacity: productInView ? 1 : 0,
+                transitionDelay: '400ms'
+              }}
+            >
               <div className='w-full md:w-1/2'>
                 <h1 className='text-3xl'>Tailwind CSS Component</h1>
                 <p>Yes, there are several alternative tools related to Google that can help with PPC campaign management, keyword research, and competitor analysis. These tools leverage Google’s data and insights to help businesses optimize their digital advertising strategies. Here’s a list of alternatives:</p>
@@ -490,7 +505,16 @@ export default function Home() {
           </div>
 
           {/* Add these sections before the FAQ section */}
-          <BenefitsTimeline />
+          <div
+            ref={benefitsRef}
+            className={`${fadeInUp}`}
+            style={{
+              transform: benefitsInView ? 'translateY(0)' : 'translateY(50px)',
+              opacity: benefitsInView ? 1 : 0,
+            }}
+          >
+            <BenefitsTimeline />
+          </div>
           <AwardsSection />
           <ComparisonTable />
 
@@ -502,6 +526,12 @@ export default function Home() {
                 <div
                   key={index}
                   className="bg-white rounded-lg shadow-sm overflow-hidden"
+                  style={{
+                    transform: `translateY(${openFaq === index ? '0' : '20px'})`,
+                    opacity: openFaq === index ? 1 : 0.7,
+                    transition: 'all 0.5s ease',
+                    transitionDelay: `${index * 100}ms`
+                  }}
                 >
                   <button
                     className="w-full px-6 py-4 text-left flex items-center justify-between"
