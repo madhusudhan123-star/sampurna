@@ -1,29 +1,36 @@
 import React, { useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react'; // Import icons for hamburger menu
+import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
+import logo from '@/app/just_logo.png';
+import LoadingScreen from './LoadingScreen';
 
 const Navbar = () => {
     const router = useRouter();
     const pathname = usePathname();
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleNavigation = (path) => {
         setIsTransitioning(true);
-        setIsMobileMenuOpen(false); // Close mobile menu when navigating
-        // Toggle between paths
+        setIsLoading(true);
+        setIsMobileMenuOpen(false);
+
         const targetPath = path === '/about' && pathname === '/about' ? '/' :
             path === '/product' && pathname === '/product' ? '/' : path;
 
-        // Change the background color based on which section is clicked
-        const bgColor = targetPath === '/about' ? 'rgb(83,247,83)' :
+        const transitionColor = targetPath === '/about' ? 'rgb(83,247,83)' :
             targetPath === '/product' ? '#43c3ff' : '#ffffff';
 
-        document.documentElement.style.setProperty('--nav-bg-color', bgColor);
+        document.documentElement.style.setProperty('--nav-bg-color', transitionColor);
 
         setTimeout(() => {
             router.push(targetPath);
-            setIsTransitioning(false);
+            setTimeout(() => {
+                setIsTransitioning(false);
+                setIsLoading(false);
+            }, 500);
         }, 1000);
     };
 
@@ -38,10 +45,20 @@ const Navbar = () => {
 
     return (
         <>
+            {isLoading && <LoadingScreen />}
             {/* Mobile Navbar */}
-            <div className="md:hidden fixed top-0 left-0 w-full bg-white shadow-lg z-[999]">
+            <div className="md:hidden fixed top-0 left-0 w-full bg-white z-[999]">
                 <div className="flex justify-between items-center px-4 py-3">
-                    <span className="text-xl font-semibold text-[#2A6177]">Sampoorna</span>
+                    <div className="flex items-center">
+                        <Image
+                            src={logo}
+                            alt="Logo"
+                            width={40}
+                            height={40}
+                            className="h-10 w-auto"
+                            priority
+                        />
+                    </div>
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         className="text-gray-600 hover:text-[#2A6177]"
@@ -60,17 +77,15 @@ const Navbar = () => {
                         <div className="flex flex-col">
                             <button
                                 onClick={() => handleNavigation('/product')}
-                                className={`px-4 py-3 text-left hover:bg-gray-50 ${
-                                    pathname === '/product' ? 'text-[#43c3ff] font-semibold' : 'text-gray-600'
-                                }`}
+                                className={`px-4 py-3 text-left hover:bg-gray-50 ${pathname === '/product' ? 'text-[#43c3ff] font-semibold' : 'text-gray-600'
+                                    }`}
                             >
                                 {getDisplayText('product')}
                             </button>
                             <button
                                 onClick={() => handleNavigation('/about')}
-                                className={`px-4 py-3 text-left hover:bg-gray-50 ${
-                                    pathname === '/about' ? 'text-[rgb(83,247,83)] font-semibold' : 'text-gray-600'
-                                }`}
+                                className={`px-4 py-3 text-left hover:bg-gray-50 ${pathname === '/about' ? 'text-[rgb(83,247,83)] font-semibold' : 'text-gray-600'
+                                    }`}
                             >
                                 {getDisplayText('about')}
                             </button>
@@ -83,31 +98,36 @@ const Navbar = () => {
             <div className="hidden md:flex h-screen fixed top-0 left-0 w-auto">
                 {/* Product section */}
                 <div
-                    className={`w-12/12 h-screen bg-[#43c3ff] flex items-end justify-center py-36 cursor-pointer hover:opacity-80 transition-opacity duration-300
-                        ${pathname === '/products' ? 'nav-active' : ''}`}
+                    className={`w-12/12 h-screen flex items-end justify-center py-36 cursor-pointer transition-all duration-300
+                        ${pathname === '/product' ? 'bg-[#43c3ff]' : 'bg-[#43c3ff] backdrop-blur-sm hover:bg-[#43c3ff]/10'}`}
                     onClick={() => handleNavigation('/product')}
                 >
-                    <span className="text-white transform rotate-[270deg] text-[3vw] font-semibold">
+                    <span className={`transform rotate-[270deg] text-[3vw] font-semibold
+                        ${pathname === '/product' ? 'text-white' : 'text-[#2A6177]'}`}>
                         {getDisplayText('product')}
                     </span>
                 </div>
 
                 {/* About section */}
                 <div
-                    className={`w-12/12 h-screen bg-[rgb(83,247,83)] flex items-end justify-center py-16 cursor-pointer hover:opacity-80 transition-opacity duration-300
-                        ${pathname === '/about' ? 'nav-active' : ''}`}
+                    className={`w-12/12 h-screen flex items-end justify-center py-16 cursor-pointer transition-all duration-300
+                        ${pathname === '/about' ? 'bg-[rgb(83,247,83)]' : 'bg-[rgb(83,247,83)] backdrop-blur-sm hover:bg-[rgb(83,247,83)]/10'}`}
                     onClick={() => handleNavigation('/about')}
                 >
-                    <span className="text-white transform rotate-[270deg] text-[3vw] font-semibold">
+                    <span className={`transform rotate-[270deg] text-[3vw] font-semibold
+                        ${pathname === '/about' ? 'text-white' : 'text-[#2A6177]'}`}>
                         {getDisplayText('about')}
                     </span>
                 </div>
 
                 {/* Overlay */}
                 {isTransitioning && (
-                    <div className="fixed inset-0 nav-overlay z-50" style={{
-                        backgroundColor: 'var(--nav-bg-color, rgb(83,247,83))'
-                    }} />
+                    <div
+                        className="fixed inset-0 nav-overlay z-50"
+                        style={{
+                            backgroundColor: 'var(--nav-bg-color, transparent)'
+                        }}
+                    />
                 )}
             </div>
         </>

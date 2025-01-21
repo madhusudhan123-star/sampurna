@@ -1,18 +1,21 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { Button } from "@/components/ui/button"
 import Navbar from '@/components/elements/Navbar';
 import product1 from '../../assets/product_des.jpg';
 import { Star, Minus, Plus } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 export default function Product() {
     const [quantity, setQuantity] = useState(1);
     const [gradientPosition, setGradientPosition] = useState(0);
+    const router = useRouter();
 
     // Product details (you can replace with actual data)
     const product = {
         name: "Sampoorna Digestive Health Supplement",
-        price: 499.00,
+        price: 3999.00,
         description: "A natural supplement that promotes digestive health and overall wellness. Made with premium Ayurvedic ingredients.",
         features: [
             "100% Natural Ingredients",
@@ -35,10 +38,15 @@ export default function Product() {
         return () => clearInterval(interval);
     }, []);
 
+    const handleAddToCart = () => {
+        // You can add cart logic here if needed
+        router.push('/checkout');
+    };
+
     return (
         <div className="flex relative bg-white min-h-screen">
-            {/* Navbar */}
-            <div className='fixed left-0 top-0 w-1/5 h-screen bg-[#8de8f825] shadow-lg z-[999]'>
+            {/* Navbar container - Updated background */}
+            <div className='fixed left-0 top-0 w-1/5 h-screen bg-transparent z-[999]'>
                 <Navbar />
             </div>
 
@@ -83,27 +91,30 @@ export default function Product() {
                                 {/* Quantity Selector */}
                                 <div className="flex items-center mb-6">
                                     <span className="mr-4">Quantity:</span>
-                                    <button
+                                    <Button
                                         onClick={() => setQuantity(Math.max(1, quantity - 1))}
                                         className="p-2 border rounded-l"
                                     >
                                         <Minus className="w-4 h-4" />
-                                    </button>
+                                    </Button>
                                     <span className="px-4 py-2 border-t border-b">
                                         {quantity}
                                     </span>
-                                    <button
+                                    <Button
                                         onClick={() => setQuantity(quantity + 1)}
                                         className="p-2 border rounded-r"
                                     >
                                         <Plus className="w-4 h-4" />
-                                    </button>
+                                    </Button>
                                 </div>
 
                                 {/* Add to Cart Button */}
-                                <button className="w-full bg-[#43c3ff] hover:bg-[#43c3ff]/90 text-white py-3 rounded-lg text-lg mb-6">
+                                <Button
+                                    onClick={handleAddToCart}
+                                    className="w-full bg-[#43c3ff] hover:bg-[#43c3ff]/90 text-white py-3 rounded-lg text-lg mb-6"
+                                >
                                     Add to Cart - ₹{(product.price * quantity).toFixed(2)}
-                                </button>
+                                </Button>
                             </div>
 
                             {/* Features */}

@@ -22,9 +22,9 @@ export default function About() {
     }, []);
 
     return (
-        <div className="flex relative bg-white">
+        <div className="flex relative bg-white min-h-screen">
             {/* Navbar */}
-            <div className='fixed left-0 top-0 w-1/5 h-screen bg-[#8de8f825] shadow-lg z-[999]'>
+            <div className='fixed left-0 top-0 w-1/5 h-screen bg-transparent z-[999]'>
                 <Navbar />
             </div>
 

@@ -1,5 +1,7 @@
 "use client";
+import { useRouter } from 'next/navigation'; // Add this import
 import Navbar from '../components/elements/Navbar'
+import { Button } from "@/components/ui/button"
 import Image from 'next/image'
 import logo from './just_logo.png'
 import { LiaArrowDownSolid } from "react-icons/lia";
@@ -24,8 +26,14 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay'; // Add this import
 import { Plus, Minus } from "lucide-react"; // Add this import at the top
+import ReviewSection from '../components/elements/ReviewSection';
+import BenefitsTimeline from '@/components/sections/BenefitsTimeline';
+import AwardsSection from '@/components/sections/AwardsSection';
+import ComparisonTable from '@/components/sections/ComparisonTable';
+import Footer from '@/components/elements/Footer';
 
 export default function Home() {
+  const router = useRouter(); // Add this line
   const videoRef = useRef(null);
   const leftTextRef = useRef(null);
   const rightTextRef = useRef(null);
@@ -132,8 +140,8 @@ export default function Home() {
 
   return (
     <div className="flex relative bg-[#8de8f825] overflow-x-hidden min-h-screen">
-      {/* Navbar container - Updated for mobile */}
-      <div className='fixed left-0 top-0 md:w-1/5 w-full md:h-screen bg-[#8de8f825] shadow-lg z-[999]'>
+      {/* Navbar container - Updated background */}
+      <div className='fixed left-0 top-0 md:w-1/5 w-full md:h-screen bg-transparent z-[999]'>
         <Navbar />
       </div>
 
@@ -164,7 +172,7 @@ export default function Home() {
                   <h1 className='text-sm md:text-md'>Sampoorn <br /> Arogya</h1>
                 </div>
                 <div className='mt-4 md:mt-0'>
-                  <button className="bg-orange-500 hover:bg-orange-400">Contact Us</button>
+                  <Button className="bg-orange-500 hover:bg-orange-400">Contact Us</Button>
                 </div>
               </div>
 
@@ -182,6 +190,13 @@ export default function Home() {
                 <p className='text-sm mt-10 md:mt-20 w-full md:w-1/2 text-center'>
                   Discover the Secret to a Healthy Digestive System with Sampoorna Arogya!
                 </p>
+                {/* Add this button */}
+                <Button
+                  onClick={() => router.push('/product')}
+                  className="mt-8 bg-[#2A6177] hover:bg-[#43c3ff] text-white px-8 py-4 rounded-full transition-all duration-300"
+                >
+                  Explore Our Products
+                </Button>
               </div>
             </div>
           </div>
@@ -197,10 +212,10 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Video Container for Mobile */}
+              {/* Mobile Video Container */}
               <div className="w-full h-[300px] relative">
                 <iframe
-                  src="https://www.youtube.com/embed/AR0LKoBvSs0?autoplay=1&mute=0&controls=1&rel=0&loop=1&playlist=AR0LKoBvSs0"
+                  src="https://www.youtube.com/embed/AR0LKoBvSs0?enablejsapi=1&autoplay=1&mute=1&controls=1&rel=0&loop=1&playlist=AR0LKoBvSs0"
                   title="YouTube video"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -234,7 +249,7 @@ export default function Home() {
               <div className="absolute inset-0 pointer-events-none">
                 <iframe
                   ref={videoRef}
-                  src="https://www.youtube.com/embed/AR0LKoBvSs0?autoplay=1&mute=0&controls=1&rel=0&loop=1&playlist=AR0LKoBvSs0"
+                  src="https://www.youtube.com/embed/AR0LKoBvSs0?enablejsapi=1&autoplay=1&mute=1&controls=1&rel=0&loop=1&playlist=AR0LKoBvSs0"
                   title="YouTube video"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -321,10 +336,10 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Swiper Section - Updated for mobile */}
-          <div className='w-full min-h-[40vh] flex justify-center items-center flex-col px-4 md:px-20 py-8'>
-            <h1 className='text-3xl md:text-5xl text-center mb-8'>KEY INGREDIENTS</h1>
-            <div className='w-full md:w-[50vw] h-[40vh] md:h-[50vh]'>
+          {/* Swiper Section - Updated to fix overlapping */}
+          <div className='w-full min-h-screen flex justify-center items-center flex-col px-4 md:px-20 py-20 md:py-32'>
+            <h1 className='text-3xl md:text-5xl text-center mb-16'>KEY INGREDIENTS</h1>
+            <div className='w-full md:w-[50vw] h-[400px] md:h-[500px]'>
               <Swiper
                 effect="coverflow"
                 grabCursor={true}
@@ -343,21 +358,23 @@ export default function Home() {
                   pauseOnMouseEnter: true,
                 }}
                 pagination={true}
-                modules={[EffectCoverflow, Pagination, Autoplay]} // Add Autoplay to modules
-                className="mySwiper w-full pt-4 pb-4" // Reduced padding more
+                modules={[EffectCoverflow, Pagination, Autoplay]}
+                className="mySwiper w-full h-full"
               >
-                <SwiperSlide className="swiper-slide bg-cover bg-center rounded-md w-1/4 h-[40vh] relative"> {/* Reduced width to 1/4 and height to 20vh */}
+                {/* SwiperSlides with adjusted height */}
+                <SwiperSlide className="swiper-slide bg-cover bg-center rounded-md w-[300px] h-[350px] md:h-[400px] relative">
                   <img
                     src="https://swiperjs.com/demos/images/nature-1.jpg"
                     className="block w-full h-full object-cover rounded-lg"
                     alt="Nature 1"
                   />
-                  <div className="absolute inset-0 bg-black/50 flex flex-col justify-end p-3"> {/* Reduced padding */}
-                    <h3 className="text-white text-lg font-bold">Ingredient 1</h3> {/* Reduced text size */}
-                    <p className="text-white/90 text-xs">Description of the ingredient and its benefits</p> {/* Reduced text size */}
+                  <div className="absolute inset-0 bg-black/50 flex flex-col justify-end p-4">
+                    <h3 className="text-white text-xl font-bold">Ingredient 1</h3>
+                    <p className="text-white/90 text-sm">Description of the ingredient and its benefits</p>
                   </div>
                 </SwiperSlide>
 
+                {/* Repeat the same adjustments for other SwiperSlides */}
                 <SwiperSlide className="swiper-slide bg-cover bg-center rounded-md w-1/4 h-[40vh] relative">
                   <img
                     src="https://swiperjs.com/demos/images/nature-2.jpg"
@@ -428,31 +445,15 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Logo of the brand section */}
-          <div className="w-full bg-white py-8">
-            <div className="infinite-scroll">
-              <div className="logo-container">
-                <div className="logo-group">
-                  <Image src={one} alt="Brand 1" className="h-24 w-auto" />
-                  <Image src={two} alt="Brand 2" className="h-24 w-auto" />
-                  <Image src={three} alt="Brand 3" className="h-24 w-auto" />
-                  <Image src={four} alt="Brand 4" className="h-24 w-auto" />
-                  <Image src={five} alt="Brand 5" className="h-24 w-auto" />
-                  <Image src={six} alt="Brand 6" className="h-24 w-auto" />
-                  <Image src={seven} alt="Brand 6" className="h-24 w-auto" />
-                </div>
-                <div className="logo-group">
-                  <Image src={one} alt="Brand 1" className="h-24 w-auto" />
-                  <Image src={two} alt="Brand 2" className="h-24 w-auto" />
-                  <Image src={three} alt="Brand 3" className="h-24 w-auto" />
-                  <Image src={four} alt="Brand 4" className="h-24 w-auto" />
-                  <Image src={five} alt="Brand 5" className="h-24 w-auto" />
-                  <Image src={six} alt="Brand 6" className="h-24 w-auto" />
-                  <Image src={seven} alt="Brand 6" className="h-24 w-auto" />
-                </div>
-              </div>
-            </div>
+          {/* Add this before the FAQ section */}
+          <div className="w-full bg-[#8de8f825] py-16">
+            <ReviewSection />
           </div>
+
+          {/* Add these sections before the FAQ section */}
+          <BenefitsTimeline />
+          <AwardsSection />
+          <ComparisonTable />
 
           {/* FAQ Section - Updated for mobile */}
           <div className="w-full bg-[#8de8f825] px-4 md:px-20 py-8 md:py-16 flex-none">
@@ -486,82 +487,7 @@ export default function Home() {
           </div>
 
           {/* Footer Section */}
-          <footer className="w-full bg-white px-4 md:px-20 py-12">
-            <div className="max-w-7xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                {/* Logo and Description */}
-                <div className="col-span-1">
-                  <div className="flex items-center gap-2 mb-4">
-                    <Image src={logo} alt="Logo" className='w-16' width={64} height={64} />
-                    <h3 className='text-sm font-semibold'>Sampoorn <br /> Arogya</h3>
-                  </div>
-                  <p className="text-gray-600 text-sm">
-                    Your trusted partner in natural digestive health solutions.
-                  </p>
-                </div>
-
-                {/* Quick Links */}
-                <div>
-                  <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-                  <ul className="space-y-2">
-                    <li>
-                      <button onClick={() => router.push('/')} className="text-gray-600 hover:text-[#43c3ff]">
-                        Home
-                      </button>
-                    </li>
-                    <li>
-                      <button onClick={() => router.push('/about')} className="text-gray-600 hover:text-[#43c3ff]">
-                        About Us
-                      </button>
-                    </li>
-                    <li>
-                      <button onClick={() => router.push('/product')} className="text-gray-600 hover:text-[#43c3ff]">
-                        Products
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Contact Info */}
-                <div>
-                  <h4 className="text-lg font-semibold mb-4">Contact</h4>
-                  <ul className="space-y-2 text-gray-600">
-                    <li>Email: info@sampoornaarogya.com</li>
-                    <li>Phone: +91 XXX XXX XXXX</li>
-                    <li>Location: Bangalore, India</li>
-                  </ul>
-                </div>
-
-                {/* Legal Links */}
-                <div>
-                  <h4 className="text-lg font-semibold mb-4">Legal</h4>
-                  <ul className="space-y-2">
-                    <li>
-                      <button className="text-gray-600 hover:text-[#43c3ff]">
-                        Privacy Policy
-                      </button>
-                    </li>
-                    <li>
-                      <button className="text-gray-600 hover:text-[#43c3ff]">
-                        Terms of Service
-                      </button>
-                    </li>
-                    <li>
-                      <button className="text-gray-600 hover:text-[#43c3ff]">
-                        Return Policy
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Copyright */}
-              <div className="border-t mt-8 pt-8 text-center text-gray-600 text-sm">
-                <p>© {new Date().getFullYear()} Sampoorna Arogya. All rights reserved.</p>
-              </div>
-            </div>
-          </footer>
-
+          <Footer />
         </main>
       </div>
     </div>
