@@ -172,7 +172,7 @@ export default function Home() {
                   <h1 className='text-sm md:text-md'>Sampoorn <br /> Arogya</h1>
                 </div>
                 <div className='mt-4 md:mt-0'>
-                  <Button className="bg-orange-500 hover:bg-orange-400">Contact Us</Button>
+                  <Button className="bg-orange-500 hover:bg-orange-400"><a href='/contact'>Contact Us </a></Button>
                 </div>
               </div>
 
