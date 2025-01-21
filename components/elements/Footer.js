@@ -56,6 +56,14 @@ export default function Footer() {
                                     Products
                                 </button>
                             </li>
+                            <li>
+                                <button
+                                    onClick={() => router.push('/contact')}
+                                    className="text-gray-600 hover:text-[#43c3ff] transition-colors duration-200"
+                                >
+                                    Contact
+                                </button>
+                            </li>
                         </ul>
                     </div>
 
