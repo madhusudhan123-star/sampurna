@@ -28,7 +28,7 @@ function CallButtons() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg z-[9999]    flex justify-around items-center py-3 px-4 space-x-4",
+                className: "md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg z-[9999] flex justify-around items-center py-3 px-4 space-x-4",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                     onClick: handleCall,
                     className: "flex-1 bg-green-500 text-white py-2 px-4 rounded-full    flex items-center justify-center space-x-2 shadow-md   active:scale-95 transition-transform",
@@ -37,7 +37,7 @@ function CallButtons() {
                             className: "w-5 h-5"
                         }, void 0, false, {
                             fileName: "[project]/components/elements/CallButtons.js",
-                            lineNumber: 20,
+                            lineNumber: 19,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -45,13 +45,13 @@ function CallButtons() {
                             children: "Call Now"
                         }, void 0, false, {
                             fileName: "[project]/components/elements/CallButtons.js",
-                            lineNumber: 21,
+                            lineNumber: 20,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/elements/CallButtons.js",
-                    lineNumber: 14,
+                    lineNumber: 13,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
@@ -67,12 +67,12 @@ function CallButtons() {
                     className: "w-6 h-6 group-hover:animate-wiggle"
                 }, void 0, false, {
                     fileName: "[project]/components/elements/CallButtons.js",
-                    lineNumber: 34,
+                    lineNumber: 33,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/elements/CallButtons.js",
-                lineNumber: 26,
+                lineNumber: 25,
                 columnNumber: 7
             }, this)
         ]

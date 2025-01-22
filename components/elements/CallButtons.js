@@ -9,8 +9,7 @@ export default function CallButtons() {
   return (
     <>
       {/* Mobile Fixed Bottom Bar */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg z-[9999] 
-                    flex justify-around items-center py-3 px-4 space-x-4">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg z-[9999] flex justify-around items-center py-3 px-4 space-x-4">
         <button
           onClick={handleCall}
           className="flex-1 bg-green-500 text-white py-2 px-4 rounded-full 

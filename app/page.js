@@ -4,27 +4,12 @@ import Navbar from '../components/elements/Navbar'
 import { Button } from "@/components/ui/button"
 import Image from 'next/image'
 import logo from './just_logo.png'
-import { LiaArrowDownSolid } from "react-icons/lia";
-import useLocomotive from '@/hooks/useLocomotive';
 import { useEffect, useRef, useState } from 'react';
 import harbel from '../assets/harbel.svg'
 import heart from '../assets/heart.svg'
 import relief from '../assets/relief.svg'
 import bloating from '../assets/bloating.svg'
 import product1 from '../assets/product_des.jpg'
-import one from '../assets/t_one.svg'
-import two from '../assets/t_two.svg'
-import three from '../assets/t_three.svg'
-import four from '../assets/t_four.png'
-import five from '../assets/hala.png'
-import six from '../assets/t_six.png'
-import seven from '../assets/t_seven.avif'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules'; // Add Autoplay
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
-import 'swiper/css/autoplay'; // Add this import
 import { Plus, Minus } from "lucide-react"; // Add this import at the top
 import ReviewSection from '../components/elements/ReviewSection';
 import BenefitsTimeline from '@/components/sections/BenefitsTimeline';
@@ -32,6 +17,12 @@ import AwardsSection from '@/components/sections/AwardsSection';
 import ComparisonTable from '@/components/sections/ComparisonTable';
 import Footer from '@/components/elements/Footer';
 import { useInView } from 'react-intersection-observer'; // Add this import
+import heroLarge from '../assets/test/image-1920x1281.jpg';
+import heroMedium from '../assets/test/image-1200x200.jpg';
+import heroSmall from '../assets/test/image-480x250.jpg';
+import DigestiveSystem from '../components/elements/DigestiveSystem'
+import Slider from '../components/elements/Slider';
+import bannerBg from '@/assets/small_banner.webp' // Add this import at the top
 
 export default function Home() {
   const router = useRouter(); // Add this line
@@ -91,6 +82,8 @@ export default function Home() {
   const fadeInUp = "transition-all duration-700 ease-out";
   const fadeInUpVisible = "translate-y-0 opacity-100";
   const fadeInUpHidden = "translate-y-10 opacity-0";
+
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -160,6 +153,79 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!videoRef.current) return;
+
+    // Load YouTube API
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    let player;
+
+    window.onYouTubeIframeAPIReady = () => {
+      player = new window.YT.Player(videoRef.current, {
+        events: {
+          onStateChange: (event) => {
+            setIsVideoPlaying(event.data === window.YT.PlayerState.PLAYING);
+          }
+        }
+      });
+    };
+
+    return () => {
+      if (player) {
+        player.destroy();
+      }
+    };
+  }, []);
+
+  // Add this new useEffect after your existing useEffects
+  useEffect(() => {
+    if (!videoRef.current) return;
+
+    // Load YouTube API
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    let player;
+
+    window.onYouTubeIframeAPIReady = () => {
+      player = new window.YT.Player(videoRef.current, {
+        events: {
+          onReady: (event) => {
+            // Start playing when ready
+            event.target.playVideo();
+            setIsVideoPlaying(true);
+          },
+          onStateChange: (event) => {
+            setIsVideoPlaying(event.data === window.YT.PlayerState.PLAYING);
+          }
+        }
+      });
+    };
+
+    return () => {
+      if (player) {
+        player.destroy();
+      }
+    };
+  }, []);
+
+  const handleVideoControl = () => {
+    const iframe = videoRef.current;
+    const player = iframe.contentWindow;
+
+    if (isVideoPlaying) {
+      player.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    } else {
+      player.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+    }
+  };
+
   return (
     <div className="flex relative bg-[#8de8f825] overflow-x-hidden min-h-screen">
       {/* Navbar container - Updated background */}
@@ -171,56 +237,86 @@ export default function Home() {
       <div className="flex-1 md:ml-[20%] ml-0 mt-[60px] md:mt-0 relative" data-scroll-container>
         <main className="w-full flex flex-col">
           {/* Hero Section */}
-          <div className='min-h-screen w-full relative overflow-hidden flex-none px-4 md:px-8'>
-            {/* Gradient Background */}
-            <div
-              className="absolute inset-0 z-0 transition-all duration-1000 ease-in-out"
-              style={{
-                background: `linear-gradient(${gradientPosition}deg, 
-                  rgba(249, 180, 9, 0.4), 
-                  rgba(42, 104, 122, 0.4), 
-                  rgba(114, 162, 94, 0.4)
-                )`,
-                filter: 'blur(100px)',
-                transform: 'scale(1.2)',
-              }}
-            />
+          <section className='relative w-full h-[100dvh] md:h-screen bg-black'>
+            {/* Background Image Container */}
+            <div className="absolute inset-0 w-full h-full">
+              <picture className="w-full h-full">
+                <source
+                  media="(min-width: 1400px)"
+                  srcSet={heroLarge.src}
+                />
+                <source
+                  media="(min-width: 480px)"
+                  srcSet={heroMedium.src}
+                />
+                <div className="relative w-full h-full">
+                  <Image
+                    src={heroSmall}
+                    alt="Hero Background"
+                    fill
+                    priority
+                    className="object-cover"
+                    sizes="100vw"
+                    quality={85}
+                    style={{
+                      objectFit: 'cover',
+                      objectPosition: 'center'
+                    }}
+                  />
+                </div>
+              </picture>
+              {/* Dark overlay */}
+              <div className="absolute inset-0 bg-black/50" />
+            </div>
 
-            <div className='relative z-10 w-full h-full'>
+            {/* Content Container */}
+            <div className='relative z-10 w-full h-full flex flex-col max-w-[1440px] mx-auto px-4 md:px-8'>
               {/* Header */}
-              <div className='w-full flex flex-col md:flex-row justify-between items-center py-4 hidden md:flex'>
+              <header className='w-full flex justify-between items-center py-4 md:py-8'>
                 <div className='flex items-center'>
-                  <Image src={logo} alt="Logo" className='w-20 md:w-28' width={100} height={100} />
+                  <Image
+                    src={logo}
+                    alt="Logo"
+                    className='w-16 md:w-20 h-auto'
+                    priority
+                  />
                 </div>
-                <div className='mt-4 md:mt-0'>
-                  <Button className="bg-orange-500 hover:bg-orange-400"><a href='/contact'>Contact Us </a></Button>
-                </div>
-              </div>
+                {/* Navigation - Desktop only */}
+                <nav className='hidden md:flex items-center space-x-8'>
+                  <a href="#about" className="text-white/90 hover:text-white transition-colors text-sm">About</a>
+                  <a href="#products" className="text-white/90 hover:text-white transition-colors text-sm">Products</a>
+                  <a href="#benefits" className="text-white/90 hover:text-white transition-colors text-sm">Benefits</a>
+                  <Button
+                    className="bg-orange-500 hover:bg-orange-400 text-white text-sm px-6"
+                    onClick={() => router.push('/contact')}
+                  >
+                    Contact Us
+                  </Button>
+                </nav>
+              </header>
 
-              {/* Hero Content */}
-              <div className='flex flex-col justify-center items-center h-[calc(100vh-200px)]'>
-                <h1 className='font-bold text-center md:text-left'>
-                  <span className='relative md:-left-20 left-0 block md:inline'>
-                    <span className='text-[8vw] md:text-[6vw]'>Sampoorn Arogya</span>
-                    <span className='text-[3vw] md:text-[1.5vw] text-black block md:inline'>Your</span>
+              {/* Hero Content - Centered */}
+              <div className='flex-1 flex flex-col items-center justify-center text-center max-w-4xl mx-auto'>
+                <h1 className='text-white font-bold'>
+                  <span className='block text-3xl sm:text-5xl md:text-6xl lg:text-7xl'>
+                    Sampoorn Arogya
                   </span>
-                  <span className='text-[6vw] md:text-[4vw] relative md:left-48 left-0 block mt-4 md:mt-0'>
-                    Digestive Health Solution
+                  <span className='block text-lg sm:text-xl md:text-2xl text-white/90 font-normal mt-4'>
+                    Your Digestive Health Solution
                   </span>
                 </h1>
-                <p className='text-sm mt-10 md:mt-20 w-full md:w-1/2 text-center'>
+                <p className='text-white/80 text-sm md:text-base max-w-2xl mx-auto mt-6 mb-8'>
                   Discover the Secret to a Healthy Digestive System with Sampoorna Arogya!
                 </p>
-                {/* Add this button */}
                 <Button
                   onClick={() => router.push('/product')}
-                  className="mt-8 bg-[#2A6177] hover:bg-[#43c3ff] text-white px-8 py-4 rounded-full transition-all duration-300"
+                  className="bg-[#2A6177] hover:bg-[#43c3ff] text-white px-6 py-2.5 md:px-8 md:py-3 rounded-full transition-all duration-300 text-sm md:text-base"
                 >
                   Explore Our Products
                 </Button>
               </div>
             </div>
-          </div>
+          </section>
 
           {/* Video Section - Updated for mobile stacking */}
           <div className='w-full min-h-screen flex-none relative'>
@@ -236,7 +332,8 @@ export default function Home() {
               {/* Mobile Video Container */}
               <div className="w-full h-[300px] relative">
                 <iframe
-                  src="https://www.youtube.com/embed/AR0LKoBvSs0?enablejsapi=1&controls=1&rel=0&loop=1&playlist=AR0LKoBvSs0"
+                  ref={videoRef}
+                  src="https://www.youtube.com/embed/AR0LKoBvSs0?enablejsapi=1&autoplay=1&mute=1&controls=0&rel=0&loop=1&playlist=AR0LKoBvSs0&playsinline=1"
                   title="YouTube video"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -266,19 +363,41 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* YouTube video */}
+              {/* YouTube video container with custom controls */}
               <div className="absolute inset-0" style={{ pointerEvents: 'auto' }}>
-                <div className="relative w-full h-full">
+                <div className="relative w-full h-full group">
                   <iframe
                     ref={videoRef}
-                    src="https://www.youtube.com/embed/AR0LKoBvSs0?enablejsapi=1&controls=1&rel=0&loop=1&playlist=AR0LKoBvSs0"
+                    src="https://www.youtube.com/embed/AR0LKoBvSs0?enablejsapi=1&autoplay=1&mute=1&controls=0&rel=0&loop=1&playlist=AR0LKoBvSs0&playsinline=1"
                     title="YouTube video"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                    className='w-full h-full transition-transform duration-150 ease-linear'
-                    style={{ pointerEvents: 'auto' }}
+                    className='w-full h-full transition-transform duration-150 ease-linear cursor-default'
+                    style={{ pointerEvents: 'none' }}
                   ></iframe>
+
+                  {/* Custom play/pause button */}
+                  <button
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white w-16 h-16 rounded-full 
+                               flex items-center justify-center
+                               opacity-0 group-hover:opacity-100 transition-opacity duration-300
+                               pointer-events-auto cursor-pointer"
+                    onClick={handleVideoControl}
+                  >
+                    <div className="w-6 h-6">
+                      {isVideoPlaying ? (
+                        <div></div>
+                        // <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        //   <path d="M6 4h4v16H6zm8 0h4v16h-4z" />
+                        // </svg>
+                      ) : (
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      )}
+                    </div>
+                  </button>
                 </div>
               </div>
 
@@ -304,15 +423,16 @@ export default function Home() {
             </div>
           </div>
 
+
+
+          <DigestiveSystem />
+
+
+          {/* Swiper Section - Updated to fix overlapping */}
+          <Slider />
+
           {/* Features Grid - Updated for mobile */}
-          <div
-            ref={featureRef}
-            className={`flex-none px-4 md:px-20 ${fadeInUp}`}
-            style={{
-              transform: featureInView ? 'translateY(0)' : 'translateY(50px)',
-              opacity: featureInView ? 1 : 0,
-            }}
-          >
+          <div ref={featureRef} className={`flex-none px-4 py-5 md:py-20 md:px-20 ${fadeInUp}`} style={{ transform: featureInView ? 'translateY(0)' : 'translateY(50px)', opacity: featureInView ? 1 : 0, }}>
             <div className='flex flex-col justify-start items-center gap-8 md:gap-10'>
               <h1 className='text-3xl md:text-5xl text-center'>The Problem which it Solves</h1>
               <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-20'>
@@ -373,98 +493,10 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Swiper Section - Updated to fix overlapping */}
-          <div className='w-full min-h-screen flex justify-center items-center flex-col px-4 md:px-20 py-20 md:py-32'>
-            <h1 className='text-3xl md:text-5xl text-center mb-16'>KEY INGREDIENTS</h1>
-            <div className='w-full md:w-[50vw] h-[400px] md:h-[500px]'>
-              <Swiper
-                effect="coverflow"
-                grabCursor={true}
-                centeredSlides={true}
-                slidesPerView="auto"
-                coverflowEffect={{
-                  rotate: 50,
-                  stretch: 0,
-                  depth: 100,
-                  modifier: 1,
-                  slideShadows: true,
-                }}
-                autoplay={{
-                  delay: 2500,
-                  disableOnInteraction: false,
-                  pauseOnMouseEnter: true,
-                }}
-                pagination={true}
-                modules={[EffectCoverflow, Pagination, Autoplay]}
-                className="mySwiper w-full h-full"
-              >
-                {/* SwiperSlides with adjusted height */}
-                <SwiperSlide className="swiper-slide bg-cover bg-center rounded-md w-[300px] h-[350px] md:h-[400px] relative">
-                  <img
-                    src="https://swiperjs.com/demos/images/nature-1.jpg"
-                    className="block w-full h-full object-cover rounded-lg"
-                    alt="Nature 1"
-                  />
-                  <div className="absolute inset-0 bg-black/50 flex flex-col justify-end p-4">
-                    <h3 className="text-white text-xl font-bold">Ingredient 1</h3>
-                    <p className="text-white/90 text-sm">Description of the ingredient and its benefits</p>
-                  </div>
-                </SwiperSlide>
 
-                {/* Repeat the same adjustments for other SwiperSlides */}
-                <SwiperSlide className="swiper-slide bg-cover bg-center rounded-md w-1/4 h-[40vh] relative">
-                  <img
-                    src="https://swiperjs.com/demos/images/nature-2.jpg"
-                    className="block w-full h-full object-cover rounded-lg"
-                    alt="Nature 2"
-                  />
-                  <div className="absolute inset-0 bg-black/50 flex flex-col justify-end p-3"> {/* Reduced padding */}
-                    <h3 className="text-white text-lg font-bold">Ingredient 2</h3> {/* Reduced text size */}
-                    <p className="text-white/90 text-xs">Description of the ingredient and its benefits</p> {/* Reduced text size */}
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="swiper-slide bg-cover bg-center rounded-md w-1/4 h-[40vh] relative">
-                  <img
-                    src="https://swiperjs.com/demos/images/nature-3.jpg"
-                    className="block w-full h-full object-cover rounded-lg"
-                    alt="Nature 2"
-                  />
-                  <div className="absolute inset-0 bg-black/50 flex flex-col justify-end p-3"> {/* Reduced padding */}
-                    <h3 className="text-white text-lg font-bold">Ingredient 2</h3> {/* Reduced text size */}
-                    <p className="text-white/90 text-xs">Description of the ingredient and its benefits</p> {/* Reduced text size */}
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="swiper-slide bg-cover bg-center rounded-md w-1/4 h-[40vh] relative">
-                  <img
-                    src="https://swiperjs.com/demos/images/nature-4.jpg"
-                    className="block w-full h-full object-cover rounded-lg"
-                    alt="Nature 2"
-                  />
-                  <div className="absolute inset-0 bg-black/50 flex flex-col justify-end p-3"> {/* Reduced padding */}
-                    <h3 className="text-white text-lg font-bold">Ingredient 2</h3> {/* Reduced text size */}
-                    <p className="text-white/90 text-xs">Description of the ingredient and its benefits</p> {/* Reduced text size */}
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="swiper-slide bg-cover bg-center rounded-md w-1/4 h-[40vh] relative">
-                  <img
-                    src="https://swiperjs.com/demos/images/nature-5.jpg"
-                    className="block w-full h-full object-cover rounded-lg"
-                    alt="Nature 2"
-                  />
-                  <div className="absolute inset-0 bg-black/50 flex flex-col justify-end p-3"> {/* Reduced padding */}
-                    <h3 className="text-white text-lg font-bold">Ingredient 2</h3> {/* Reduced text size */}
-                    <p className="text-white/90 text-xs">Description of the ingredient and its benefits</p> {/* Reduced text size */}
-                  </div>
-                </SwiperSlide>
-              </Swiper>
-            </div>
-          </div>
 
           {/* Product Sections - Updated for mobile */}
-          <div
-            ref={productRef}
-            className='w-full bg-[#8de8f825] p-4 md:p-6'
-          >
+          <div ref={productRef} className='w-full bg-[#8de8f825] p-4 md:p-6' >
             <div
               className={`flex flex-col md:flex-row justify-center gap-6 md:gap-10 items-center ${fadeInUp}`}
               style={{
@@ -498,6 +530,46 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          {/* Small Banner Section */}
+          <div className="w-full relative py-12 md:py-16 overflow-hidden">
+            {/* Background Image */}
+            <div className="absolute inset-0 w-full h-full">
+              <Image
+                src={bannerBg}
+                alt="Banner Background"
+                fill
+                className="object-cover"
+                priority
+              />
+              {/* Dark Overlay with brand color */}
+              <div className="absolute inset-0 bg-[#2A6177]/50" />
+            </div>
+
+            {/* Content */}
+            <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="text-center md:text-left space-y-4 md:w-2/3">
+                  <h2 className="text-2xl md:text-4xl font-bold text-white">
+                    Experience Natural Digestive Wellness
+                  </h2>
+                  <p className="text-white/90 text-sm md:text-base max-w-2xl">
+                    Join thousands of satisfied customers who have discovered the power of Ayurvedic healing with Sampoorna Arogya
+                  </p>
+                </div>
+                <div className="flex justify-center md:justify-end md:w-1/3">
+                  <Button
+                    onClick={() => router.push('/product')}
+                    className="bg-white text-[#2A6177] hover:bg-[#43c3ff] hover:text-white px-8 py-3 rounded-full transition-all duration-300 text-sm md:text-base font-semibold shadow-lg hover:shadow-xl"
+                  >
+                    Shop Now
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* small banner */}
 
           {/* Add this before the FAQ section */}
           <div className="w-full bg-[#8de8f825] py-16">

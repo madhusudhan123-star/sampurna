@@ -1,38 +1,70 @@
 import Image from 'next/image';
-import t_one from '@/assets/t_six.png';
-import t_two from '@/assets/t_three.svg';
-import t_three from '@/assets/t_one.svg';
-
+import one from '@/assets/t_one.svg'
+import two from '@/assets/t_two.svg'
+import three from '@/assets/t_three.svg'
+import four from '@/assets/t_four.png'
+import five from '@/assets/hala.png'
+import six from '@/assets/t_six.png'
+import seven from '@/assets/t_seven.avif'
 
 export default function AwardsSection() {
   const awards = [
     {
       title: "GMP Certified",
-      image: t_one, // Import directly instead of using string path
+      image: one,
       description: "Good Manufacturing Practice Certified"
     },
     {
       title: "ISO 9001:2015",
-      image: t_two, // Replace with actual ISO image when available
+      image: two,
       description: "Quality Management System"
     },
     {
       title: "Made in India",
-      image: t_three, // Replace with actual FSSAI image when available
+      image: three,
       description: "100% Natural Ingredients and Made in India"
+    },
+    {
+      title: "FSSAI Certified",
+      image: four,
+      description: "Food Safety Certification",
+      customSize: true // Add this flag for FSSAI certificate
+    },
+    {
+      title: "Halal Certified",
+      image: five,
+      description: "Halal Certification"
+    },
+    {
+      title: "Quality Assured",
+      image: six,
+      description: "Premium Quality Products"
+    },
+    {
+      title: "Research Backed",
+      image: seven,
+      description: "Scientifically Proven Results"
     }
   ];
 
+  // Double the awards array for seamless infinite scroll
+  const slideContent = [...awards, ...awards];
+
   return (
-    <div className="py-16 bg-[#8de8f825]">
-      <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl md:text-5xl text-center mb-16 font-bold text-[#2A6177]">
-          Awards & Certifications
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {awards.map((award, index) => (
-            <div key={index} className="bg-white rounded-xl p-6 text-center hover:shadow-xl transition-shadow">
-              <div className="w-24 h-24 mx-auto mb-4 relative">
+    <div className="py-16 bg-[#8de8f825] overflow-hidden">
+      <h2 className="text-3xl md:text-5xl text-center mb-16 font-bold text-[#2A6177]">
+        Awards & Certifications
+      </h2>
+
+      <div className="relative w-full">
+        <div className="flex animate-slide">
+          {slideContent.map((award, index) => (
+            <div
+              key={index}
+              className="flex-none w-[300px] mx-4 bg-white rounded-xl p-6 text-center"
+              style={{ animation: 'none' }}
+            >
+              <div className={`mx-auto mb-4 relative ${award.customSize ? 'w-20 h-20 mb-10' : 'w-24 h-24'}`}>
                 <Image
                   src={award.image}
                   alt={award.title}
