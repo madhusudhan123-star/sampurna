@@ -100,12 +100,12 @@ const reviews = [
     }
 ];
 
-const StarRating = ({ rating, userImage }) => (
+const StarRating = ({ rating, userImage, userName }) => (
     <div className="flex items-center gap-2 md:gap-4">
         <div className="w-8 h-8 md:w-12 md:h-12 relative rounded-full overflow-hidden flex-shrink-0">
             <Image
                 src={userImage}
-                alt="User"
+                alt={`Profile picture of ${userName}`}
                 fill
                 className="object-cover"
             />
@@ -209,7 +209,7 @@ export default function ReviewSection() {
                     <div className="md:w-1/3 relative min-h-[200px] md:min-h-[400px] rounded-xl md:rounded-2xl overflow-hidden">
                         <Image
                             src={reviewImage}
-                            alt="Customer Reviews"
+                            alt="Customer Review Showcase"
                             fill
                             className="object-cover"
                         />
@@ -230,7 +230,7 @@ export default function ReviewSection() {
                             >
                                 <div className="flex flex-col h-full">
                                     <div className="mb-3 md:mb-4">
-                                        <StarRating rating={review.rating} userImage={review.image} />
+                                        <StarRating rating={review.rating} userImage={review.image} userName={review.name} />
                                     </div>
 
                                     <p className="text-white/90 flex-grow mb-3 md:mb-4 text-base md:text-lg font-medium">

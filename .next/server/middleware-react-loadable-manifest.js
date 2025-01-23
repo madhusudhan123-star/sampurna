@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}"
+self.__REACT_LOADABLE_MANIFEST='{"app\\\\page.js -> ../components/elements/DigestiveSystem":{"id":6076,"files":["static/chunks/76.a42d96a185a41f5c.js"]},"app\\\\page.js -> locomotive-scroll":{"id":9123,"files":["static/chunks/123.d5e644a53f197510.js"]},"node_modules\\\\next\\\\dist\\\\client\\\\index.js -> ../pages/_app":{"id":5203,"files":["static/chunks/203.2b4c1ee4fbe3a7cf.js"]},"node_modules\\\\next\\\\dist\\\\client\\\\index.js -> ../pages/_error":{"id":6218,"files":["static/chunks/218.57a830a2c55ba802.js"]}}';

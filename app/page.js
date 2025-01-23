@@ -1,4 +1,5 @@
 "use client";
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation'; // Add this import
 import Navbar from '../components/elements/Navbar'
 import { Button } from "@/components/ui/button"
@@ -20,10 +21,17 @@ import { useInView } from 'react-intersection-observer'; // Add this import
 import heroLarge from '../assets/test/1400x400.jpg';
 import heroMedium from '../assets/test/480x250.jpg';
 import heroSmall from '../assets/test/1920x1281.jpg';
-import DigestiveSystem from '../components/elements/DigestiveSystem'
 import Slider from '../components/elements/Slider';
 import smallbanner from '../assets/test/1400x400.jpg';
 import smallbanner1 from '../assets/test/1400x400_1.jpg';
+
+// Add this dynamic import
+const DigestiveSystem = dynamic(() => import('../components/elements/DigestiveSystem'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full min-h-screen rounded-b-[70px] bg-gradient-to-r from-[#988967] via-[#F7E9CC] to-[#AB9C7A] animate-pulse" />
+  )
+});
 
 export default function Home() {
   const router = useRouter(); // Add this line
@@ -253,7 +261,7 @@ export default function Home() {
                 <div className="relative w-full h-full">
                   <Image
                     src={heroSmall}
-                    alt="Hero Background"
+                    alt="Sampoorna Arogya Hero Background"
                     fill
                     priority
                     className="object-cover"
@@ -277,7 +285,7 @@ export default function Home() {
                 <div className='flex items-center'>
                   <Image
                     src={logo}
-                    alt="Logo"
+                    alt="Sampoorna Arogya Logo"
                     className='w-16 md:w-20 h-auto'
                     priority
                   />
@@ -420,7 +428,7 @@ export default function Home() {
           </div>
 
           <div className='relative w-full h-[300px]'>
-            <Image src={smallbanner} className="absolute w-full z-0 inset-0" />
+            <Image src={smallbanner} alt="Promotional Banner" className="absolute w-full z-0 inset-0" />
             <div className='relative p-10 z-10 w-1/2 text-white'>
               <h1 className='text-3xl font-bold'>Content</h1>
               <p className='text-xl '>This error occurs because you're trying to access the window object during server-side rendering (SSR) in Next.js. The window object is only available in the browser environment, not during server-side rendering.</p>
@@ -430,7 +438,7 @@ export default function Home() {
             </div>
           </div>
           <div className='relative w-full h-[400px]'>
-            <Image src={smallbanner1} className="absolute w-full z-0 inset-0" />
+            <Image src={smallbanner1} alt="Secondary Promotional Banner" className="absolute w-full z-0 inset-0" />
             <div className='relative z-10 h-full flex justify-end'>
               <div className='p-10 w-4/12 text-white'>
                 <h1 className='text-3xl font-bold'>Content</h1>
@@ -459,7 +467,7 @@ export default function Home() {
                   <div className='relative w-32 h-32 rounded-full bg-[#8de8f825] flex justify-center items-center group cursor-pointer hover:bg-[#8de8f850] transition-all duration-300'>
                     <Image
                       src={harbel}
-                      alt="Herbal"
+                      alt="Natural Herbal Ingredients Icon"
                       className='w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300'
                     />
                   </div>
@@ -471,7 +479,7 @@ export default function Home() {
                   <div className='relative w-32 h-32 rounded-full bg-[#8de8f825] flex justify-center items-center group cursor-pointer hover:bg-[#8de8f850] transition-all duration-300'>
                     <Image
                       src={heart}
-                      alt="Heart"
+                      alt="Heart Health Icon"
                       className='w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300'
                     />
                   </div>
@@ -485,7 +493,7 @@ export default function Home() {
                   <div className='relative w-32 h-32 rounded-full bg-[#8de8f825] flex justify-center items-center group cursor-pointer hover:bg-[#8de8f850] transition-all duration-300'>
                     <Image
                       src={relief}
-                      alt="Relief"
+                      alt="Quick Relief Icon"
                       className='w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300'
                     />
                   </div>
@@ -499,7 +507,7 @@ export default function Home() {
                   <div className='relative w-32 h-32 rounded-full bg-[#8de8f825] flex justify-center items-center group cursor-pointer hover:bg-[#8de8f850] transition-all duration-300'>
                     <Image
                       src={bloating}
-                      alt="Bloating"
+                      alt="Anti-Bloating Icon"
                       className='w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300'
                     />
                   </div>
@@ -525,7 +533,7 @@ export default function Home() {
               }}
             >
               <div className='w-full md:w-1/2'>
-                <Image src={product1} className='w-full' />
+                <Image src={product1} alt="Sampoorna Arogya Product" className='w-full' />
               </div>
               <div className='w-full md:w-1/2'>
                 <h1 className='text-3xl'>Tailwind CSS Component</h1>
@@ -547,7 +555,7 @@ export default function Home() {
                 <Button className="bg-[#cf1cff] px-9 py-5 text-xl">Buy Now</Button>
               </div>
               <div className='w-full md:w-1/2'>
-                <Image src={product1} className='w-full' />
+                <Image src={product1} alt="Sampoorna Arogya Product" className='w-full' />
               </div>
             </div>
           </div>

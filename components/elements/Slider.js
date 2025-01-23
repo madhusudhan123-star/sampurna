@@ -11,27 +11,32 @@ const Slider = () => {
         {
             image: "https://swiperjs.com/demos/images/nature-1.jpg",
             title: "Ashwaganda",
-            description: "Powerful adaptogenic herb that helps reduce stress and anxiety"
+            description: "Powerful adaptogenic herb that helps reduce stress and anxiety",
+            alt: "Ashwaganda herb illustration"
         },
         {
             image: "https://swiperjs.com/demos/images/nature-2.jpg",
             title: "Triphala",
-            description: "Ancient blend that supports digestive health and detoxification"
+            description: "Ancient blend that supports digestive health and detoxification",
+            alt: "Triphala blend illustration"
         },
         {
             image: "https://swiperjs.com/demos/images/nature-3.jpg",
             title: "Amla",
-            description: "Rich in Vitamin C, supports immunity and digestion"
+            description: "Rich in Vitamin C, supports immunity and digestion",
+            alt: "Amla fruit illustration"
         },
         {
             image: "https://swiperjs.com/demos/images/nature-4.jpg",
             title: "Haritaki",
-            description: "Natural digestive cleanser and rejuvenator"
+            description: "Natural digestive cleanser and rejuvenator",
+            alt: "Haritaki fruit illustration"
         },
         {
             image: "https://swiperjs.com/demos/images/nature-5.jpg",
             title: "Tulsi",
-            description: "Holy basil with powerful anti-inflammatory properties"
+            description: "Holy basil with powerful anti-inflammatory properties",
+            alt: "Tulsi plant illustration"
         }
     ];
 
@@ -116,6 +121,8 @@ const Slider = () => {
                                 style={{
                                     backgroundImage: `url(${ingredient.image})`,
                                 }}
+                                role="img"
+                                aria-label={ingredient.alt}
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent 
                                           flex flex-col justify-end p-4 md:p-8 transition-opacity duration-300 

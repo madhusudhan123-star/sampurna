@@ -1,10 +1,24 @@
-import React, { useState } from 'react';
+"use client"; // Add this line at the top
+import React, { useState, useEffect } from 'react'; // Add useEffect
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import dia from './diagustive.png';
 
 const DigestiveSystem = () => {
   const [activeOrgan, setActiveOrgan] = useState(null);
+  const [isMobile, setIsMobile] = useState(false); // Add this state
+  
+  // Add this useEffect to handle window check
+  useEffect(() => {
+    setIsMobile(window.innerWidth <= 768);
+    
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   
   const organs = [
     {
@@ -53,6 +67,11 @@ const DigestiveSystem = () => {
     }
   ];
 
+  // Skip rendering until we know if it's mobile or not
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
   return (
     <div className="relative w-full min-h-screen rounded-b-[70px] z-10 pt-10 md:pt-20 bg-gradient-to-r from-[#988967] via-[#F7E9CC] to-[#AB9C7A]">
       <div className="w-full max-w-[1920px] mx-auto px-2 md:px-8">
@@ -60,7 +79,7 @@ const DigestiveSystem = () => {
           Interactive Digestive System Guide
         </h2>
         <p className="text-center text-gray-600 text-sm md:text-base max-w-2xl mx-auto mb-6 md:mb-12 px-4">
-          {window.innerWidth <= 768 ? 'Tap on different points to explore' : 'Explore how your digestive system works by hovering over different points'}
+          {isMobile ? 'Tap on different points to explore' : 'Explore how your digestive system works by hovering over different points'}
         </p>
 
         <div className="relative w-full h-[60vh] md:h-[90vh] p-2 md:p-8">
@@ -68,7 +87,7 @@ const DigestiveSystem = () => {
             <div className="relative w-[90%] md:w-[60%] h-[95%]">
               <Image
                 src={dia}
-                alt="Digestive System"
+                alt="Interactive Digestive System Diagram"
                 className="object-contain"
                 fill
                 priority
@@ -81,8 +100,8 @@ const DigestiveSystem = () => {
               key={organ.id}
               className="absolute z-20"
               style={{
-                top: window.innerWidth <= 768 ? organ.position.mobile.top : organ.position.desktop.top,
-                left: window.innerWidth <= 768 ? organ.position.mobile.left : organ.position.desktop.left,
+                top: isMobile ? organ.position.mobile.top : organ.position.desktop.top,
+                left: isMobile ? organ.position.mobile.left : organ.position.desktop.left,
               }}
             >
               <motion.div
@@ -128,10 +147,10 @@ const DigestiveSystem = () => {
               </motion.div>
 
               {/* Info Box - Mobile and Desktop versions */}
-              {((window.innerWidth <= 768 && activeOrgan === organ.id) || window.innerWidth > 768) && (
+              {((isMobile && activeOrgan === organ.id) || !isMobile) && (
                 <div
                   className={`absolute p-3 md:p-6 bg-white rounded-lg shadow-xl border-l-4
-                    ${window.innerWidth <= 768 
+                    ${isMobile 
                       ? 'w-[280px] -translate-x-1/2 left-1/2 top-[120%]' 
                       : `${organ.side === 'left' ? '-left-[400px]' : '-right-[400px]'} 
                          top-1/2 -translate-y-1/2 w-[380px]`

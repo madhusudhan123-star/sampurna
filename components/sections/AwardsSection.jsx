@@ -67,7 +67,7 @@ export default function AwardsSection() {
               <div className={`mx-auto mb-4 relative ${award.customSize ? 'w-20 h-20 mb-10' : 'w-24 h-24'}`}>
                 <Image
                   src={award.image}
-                  alt={award.title}
+                  alt={`${award.title} - ${award.description}`}
                   layout="responsive"
                   width={100}
                   height={100}
