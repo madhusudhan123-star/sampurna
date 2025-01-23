@@ -43,38 +43,63 @@ const Slider = () => {
                     effect="coverflow"
                     grabCursor={true}
                     centeredSlides={true}
-                    slidesPerView={'auto'}
+                    loop={true} // Enable infinite loop
+                    slidesPerView={1}
+                    spaceBetween={30}
                     initialSlide={2}
+                    speed={800} // Smooth transition speed
                     coverflowEffect={{
-                        rotate: 0,
+                        rotate: 20, // Add slight rotation
                         stretch: 0,
-                        depth: 100,
-                        modifier: 2.5,
-                        slideShadows: false,
+                        depth: 200, // Increased depth effect
+                        modifier: 1,
+                        slideShadows: true,
                     }}
                     autoplay={{
                         delay: 3000,
                         disableOnInteraction: false,
                         pauseOnMouseEnter: true,
+                        waitForTransition: true,
                     }}
                     pagination={{
                         clickable: true,
+                        dynamicBullets: true, // Dynamic bullets for better UX
                     }}
                     breakpoints={{
                         320: {
                             slidesPerView: 1.2,
+                            spaceBetween: 20,
                             coverflowEffect: {
-                                stretch: 50,
+                                rotate: 10,
                                 depth: 100,
-                                modifier: 1.5,
+                                modifier: 1,
+                            }
+                        },
+                        640: {
+                            slidesPerView: 1.5,
+                            spaceBetween: 30,
+                            coverflowEffect: {
+                                rotate: 15,
+                                depth: 150,
+                                modifier: 1,
                             }
                         },
                         768: {
                             slidesPerView: 1.8,
+                            spaceBetween: 40,
                             coverflowEffect: {
-                                stretch: 100,
-                                depth: 150,
-                                modifier: 1.5,
+                                rotate: 20,
+                                depth: 200,
+                                modifier: 1,
+                            }
+                        },
+                        1024: {
+                            slidesPerView: 2.2,
+                            spaceBetween: 50,
+                            coverflowEffect: {
+                                rotate: 20,
+                                depth: 250,
+                                modifier: 1,
                             }
                         }
                     }}
@@ -84,18 +109,25 @@ const Slider = () => {
                     {ingredients.map((ingredient, index) => (
                         <SwiperSlide
                             key={index}
-                            className="swiper-slide !w-[280px] md:!w-[500px] !h-[250px] md:!h-[400px]"
-                            style={{
-                                background: `url(${ingredient.image})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center',
-                            }}
+                            className="swiper-slide !w-[280px] md:!w-[500px] !h-[250px] md:!h-[400px] relative rounded-xl overflow-hidden"
                         >
-                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent flex flex-col justify-end p-4 md:p-8">
-                                <h3 className="text-white text-lg md:text-2xl font-bold mb-2 md:mb-3">
+                            <div
+                                className="absolute inset-0 bg-cover bg-center transition-transform duration-300 hover:scale-110"
+                                style={{
+                                    backgroundImage: `url(${ingredient.image})`,
+                                }}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent 
+                                          flex flex-col justify-end p-4 md:p-8 transition-opacity duration-300 
+                                          opacity-90 hover:opacity-100">
+                                <h3 className="text-white text-lg md:text-2xl font-bold mb-2 md:mb-3 
+                                             transform transition-transform duration-300 translate-y-4 
+                                             group-hover:translate-y-0">
                                     {ingredient.title}
                                 </h3>
-                                <p className="text-white/90 text-sm md:text-base leading-relaxed">
+                                <p className="text-white/90 text-sm md:text-base leading-relaxed 
+                                            transform transition-transform duration-300 translate-y-4 
+                                            group-hover:translate-y-0">
                                     {ingredient.description}
                                 </p>
                             </div>

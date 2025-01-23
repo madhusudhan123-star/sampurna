@@ -782,7 +782,7 @@ function ReviewSection() {
         }
     }["ReviewSection.useEffect"], []);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "relative w-full overflow-hidden bg-black/95 py-8 md:py-16",
+        className: "relative w-full rounded-br-[200px] overflow-hidden bg-black/95 py-8 md:py-16",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute inset-0 z-0",
@@ -1014,129 +1014,360 @@ __turbopack_esm__({
     "default": (()=>BenefitsTimeline)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$intersection$2d$observer$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/react-intersection-observer/dist/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-client] (ecmascript)");
+;
+var _s = __turbopack_refresh__.signature();
+;
 ;
 function BenefitsTimeline() {
+    _s();
     const timelineData = [
         {
             day: "Day 1-7",
             benefit: "Initial digestive comfort improvement",
-            description: "Experience reduced bloating and better digestion"
+            description: "Experience reduced bloating and better digestion",
+            icon: "🌱",
+            additionalContent: {
+                details: [
+                    "Reduced stomach discomfort",
+                    "Better nutrient absorption",
+                    "Improved gut flora balance"
+                ],
+                tips: "Take with warm water before meals for best results"
+            }
         },
         {
             day: "Week 2-3",
             benefit: "Enhanced Gut Health",
-            description: "Notice improved nutrient absorption and regular bowel movements"
+            description: "Notice improved nutrient absorption and regular bowel movements",
+            icon: "💪",
+            additionalContent: {
+                details: [
+                    "Regular bowel movements",
+                    "Reduced acid reflux",
+                    "Better appetite control"
+                ],
+                tips: "Maintain consistent timing for supplement intake"
+            }
         },
         {
             day: "Month 1",
             benefit: "Overall Wellness",
-            description: "Feel more energetic and experience better immunity"
+            description: "Feel more energetic and experience better immunity",
+            icon: "⭐",
+            additionalContent: {
+                details: [
+                    "Increased energy levels",
+                    "Stronger immune system",
+                    "Better mental clarity"
+                ],
+                tips: "Combine with healthy diet for optimal results"
+            }
         }
     ];
+    const [ref, inView] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$intersection$2d$observer$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useInView"])({
+        triggerOnce: false,
+        threshold: 0.2
+    });
+    const containerVariants = {
+        hidden: {},
+        visible: {
+            transition: {
+                staggerChildren: 0.3
+            }
+        }
+    };
+    const itemVariants = {
+        hidden: {
+            opacity: 0,
+            y: 20
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6,
+                ease: "easeOut"
+            }
+        }
+    };
+    const lineVariants = {
+        hidden: {
+            scaleY: 0,
+            originY: 0
+        },
+        visible: {
+            scaleY: 1,
+            transition: {
+                duration: 1,
+                ease: "easeInOut"
+            }
+        }
+    };
+    const dotVariants = {
+        hidden: {
+            scale: 0
+        },
+        visible: {
+            scale: 1,
+            transition: {
+                type: "spring",
+                stiffness: 200,
+                damping: 10
+            }
+        }
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "py-20 bg-white",
+        className: "py-20 bg-white overflow-hidden",
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].h2, {
+                initial: {
+                    opacity: 0,
+                    y: -20
+                },
+                animate: {
+                    opacity: 1,
+                    y: 0
+                },
+                transition: {
+                    duration: 0.6
+                },
                 className: "text-3xl md:text-5xl text-center mb-16 font-bold text-[#2A6177]",
                 children: "Your Journey to Better Health"
             }, void 0, false, {
                 fileName: "[project]/components/sections/BenefitsTimeline.jsx",
-                lineNumber: 22,
+                lineNumber: 107,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "max-w-6xl mx-auto px-4",
+                ref: ref,
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "relative",
                     children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-[#43c3ff]"
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                            variants: lineVariants,
+                            initial: "hidden",
+                            animate: inView ? "visible" : "hidden",
+                            className: "absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#cf1cff] to-[#cf1cff]"
                         }, void 0, false, {
                             fileName: "[project]/components/sections/BenefitsTimeline.jsx",
-                            lineNumber: 28,
+                            lineNumber: 118,
                             columnNumber: 11
                         }, this),
-                        timelineData.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: `flex ${index % 2 === 0 ? 'flex-row-reverse' : ''} mb-16`,
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "w-1/2 pr-8",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                    className: "text-xl font-bold text-[#2A6177] mb-2",
-                                                    children: item.day
-                                                }, void 0, false, {
-                                                    fileName: "[project]/components/sections/BenefitsTimeline.jsx",
-                                                    lineNumber: 34,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                                                    className: "text-lg font-semibold mb-2",
-                                                    children: item.benefit
-                                                }, void 0, false, {
-                                                    fileName: "[project]/components/sections/BenefitsTimeline.jsx",
-                                                    lineNumber: 35,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-gray-600",
-                                                    children: item.description
-                                                }, void 0, false, {
-                                                    fileName: "[project]/components/sections/BenefitsTimeline.jsx",
-                                                    lineNumber: 36,
-                                                    columnNumber: 19
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/components/sections/BenefitsTimeline.jsx",
-                                            lineNumber: 33,
-                                            columnNumber: 17
-                                        }, this)
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/sections/BenefitsTimeline.jsx",
-                                        lineNumber: 32,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "w-1/2 flex justify-center items-center",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "w-4 h-4 bg-[#43c3ff] rounded-full relative z-10"
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                            variants: containerVariants,
+                            initial: "hidden",
+                            animate: inView ? "visible" : "hidden",
+                            children: timelineData.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                                    variants: itemVariants,
+                                    className: `flex ${index % 2 === 0 ? 'flex-row-reverse' : ''} mb-16`,
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "w-1/2 px-8",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                                                whileHover: {
+                                                    scale: 1.02,
+                                                    transition: {
+                                                        duration: 0.2
+                                                    }
+                                                },
+                                                className: "bg-white p-6 rounded-xl shadow-lg group hover:shadow-xl transition-all duration-300 relative overflow-hidden",
+                                                style: {
+                                                    background: "linear-gradient(145deg, #ffffff, #f3f3f3)",
+                                                    boxShadow: "5px 5px 15px #d1d1d1, -5px -5px 15px #ffffff"
+                                                },
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "relative z-10 transition-all duration-300 group-hover:translate-y-[-8px]",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                className: "absolute -left-4 top-4 w-8 h-8 rounded-full bg-[#cf1cff] flex items-center justify-center text-white text-xl",
+                                                                children: item.icon
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/sections/BenefitsTimeline.jsx",
+                                                                lineNumber: 150,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                                className: "text-xl font-bold text-[#2A6177] mb-2",
+                                                                children: item.day
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/sections/BenefitsTimeline.jsx",
+                                                                lineNumber: 153,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                                className: "text-lg font-semibold mb-2 text-gray-800",
+                                                                children: item.benefit
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/sections/BenefitsTimeline.jsx",
+                                                                lineNumber: 154,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                className: "text-gray-600",
+                                                                children: item.description
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/components/sections/BenefitsTimeline.jsx",
+                                                                lineNumber: 155,
+                                                                columnNumber: 23
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/components/sections/BenefitsTimeline.jsx",
+                                                        lineNumber: 149,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                                                        className: "mt-4 overflow-hidden transition-all duration-300 h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 group-hover:mt-6",
+                                                        initial: false,
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "border-t pt-4",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h5", {
+                                                                    className: "font-semibold text-[#2A6177] mb-2",
+                                                                    children: "Key Benefits:"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/components/sections/BenefitsTimeline.jsx",
+                                                                    lineNumber: 164,
+                                                                    columnNumber: 25
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                                                                    className: "space-y-2",
+                                                                    children: item.additionalContent.details.map((detail, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                                            className: "flex items-center text-gray-600",
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                                    className: "w-2 h-2 bg-[#cf1cff] rounded-full mr-2"
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/components/sections/BenefitsTimeline.jsx",
+                                                                                    lineNumber: 168,
+                                                                                    columnNumber: 31
+                                                                                }, this),
+                                                                                detail
+                                                                            ]
+                                                                        }, idx, true, {
+                                                                            fileName: "[project]/components/sections/BenefitsTimeline.jsx",
+                                                                            lineNumber: 167,
+                                                                            columnNumber: 29
+                                                                        }, this))
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/components/sections/BenefitsTimeline.jsx",
+                                                                    lineNumber: 165,
+                                                                    columnNumber: 25
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "mt-4 bg-[#f8f8f8] p-3 rounded-lg",
+                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                        className: "text-sm text-gray-600 italic",
+                                                                        children: [
+                                                                            "💡 Tip: ",
+                                                                            item.additionalContent.tips
+                                                                        ]
+                                                                    }, void 0, true, {
+                                                                        fileName: "[project]/components/sections/BenefitsTimeline.jsx",
+                                                                        lineNumber: 174,
+                                                                        columnNumber: 27
+                                                                    }, this)
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/components/sections/BenefitsTimeline.jsx",
+                                                                    lineNumber: 173,
+                                                                    columnNumber: 25
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/components/sections/BenefitsTimeline.jsx",
+                                                            lineNumber: 163,
+                                                            columnNumber: 23
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/sections/BenefitsTimeline.jsx",
+                                                        lineNumber: 159,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/components/sections/BenefitsTimeline.jsx",
+                                                lineNumber: 137,
+                                                columnNumber: 19
+                                            }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/sections/BenefitsTimeline.jsx",
-                                            lineNumber: 40,
+                                            lineNumber: 136,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "w-1/2 flex justify-center items-center",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                                                variants: dotVariants,
+                                                className: "w-6 h-6 bg-[#cf1cff] rounded-full relative z-10 shadow-lg",
+                                                whileHover: {
+                                                    scale: 1.2
+                                                },
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                                                    animate: {
+                                                        scale: [
+                                                            1,
+                                                            1.2,
+                                                            1
+                                                        ]
+                                                    },
+                                                    transition: {
+                                                        duration: 2,
+                                                        repeat: Infinity
+                                                    },
+                                                    className: "absolute inset-0 bg-[#cf1cff] rounded-full opacity-50"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/components/sections/BenefitsTimeline.jsx",
+                                                    lineNumber: 189,
+                                                    columnNumber: 21
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/sections/BenefitsTimeline.jsx",
+                                                lineNumber: 184,
+                                                columnNumber: 19
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/sections/BenefitsTimeline.jsx",
+                                            lineNumber: 183,
                                             columnNumber: 17
                                         }, this)
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/sections/BenefitsTimeline.jsx",
-                                        lineNumber: 39,
-                                        columnNumber: 15
-                                    }, this)
-                                ]
-                            }, index, true, {
-                                fileName: "[project]/components/sections/BenefitsTimeline.jsx",
-                                lineNumber: 31,
-                                columnNumber: 13
-                            }, this))
+                                    ]
+                                }, index, true, {
+                                    fileName: "[project]/components/sections/BenefitsTimeline.jsx",
+                                    lineNumber: 131,
+                                    columnNumber: 15
+                                }, this))
+                        }, void 0, false, {
+                            fileName: "[project]/components/sections/BenefitsTimeline.jsx",
+                            lineNumber: 125,
+                            columnNumber: 11
+                        }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/sections/BenefitsTimeline.jsx",
-                    lineNumber: 26,
+                    lineNumber: 117,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/sections/BenefitsTimeline.jsx",
-                lineNumber: 25,
+                lineNumber: 116,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/sections/BenefitsTimeline.jsx",
-        lineNumber: 21,
+        lineNumber: 106,
         columnNumber: 5
     }, this);
 }
+_s(BenefitsTimeline, "GpcLnEGLCRT/LcXgsVwPMCbjDPg=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$intersection$2d$observer$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useInView"]
+    ];
+});
 _c = BenefitsTimeline;
 var _c;
 __turbopack_refresh__.register(_c, "BenefitsTimeline");
@@ -1498,6 +1729,14 @@ __turbopack_esm__({
     "default": (()=>ComparisonTable)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+(()=>{
+    const e = new Error("Cannot find module '@/assets/female_arrow.jpeg'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/image.js [app-client] (ecmascript)");
+;
+;
 ;
 function ComparisonTable() {
     const features = [
@@ -1518,131 +1757,141 @@ function ComparisonTable() {
                     children: "Why Choose Sampoorna Arogya?"
                 }, void 0, false, {
                     fileName: "[project]/components/sections/ComparisonTable.jsx",
-                    lineNumber: 14,
+                    lineNumber: 17,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "overflow-x-auto",
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
-                        className: "w-full",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("thead", {
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
-                                    className: "bg-[#2A6177]",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                            className: "px-6 py-4 text-left rounded-tl-lg text-white",
-                                            children: "Features"
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/sections/ComparisonTable.jsx",
-                                            lineNumber: 21,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                            className: "px-6 py-4 text-center text-white",
-                                            children: "Sampoorna Arogya"
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/sections/ComparisonTable.jsx",
-                                            lineNumber: 22,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                            className: "px-6 py-4 text-center text-white",
-                                            children: "Other Brands"
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/sections/ComparisonTable.jsx",
-                                            lineNumber: 23,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                            className: "px-6 py-4 text-center rounded-tr-lg text-white",
-                                            children: "Generic Products"
-                                        }, void 0, false, {
-                                            fileName: "[project]/components/sections/ComparisonTable.jsx",
-                                            lineNumber: 24,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
+                    className: "overflow-x-auto flex items-center justify-center",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                            src: arrow,
+                            className: "w-1/5"
+                        }, void 0, false, {
+                            fileName: "[project]/components/sections/ComparisonTable.jsx",
+                            lineNumber: 21,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
+                            className: "w-4/5",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("thead", {
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                                        className: "bg-[#2A6177]",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                                className: "px-6 py-4 text-left rounded-tl-lg text-white",
+                                                children: "Features"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/sections/ComparisonTable.jsx",
+                                                lineNumber: 25,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                                className: "px-6 py-4 text-center text-white",
+                                                children: "Sampoorna Arogya"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/sections/ComparisonTable.jsx",
+                                                lineNumber: 26,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                                className: "px-6 py-4 text-center text-white",
+                                                children: "Other Brands"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/sections/ComparisonTable.jsx",
+                                                lineNumber: 27,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                                className: "px-6 py-4 text-center rounded-tr-lg text-white",
+                                                children: "Generic Products"
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/sections/ComparisonTable.jsx",
+                                                lineNumber: 28,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/components/sections/ComparisonTable.jsx",
+                                        lineNumber: 24,
+                                        columnNumber: 15
+                                    }, this)
+                                }, void 0, false, {
                                     fileName: "[project]/components/sections/ComparisonTable.jsx",
-                                    lineNumber: 20,
-                                    columnNumber: 15
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/components/sections/ComparisonTable.jsx",
-                                lineNumber: 19,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
-                                children: features.map((feature, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
-                                        className: `
+                                    lineNumber: 23,
+                                    columnNumber: 13
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
+                                    children: features.map((feature, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                                            className: `
                   ${index % 2 === 0 ? 'bg-[#1a1a1a]' : 'bg-[#222222]'}
                   transition-colors duration-200
                 `,
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                className: "px-6 py-4 text-gray-300",
-                                                children: feature
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/sections/ComparisonTable.jsx",
-                                                lineNumber: 33,
-                                                columnNumber: 19
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                className: "px-6 py-4 text-center text-green-400",
-                                                children: "✓"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/sections/ComparisonTable.jsx",
-                                                lineNumber: 34,
-                                                columnNumber: 19
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                className: "px-6 py-4 text-center text-red-400",
-                                                children: "✗"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/sections/ComparisonTable.jsx",
-                                                lineNumber: 35,
-                                                columnNumber: 19
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                                className: "px-6 py-4 text-center text-red-400",
-                                                children: "✗"
-                                            }, void 0, false, {
-                                                fileName: "[project]/components/sections/ComparisonTable.jsx",
-                                                lineNumber: 36,
-                                                columnNumber: 19
-                                            }, this)
-                                        ]
-                                    }, index, true, {
-                                        fileName: "[project]/components/sections/ComparisonTable.jsx",
-                                        lineNumber: 29,
-                                        columnNumber: 17
-                                    }, this))
-                            }, void 0, false, {
-                                fileName: "[project]/components/sections/ComparisonTable.jsx",
-                                lineNumber: 27,
-                                columnNumber: 13
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/components/sections/ComparisonTable.jsx",
-                        lineNumber: 18,
-                        columnNumber: 11
-                    }, this)
-                }, void 0, false, {
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                    className: "px-6 py-4 text-gray-300",
+                                                    children: feature
+                                                }, void 0, false, {
+                                                    fileName: "[project]/components/sections/ComparisonTable.jsx",
+                                                    lineNumber: 37,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                    className: "px-6 py-4 text-center text-green-400",
+                                                    children: "✓"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/components/sections/ComparisonTable.jsx",
+                                                    lineNumber: 38,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                    className: "px-6 py-4 text-center text-red-400",
+                                                    children: "✗"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/components/sections/ComparisonTable.jsx",
+                                                    lineNumber: 39,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                    className: "px-6 py-4 text-center text-red-400",
+                                                    children: "✗"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/components/sections/ComparisonTable.jsx",
+                                                    lineNumber: 40,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, index, true, {
+                                            fileName: "[project]/components/sections/ComparisonTable.jsx",
+                                            lineNumber: 33,
+                                            columnNumber: 17
+                                        }, this))
+                                }, void 0, false, {
+                                    fileName: "[project]/components/sections/ComparisonTable.jsx",
+                                    lineNumber: 31,
+                                    columnNumber: 13
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/components/sections/ComparisonTable.jsx",
+                            lineNumber: 22,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
                     fileName: "[project]/components/sections/ComparisonTable.jsx",
-                    lineNumber: 17,
+                    lineNumber: 20,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/sections/ComparisonTable.jsx",
-            lineNumber: 13,
+            lineNumber: 16,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/sections/ComparisonTable.jsx",
-        lineNumber: 12,
+        lineNumber: 15,
         columnNumber: 5
     }, this);
 }
@@ -2865,7 +3114,7 @@ function Home() {
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "flex relative bg-[#8de8f825] overflow-x-hidden min-h-screen",
+        className: "flex relative  overflow-x-hidden min-h-screen",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "fixed left-0 top-0 md:w-1/5 w-full md:h-screen bg-transparent z-[999]",
@@ -3576,6 +3825,14 @@ function Home() {
                                                     fileName: "[project]/app/page.js",
                                                     lineNumber: 513,
                                                     columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                    className: "bg-[#cf1cff] px-9 py-5 text-xl",
+                                                    children: "Buy Now"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/page.js",
+                                                    lineNumber: 514,
+                                                    columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
@@ -3605,20 +3862,28 @@ function Home() {
                                                     children: "Tailwind CSS Component"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 525,
+                                                    lineNumber: 526,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                     children: "Yes, there are several alternative tools related to Google that can help with PPC campaign management, keyword research, and competitor analysis. These tools leverage Google’s data and insights to help businesses optimize their digital advertising strategies. Here’s a list of alternatives:"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 526,
+                                                    lineNumber: 527,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                    className: "bg-[#cf1cff] px-9 py-5 text-xl",
+                                                    children: "Buy Now"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/page.js",
+                                                    lineNumber: 528,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/page.js",
-                                            lineNumber: 524,
+                                            lineNumber: 525,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3628,18 +3893,18 @@ function Home() {
                                                 className: "w-full"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/page.js",
-                                                lineNumber: 529,
+                                                lineNumber: 531,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/page.js",
-                                            lineNumber: 528,
+                                            lineNumber: 530,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/page.js",
-                                    lineNumber: 516,
+                                    lineNumber: 517,
                                     columnNumber: 13
                                 }, this)
                             ]
@@ -3649,135 +3914,42 @@ function Home() {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "w-full relative py-12 md:py-16 overflow-hidden",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "absolute inset-0 w-full h-full",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                            src: __TURBOPACK__imported__module__$5b$project$5d2f$assets$2f$small_banner$2e$webp$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$assets$2f$small_banner$2e$webp__$5b$app$2d$client$5d$__$28$static$2922$__$7d$__$5b$app$2d$client$5d$__$28$structured__image__object$2c$__ecmascript$29$__["default"],
-                                            alt: "Banner Background",
-                                            fill: true,
-                                            className: "object-cover",
-                                            priority: true
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/page.js",
-                                            lineNumber: 538,
-                                            columnNumber: 15
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "absolute inset-0 bg-[#2A6177]/50"
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/page.js",
-                                            lineNumber: 546,
-                                            columnNumber: 15
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/app/page.js",
-                                    lineNumber: 537,
-                                    columnNumber: 13
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "relative z-10 max-w-7xl mx-auto px-4 md:px-8",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "flex flex-col md:flex-row items-center justify-between gap-8",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "text-center md:text-left space-y-4 md:w-2/3",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                                        className: "text-2xl md:text-4xl font-bold text-white",
-                                                        children: "Experience Natural Digestive Wellness"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/page.js",
-                                                        lineNumber: 553,
-                                                        columnNumber: 19
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "text-white/90 text-sm md:text-base max-w-2xl",
-                                                        children: "Join thousands of satisfied customers who have discovered the power of Ayurvedic healing with Sampoorna Arogya"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/page.js",
-                                                        lineNumber: 556,
-                                                        columnNumber: 19
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/app/page.js",
-                                                lineNumber: 552,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "flex justify-center md:justify-end md:w-1/3",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                                    onClick: ()=>router.push('/product'),
-                                                    className: "bg-white text-[#2A6177] hover:bg-[#43c3ff] hover:text-white px-8 py-3 rounded-full transition-all duration-300 text-sm md:text-base font-semibold shadow-lg hover:shadow-xl",
-                                                    children: "Shop Now"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/page.js",
-                                                    lineNumber: 561,
-                                                    columnNumber: 19
-                                                }, this)
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/page.js",
-                                                lineNumber: 560,
-                                                columnNumber: 17
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/page.js",
-                                        lineNumber: 551,
-                                        columnNumber: 15
-                                    }, this)
-                                }, void 0, false, {
-                                    fileName: "[project]/app/page.js",
-                                    lineNumber: 550,
-                                    columnNumber: 13
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/app/page.js",
-                            lineNumber: 535,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "w-full bg-[#8de8f825] py-16",
+                            className: "w-full py-16",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$elements$2f$ReviewSection$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                 fileName: "[project]/app/page.js",
-                                lineNumber: 576,
+                                lineNumber: 540,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/page.js",
-                            lineNumber: 575,
+                            lineNumber: 539,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             ref: benefitsRef,
-                            className: `${fadeInUp}`,
+                            className: `${fadeInUp} bg-white`,
                             style: {
                                 transform: benefitsInView ? 'translateY(0)' : 'translateY(50px)',
                                 opacity: benefitsInView ? 1 : 0
                             },
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$BenefitsTimeline$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                                 fileName: "[project]/app/page.js",
-                                lineNumber: 588,
+                                lineNumber: 552,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/page.js",
-                            lineNumber: 580,
+                            lineNumber: 544,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$AwardsSection$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                             fileName: "[project]/app/page.js",
-                            lineNumber: 590,
+                            lineNumber: 554,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$sections$2f$ComparisonTable$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                             fileName: "[project]/app/page.js",
-                            lineNumber: 591,
+                            lineNumber: 555,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3788,7 +3960,7 @@ function Home() {
                                     children: "Frequently Asked Questions"
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.js",
-                                    lineNumber: 595,
+                                    lineNumber: 559,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3811,26 +3983,26 @@ function Home() {
                                                             children: faq.question
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/page.js",
-                                                            lineNumber: 612,
+                                                            lineNumber: 576,
                                                             columnNumber: 21
                                                         }, this),
                                                         openFaq === index ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$minus$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Minus$3e$__["Minus"], {
                                                             className: "h-5 w-5 text-[#2A6177]"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/page.js",
-                                                            lineNumber: 614,
+                                                            lineNumber: 578,
                                                             columnNumber: 23
                                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__["Plus"], {
                                                             className: "h-5 w-5 text-[#2A6177]"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/page.js",
-                                                            lineNumber: 616,
+                                                            lineNumber: 580,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 608,
+                                                    lineNumber: 572,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3840,34 +4012,34 @@ function Home() {
                                                         children: faq.answer
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/page.js",
-                                                        lineNumber: 623,
+                                                        lineNumber: 587,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/page.js",
-                                                    lineNumber: 619,
+                                                    lineNumber: 583,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, index, true, {
                                             fileName: "[project]/app/page.js",
-                                            lineNumber: 598,
+                                            lineNumber: 562,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/app/page.js",
-                                    lineNumber: 596,
+                                    lineNumber: 560,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/page.js",
-                            lineNumber: 594,
+                            lineNumber: 558,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$elements$2f$Footer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                             fileName: "[project]/app/page.js",
-                            lineNumber: 631,
+                            lineNumber: 595,
                             columnNumber: 11
                         }, this)
                     ]

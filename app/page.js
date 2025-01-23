@@ -17,12 +17,13 @@ import AwardsSection from '@/components/sections/AwardsSection';
 import ComparisonTable from '@/components/sections/ComparisonTable';
 import Footer from '@/components/elements/Footer';
 import { useInView } from 'react-intersection-observer'; // Add this import
-import heroLarge from '../assets/test/image-1920x1281.jpg';
-import heroMedium from '../assets/test/image-1200x200.jpg';
-import heroSmall from '../assets/test/image-480x250.jpg';
+import heroLarge from '../assets/test/1400x400.jpg';
+import heroMedium from '../assets/test/480x250.jpg';
+import heroSmall from '../assets/test/1920x1281.jpg';
 import DigestiveSystem from '../components/elements/DigestiveSystem'
 import Slider from '../components/elements/Slider';
-import bannerBg from '@/assets/small_banner.webp' // Add this import at the top
+import smallbanner from '../assets/test/1400x400.jpg';
+import smallbanner1 from '../assets/test/1400x400_1.jpg';
 
 export default function Home() {
   const router = useRouter(); // Add this line
@@ -227,7 +228,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex relative bg-[#8de8f825] overflow-x-hidden min-h-screen">
+    <div className="flex relative  overflow-x-hidden min-h-screen">
       {/* Navbar container - Updated background */}
       <div className='fixed left-0 top-0 md:w-1/5 w-full md:h-screen bg-transparent z-[999]'>
         <Navbar />
@@ -266,7 +267,7 @@ export default function Home() {
                 </div>
               </picture>
               {/* Dark overlay */}
-              <div className="absolute inset-0 bg-black/50" />
+              <div className="absolute inset-0 bg-black/20" />
             </div>
 
             {/* Content Container */}
@@ -283,21 +284,21 @@ export default function Home() {
                 </div>
                 {/* Navigation - Desktop only */}
                 <nav className='hidden md:flex items-center space-x-8'>
-                  <a href="#about" className="text-white/90 hover:text-white transition-colors text-sm">About</a>
-                  <a href="#products" className="text-white/90 hover:text-white transition-colors text-sm">Products</a>
-                  <a href="#benefits" className="text-white/90 hover:text-white transition-colors text-sm">Benefits</a>
-                  <Button
+                  {/* <Button
                     className="bg-orange-500 hover:bg-orange-400 text-white text-sm px-6"
                     onClick={() => router.push('/contact')}
                   >
                     Contact Us
+                  </Button> */}
+                  <Button onClick={() => router.push('/product')} className="bg-[rgb(76,238,84)] hover:bg-[#43c3ff] text-white px-6 py-2.5 md:px-10 md:py-7 rounded-full transition-all duration-300 text-lg md:text-xl">
+                    Order Now
                   </Button>
                 </nav>
               </header>
 
               {/* Hero Content - Centered */}
               <div className='flex-1 flex flex-col items-center justify-center text-center max-w-4xl mx-auto'>
-                <h1 className='text-white font-bold'>
+                {/* <h1 className='text-white font-bold'>
                   <span className='block text-3xl sm:text-5xl md:text-6xl lg:text-7xl'>
                     Sampoorn Arogya
                   </span>
@@ -307,13 +308,8 @@ export default function Home() {
                 </h1>
                 <p className='text-white/80 text-sm md:text-base max-w-2xl mx-auto mt-6 mb-8'>
                   Discover the Secret to a Healthy Digestive System with Sampoorna Arogya!
-                </p>
-                <Button
-                  onClick={() => router.push('/product')}
-                  className="bg-[#2A6177] hover:bg-[#43c3ff] text-white px-6 py-2.5 md:px-8 md:py-3 rounded-full transition-all duration-300 text-sm md:text-base"
-                >
-                  Explore Our Products
-                </Button>
+                </p> */}
+
               </div>
             </div>
           </section>
@@ -423,6 +419,29 @@ export default function Home() {
             </div>
           </div>
 
+          <div className='relative w-full h-[300px]'>
+            <Image src={smallbanner} className="absolute w-full z-0 inset-0" />
+            <div className='relative p-10 z-10 w-1/2 text-white'>
+              <h1 className='text-3xl font-bold'>Content</h1>
+              <p className='text-xl '>This error occurs because you're trying to access the window object during server-side rendering (SSR) in Next.js. The window object is only available in the browser environment, not during server-side rendering.</p>
+              <Button onClick={() => router.push('/product')} className="bg-[rgb(76,238,84)] mt-5 hover:bg-[#43c3ff] text-white px-6 py-2.5 md:px-10 md:py-7 rounded-full transition-all duration-300 text-lg md:text-3xl">
+                Order Now
+              </Button>
+            </div>
+          </div>
+          <div className='relative w-full h-[400px]'>
+            <Image src={smallbanner1} className="absolute w-full z-0 inset-0" />
+            <div className='relative z-10 h-full flex justify-end'>
+              <div className='p-10 w-4/12 text-white'>
+                <h1 className='text-3xl font-bold'>Content</h1>
+                <p className='text-xl '>This error occurs because you're trying to access the window object during server-side rendering.</p>
+                <Button onClick={() => router.push('/product')} className="bg-[rgb(76,238,84)] mt-5 hover:bg-[#43c3ff] text-white px-6 py-2.5 md:px-10 md:py-7 rounded-full transition-all duration-300 text-lg md:text-3xl">
+                  Order Now
+                </Button>
+              </div>
+            </div>
+          </div>
+
 
 
           <DigestiveSystem />
@@ -432,9 +451,9 @@ export default function Home() {
           <Slider />
 
           {/* Features Grid - Updated for mobile */}
-          <div ref={featureRef} className={`flex-none px-4 py-5 md:py-20 md:px-20 ${fadeInUp}`} style={{ transform: featureInView ? 'translateY(0)' : 'translateY(50px)', opacity: featureInView ? 1 : 0, }}>
+          <div ref={featureRef} className={`flex-none px-4 py-5 ${fadeInUp}`} style={{ transform: featureInView ? 'translateY(0)' : 'translateY(50px)', opacity: featureInView ? 1 : 0, }}>
             <div className='flex flex-col justify-start items-center gap-8 md:gap-10'>
-              <h1 className='text-3xl md:text-5xl text-center'>The Problem which it Solves</h1>
+              {/* <h1 className='text-3xl md:text-5xl text-center'>The Problem which it Solves</h1> */}
               <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-20'>
                 <div className='flex flex-col items-center gap-4'>
                   <div className='relative w-32 h-32 rounded-full bg-[#8de8f825] flex justify-center items-center group cursor-pointer hover:bg-[#8de8f850] transition-all duration-300'>
@@ -444,8 +463,8 @@ export default function Home() {
                       className='w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300'
                     />
                   </div>
-                  <h3 className='text-xl font-semibold text-[#2A6177]'>Natural Herbs</h3>
-                  <p className='text-center text-sm text-gray-600 max-w-[200px]'> Pure herbal ingredients sourced from nature best resources </p>
+                  {/* <h3 className='text-xl font-semibold text-[#2A6177]'>Natural Herbs</h3>
+                  <p className='text-center text-sm text-gray-600 max-w-[200px]'> Pure herbal ingredients sourced from nature best resources </p> */}
                 </div>
 
                 <div className='flex flex-col items-center gap-4'>
@@ -456,10 +475,10 @@ export default function Home() {
                       className='w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300'
                     />
                   </div>
-                  <h3 className='text-xl font-semibold text-[#2A6177]'>Heart Health</h3>
+                  {/* <h3 className='text-xl font-semibold text-[#2A6177]'>Heart Health</h3>
                   <p className='text-center text-sm text-gray-600 max-w-[200px]'>
                     Supports cardiovascular health and overall well-being
-                  </p>
+                  </p> */}
                 </div>
 
                 <div className='flex flex-col items-center gap-4'>
@@ -470,10 +489,10 @@ export default function Home() {
                       className='w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300'
                     />
                   </div>
-                  <h3 className='text-xl font-semibold text-[#2A6177]'>Quick Relief</h3>
+                  {/* <h3 className='text-xl font-semibold text-[#2A6177]'>Quick Relief</h3>
                   <p className='text-center text-sm text-gray-600 max-w-[200px]'>
                     Fast-acting formula for digestive discomfort
-                  </p>
+                  </p> */}
                 </div>
 
                 <div className='flex flex-col items-center gap-4'>
@@ -484,10 +503,10 @@ export default function Home() {
                       className='w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300'
                     />
                   </div>
-                  <h3 className='text-xl font-semibold text-[#2A6177]'>Anti-Bloating</h3>
+                  {/* <h3 className='text-xl font-semibold text-[#2A6177]'>Anti-Bloating</h3>
                   <p className='text-center text-sm text-gray-600 max-w-[200px]'>
                     Reduces bloating and improves digestive comfort
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -496,7 +515,7 @@ export default function Home() {
 
 
           {/* Product Sections - Updated for mobile */}
-          <div ref={productRef} className='w-full bg-[#8de8f825] p-4 md:p-6' >
+          <div ref={productRef} className='w-full p-4 md:p-6' >
             <div
               className={`flex flex-col md:flex-row justify-center gap-6 md:gap-10 items-center ${fadeInUp}`}
               style={{
@@ -511,6 +530,7 @@ export default function Home() {
               <div className='w-full md:w-1/2'>
                 <h1 className='text-3xl'>Tailwind CSS Component</h1>
                 <p>Yes, there are several alternative tools related to Google that can help with PPC campaign management, keyword research, and competitor analysis. These tools leverage Google’s data and insights to help businesses optimize their digital advertising strategies. Here’s a list of alternatives:</p>
+                <Button className="bg-[#cf1cff] px-9 py-5 text-xl">Buy Now</Button>
               </div>
             </div>
             <div
@@ -524,6 +544,7 @@ export default function Home() {
               <div className='w-full md:w-1/2'>
                 <h1 className='text-3xl'>Tailwind CSS Component</h1>
                 <p>Yes, there are several alternative tools related to Google that can help with PPC campaign management, keyword research, and competitor analysis. These tools leverage Google’s data and insights to help businesses optimize their digital advertising strategies. Here’s a list of alternatives:</p>
+                <Button className="bg-[#cf1cff] px-9 py-5 text-xl">Buy Now</Button>
               </div>
               <div className='w-full md:w-1/2'>
                 <Image src={product1} className='w-full' />
@@ -531,55 +552,16 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Small Banner Section */}
-          <div className="w-full relative py-12 md:py-16 overflow-hidden">
-            {/* Background Image */}
-            <div className="absolute inset-0 w-full h-full">
-              <Image
-                src={bannerBg}
-                alt="Banner Background"
-                fill
-                className="object-cover"
-                priority
-              />
-              {/* Dark Overlay with brand color */}
-              <div className="absolute inset-0 bg-[#2A6177]/50" />
-            </div>
-
-            {/* Content */}
-            <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-                <div className="text-center md:text-left space-y-4 md:w-2/3">
-                  <h2 className="text-2xl md:text-4xl font-bold text-white">
-                    Experience Natural Digestive Wellness
-                  </h2>
-                  <p className="text-white/90 text-sm md:text-base max-w-2xl">
-                    Join thousands of satisfied customers who have discovered the power of Ayurvedic healing with Sampoorna Arogya
-                  </p>
-                </div>
-                <div className="flex justify-center md:justify-end md:w-1/3">
-                  <Button
-                    onClick={() => router.push('/product')}
-                    className="bg-white text-[#2A6177] hover:bg-[#43c3ff] hover:text-white px-8 py-3 rounded-full transition-all duration-300 text-sm md:text-base font-semibold shadow-lg hover:shadow-xl"
-                  >
-                    Shop Now
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* small banner */}
 
           {/* Add this before the FAQ section */}
-          <div className="w-full bg-[#8de8f825] py-16">
+          <div className="w-full py-16">
             <ReviewSection />
           </div>
 
           {/* Add these sections before the FAQ section */}
           <div
             ref={benefitsRef}
-            className={`${fadeInUp}`}
+            className={`${fadeInUp} bg-white`}
             style={{
               transform: benefitsInView ? 'translateY(0)' : 'translateY(50px)',
               opacity: benefitsInView ? 1 : 0,

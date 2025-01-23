@@ -1,3 +1,6 @@
+import arrow from '@/assets/female_arrow.png'
+import Image from 'next/image';
+
 export default function ComparisonTable() {
   const features = [
     "Natural Ingredients",
@@ -14,8 +17,9 @@ export default function ComparisonTable() {
         <h2 className="text-3xl md:text-5xl text-center mb-16 font-bold text-white">
           Why Choose Sampoorna Arogya?
         </h2>
-        <div className="overflow-x-auto">
-          <table className="w-full">
+        <div className="overflow-x-auto flex items-center justify-center">
+          <Image src={arrow} className='w-2/6' />
+          <table className="w-4/6">
             <thead>
               <tr className="bg-[#2A6177]">
                 <th className="px-6 py-4 text-left rounded-tl-lg text-white">Features</th>

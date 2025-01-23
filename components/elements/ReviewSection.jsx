@@ -2,7 +2,18 @@
 import { useEffect, useRef } from 'react';
 import Matter from 'matter-js';
 import Image from 'next/image';
-import reviewImage from '../../assets/logo.png'; // Add your image to assets folder
+import reviewImage from '../../assets/face/two.jpg'; // Add your image to assets folder
+import one from '../../assets/face/one.avif'
+import two from '../../assets/face/two.jpg'
+import three from '../../assets/face/three.avif'
+import four from '../../assets/face/four.avif'
+import five from '../../assets/face/five.jpg'
+import six from '../../assets/face/six.jpg'
+import seven from '../../assets/face/seven.avif'
+import eight from '../../assets/face/eight.avif'
+import nine from '../../assets/face/nine.avif'
+import ten from '../../assets/face/ten.avif'
+import ten_one from '../../assets/face/ten_one.jpg'
 
 const reviews = [
     {
@@ -12,7 +23,7 @@ const reviews = [
         designation: "Verified Buyer",
         location: "Bangalore",
         date: "2 months ago",
-        image: reviewImage // Use local image
+        image: ten_one // Use local image
         // image: "https://ui-avatars.com/api/?name=John+Doe&background=2A6177&color=fff" // Added image URL
     },
     {
@@ -22,7 +33,7 @@ const reviews = [
         designation: "Regular Customer",
         location: "Mumbai",
         date: "1 month ago",
-        image: reviewImage // Use local image
+        image: ten // Use local image
     },
     {
         name: "Mike Johnson",
@@ -31,7 +42,7 @@ const reviews = [
         designation: "Health Expert",
         location: "Delhi",
         date: "3 months ago",
-        image: reviewImage // Use local image
+        image: three // Use local image
     },
     {
         name: "John Doe",
@@ -40,7 +51,7 @@ const reviews = [
         designation: "Verified Buyer",
         location: "Bangalore",
         date: "2 months ago",
-        image: reviewImage // Use local image
+        image: four // Use local image
     },
     {
         name: "Jane Smith",
@@ -49,7 +60,7 @@ const reviews = [
         designation: "Regular Customer",
         location: "Mumbai",
         date: "1 month ago",
-        image: reviewImage // Use local image
+        image: five // Use local image
     },
     {
         name: "Mike Johnson",
@@ -58,7 +69,7 @@ const reviews = [
         designation: "Health Expert",
         location: "Delhi",
         date: "3 months ago",
-        image: reviewImage // Use local image
+        image: six // Use local image
     },
     {
         name: "John Doe",
@@ -67,7 +78,7 @@ const reviews = [
         designation: "Verified Buyer",
         location: "Bangalore",
         date: "2 months ago",
-        image: reviewImage // Use local image
+        image: seven // Use local image
     },
     {
         name: "Jane Smith",
@@ -76,7 +87,7 @@ const reviews = [
         designation: "Regular Customer",
         location: "Mumbai",
         date: "1 month ago",
-        image: reviewImage // Use local image
+        image: eight // Use local image
     },
     {
         name: "Mike Johnson",
@@ -85,7 +96,7 @@ const reviews = [
         designation: "Health Expert",
         location: "Delhi",
         date: "3 months ago",
-        image: reviewImage // Use local image
+        image: nine // Use local image
     }
 ];
 
@@ -183,7 +194,7 @@ export default function ReviewSection() {
     }, []);
 
     return (
-        <div className="relative w-full overflow-hidden bg-black/95 py-8 md:py-16">
+        <div className="relative w-full rounded-br-[200px] overflow-hidden bg-black/95 py-8 md:py-16">
             <div className="absolute inset-0 z-0">
                 <div ref={sceneRef} className="w-full h-[300px]" />
             </div>
