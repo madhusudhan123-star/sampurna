@@ -40,6 +40,16 @@ const DigestiveSystem = dynamic(() => import('../components/elements/DigestiveSy
 });
 
 export default function Home() {
+  const [isBrowser, setIsBrowser] = useState(false);
+
+  useEffect(() => {
+    setIsBrowser(true);
+  }, []);
+
+  if (!isBrowser) {
+    return null; // or a loading state
+  }
+
   const router = useRouter(); // Add this line
   const videoRef = useRef(null);
   const leftTextRef = useRef(null);
