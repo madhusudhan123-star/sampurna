@@ -4,8 +4,22 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';  // Changed from 'next/router'
 import { Button } from "@/components/ui/button"
 import Navbar from '@/components/elements/Navbar';
-import product1 from '../../assets/product_des.jpg';
+import product1 from '../../assets/1.jpg';
 import { Minus, Plus } from 'lucide-react';
+import visa from '../../assets/visa.svg';  // You'll need to add these images
+import mastercard from '../../assets/mastercard.svg';
+import rupay from '../../assets/upi-id.png';
+import razorpay from '../../assets/paypal.svg';
+
+const PAYMENT_IMAGES = {
+    visa: "../assets/visa.svg",
+    mastercard: "../assets/mastercard.svg",
+    rupay: "../assets/amex.svg",
+    razorpay: "https://razorpay.com/assets/razorpay-glyph.svg",
+    secure: "https://cdn-icons-png.flaticon.com/512/6195/6195702.png",
+    pci: "https://cdn-icons-png.flaticon.com/512/6107/6107137.png",
+    ssl: "https://cdn-icons-png.flaticon.com/512/7947/7947657.png"
+};
 
 const COUNTRY_CURRENCY_MAP = {
     'India': { currency: 'INR', symbol: '₹', rate: 1 },
@@ -511,6 +525,66 @@ export default function Checkout() {
                                 {formErrors.paymentMode && (
                                     <p className="text-red-500 text-xs mt-1">{formErrors.paymentMode}</p>
                                 )}
+                            </div>
+
+                            <div className="mt-6 space-y-4">
+                                <div className="border-t pt-4">
+                                    <p className="text-sm font-medium text-gray-700 mb-3">Secure Payment Partners</p>
+                                    <div className="flex items-center justify-between mb-4">
+                                        <Image
+                                            src={visa}
+                                            alt="Visa"
+                                            className="h-8 object-contain"
+                                            onError={(e) => {
+                                                e.target.onerror = null;
+                                                e.target.src = { visa };
+                                            }}
+                                        />
+                                        <Image
+                                            src={mastercard}
+                                            alt="Mastercard"
+                                            className="h-8 object-contain"
+                                            onError={(e) => {
+                                                e.target.onerror = null;
+                                                e.target.src = "https://via.placeholder.com/80x32?text=Mastercard";
+                                            }}
+                                        />
+                                        <Image
+                                            src={rupay}
+                                            alt="RuPay"
+                                            className="h-8 object-contain"
+                                            onError={(e) => {
+                                                e.target.onerror = null;
+                                                e.target.src = "https://via.placeholder.com/80x32?text=RuPay";
+                                            }}
+                                        />
+                                        <Image
+                                            src={razorpay}
+                                            alt="Razorpay"
+                                            className="h-8 object-contain"
+                                            onError={(e) => {
+                                                e.target.onerror = null;
+                                                e.target.src = "https://via.placeholder.com/80x32?text=Razorpay";
+                                            }}
+                                        />
+                                    </div>
+                                    <div className="flex flex-col gap-3">
+                                        <div className="flex items-center justify-center space-x-2 bg-gray-50 p-3 rounded-lg">
+                                            <img src={PAYMENT_IMAGES.secure} alt="Secure" className="h-5 w-5" />
+                                            <span className="text-sm text-gray-600">100% Secure Payments</span>
+                                        </div>
+                                        <div className="grid grid-cols-2 gap-2">
+                                            <div className="flex items-center space-x-2 bg-gray-50 p-2 rounded-lg">
+                                                <img src={PAYMENT_IMAGES.ssl} alt="SSL" className="h-4 w-4" />
+                                                <span className="text-xs text-gray-500">SSL Encrypted</span>
+                                            </div>
+                                            <div className="flex items-center space-x-2 bg-gray-50 p-2 rounded-lg">
+                                                <img src={PAYMENT_IMAGES.pci} alt="PCI" className="h-4 w-4" />
+                                                <span className="text-xs text-gray-500">PCI DSS Compliant</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             {/* Total and Submit Button */}

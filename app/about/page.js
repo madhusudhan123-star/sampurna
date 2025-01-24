@@ -1,17 +1,32 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { useInView } from 'react-intersection-observer';
 import Navbar from '@/components/elements/Navbar';
-import about1 from '../../assets/product_des.jpg'; // Add your images
-import about2 from '../../assets/product_des.jpg';
-import mission from '../../assets/heart.svg';
-import vision from '../../assets/heart.svg';
-import values from '../../assets/heart.svg';
+import { Button } from "@/components/ui/button"
+
+// Use a placeholder image for now - to be replaced later
+import aboutHero from '../../assets/test/1920x1281_1.jpg';
+import aboutBanner1 from '../../assets/test/1400x400.jpg';
+import aboutBanner2 from '../../assets/test/1400x400_1.jpg';
+import img1 from '../../assets/5.jpg';
+import img2 from '../../assets/6.jpg';
+import img3 from '../../assets/7.jpg';
+import img4 from '../../assets/8.jpg';
+import Footer from '@/components/elements/Footer';
 
 export default function About() {
-    const [gradientPosition, setGradientPosition] = useState(0);
     const router = useRouter();
+    const videoRef = useRef(null);
+    const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+    const [gradientPosition, setGradientPosition] = useState(0);
+
+    // Animation hooks
+    const [sectionRef, sectionInView] = useInView({
+        triggerOnce: true,
+        threshold: 0.2
+    });
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -21,144 +36,219 @@ export default function About() {
         return () => clearInterval(interval);
     }, []);
 
+    // Video control functions
+    const handleVideoControl = () => {
+        const iframe = videoRef.current;
+        const player = iframe.contentWindow;
+
+        if (isVideoPlaying) {
+            player.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+        } else {
+            player.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        }
+    };
+
     return (
-        <div className="flex relative bg-white min-h-screen">
+        <div className="flex relative min-h-screen">
             {/* Navbar */}
-            <div className='fixed left-0 top-0 w-1/5 h-screen bg-transparent z-[999]'>
+            <div className='fixed left-0 top-0 md:w-1/5 w-full h-auto md:h-screen bg-transparent z-[999]'>
                 <Navbar />
             </div>
 
             {/* Main Content */}
-            <div className="flex-1 ml-[0%] md:ml-[20%] overflow-y-auto">
+            <div className="flex-1 md:ml-[20%] ml-0 mt-[60px] md:mt-0">
                 {/* Hero Section */}
-                <div className="relative h-screen">
-                    {/* Gradient Background */}
-                    <div
-                        className="absolute inset-0 z-0 transition-all duration-1000 ease-in-out"
-                        style={{
-                            background: `linear-gradient(${gradientPosition}deg, 
-                                rgba(83,247,83,0.4), 
-                                rgba(42,104,122,0.4), 
-                                rgba(131,247,83,0.4)
-                            )`,
-                            filter: 'blur(100px)',
-                            transform: 'scale(1.2)',
-                        }}
-                    />
-
-                    <div className="relative z-10 h-full flex flex-col justify-center items-center px-4 md:px-8">
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-center mb-6">
-                            Our Journey to
-                            <br />
-                            <span className="text-[rgb(83,247,83)]">Natural Wellness</span>
+                <section className='relative w-full h-[30vh] md:h-screen'>
+                    <div className="absolute inset-0">
+                        <Image
+                            src={aboutHero}
+                            alt="About Us Hero"
+                            fill
+                            priority
+                            className="object-cover brightness-75"
+                        />
+                    </div>
+                    <div className="relative z-10 h-full flex flex-col justify-center items-center px-4">
+                        <h1 className="text-4xl md:text-7xl font-bold text-white text-center mb-6">
+                            Our Story
                         </h1>
-                        <p className="text-lg md:text-xl text-center max-w-2xl mx-auto">
-                            Discover the story behind Sampoorna Arogya and our commitment to holistic health through natural ingredients.
+                        <p className="text-lg md:text-xl text-white text-center max-w-2xl">
+                            Pioneering natural wellness through traditional wisdom
                         </p>
                     </div>
+                </section>
+
+                {/* Video Section 1 */}
+                <div className="w-full min-h-[50vh] md:min-h-screen relative bg-white">
+                    <div className="absolute inset-0">
+                        <iframe
+                            ref={videoRef}
+                            src="https://www.youtube.com/embed/AR0LKoBvSs0?enablejsapi=1&autoplay=1&mute=1&controls=0&rel=0&loop=1&playlist=AR0LKoBvSs0&playsinline=1"
+                            title="About Us Video"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="w-full h-full"
+                        />
+                    </div>
                 </div>
 
-                {/* Story Section */}
-                <div className="py-16 md:py-24 px-4 md:px-8 bg-[#f8f9fa]">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
-                            <div>
-                                <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Story</h2>
-                                <p className="text-gray-600 mb-4">
-                                    Founded with a vision to revolutionize digestive health care, Sampoorna Arogya began its journey in the heart of traditional Ayurvedic medicine.
+                {/* Banner Section 1 */}
+                <div className="relative w-full">
+                    <div className="aspect-[16/9] md:aspect-[21/9] relative">
+                        <Image
+                            src={aboutBanner1}
+                            alt="Our Mission"
+                            fill
+                            className="object-cover"
+                        />
+                        <div className="absolute inset-0 z-10 flex items-center">
+                            <div className="p-4 md:p-10 w-full md:w-1/2 text-white">
+                                <h2 className="text-2xl md:text-4xl font-bold mb-4">Our Mission</h2>
+                                <p className="text-sm md:text-lg mb-6">
+                                    Transforming lives through natural wellness solutions
                                 </p>
-                                <p className="text-gray-600">
-                                    We combined ancient wisdom with modern science to create natural, effective solutions for common digestive issues that affect millions worldwide.
-                                </p>
-                            </div>
-                            <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden">
-                                <Image
-                                    src={about1}
-                                    alt="Our Story"
-                                    fill
-                                    className="object-cover"
-                                />
+                                <Button className="bg-[rgb(76,238,84)] hover:bg-[#43c3ff]">
+                                    Learn More
+                                </Button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Mission, Vision, Values Section */}
-                <div className="py-16 md:py-24 px-4 md:px-8">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            {[
-                                {
-                                    icon: mission,
-                                    title: "Our Mission",
-                                    description: "To provide natural, effective solutions for digestive health while promoting overall wellness through traditional wisdom."
-                                },
-                                {
-                                    icon: vision,
-                                    title: "Our Vision",
-                                    description: "To become the world's most trusted name in natural digestive health solutions, improving lives globally."
-                                },
-                                {
-                                    icon: values,
-                                    title: "Our Values",
-                                    description: "Quality, transparency, sustainability, and commitment to customer well-being guide everything we do."
-                                }
-                            ].map((item, index) => (
-                                <div key={index} className="text-center p-6 rounded-lg bg-[#f8f9fa] hover:shadow-lg transition-shadow duration-300">
-                                    <div className="w-16 h-16 mx-auto mb-4">
-                                        <Image
-                                            src={item.icon}
-                                            alt={item.title}
-                                            width={64}
-                                            height={64}
-                                        />
-                                    </div>
-                                    <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                                    <p className="text-gray-600">{item.description}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-
-                {/* Team Section */}
+                {/* Team Members Section */}
                 <div className="py-16 md:py-24 px-4 md:px-8 bg-[#f8f9fa]">
-                    <div className="max-w-7xl mx-auto">
-                        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our Expert Team</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                            {[1, 2, 3, 4].map((member) => (
-                                <div key={member} className="text-center">
-                                    <div className="w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden relative">
-                                        <Image
-                                            src={about2}
-                                            alt={`Team Member ${member}`}
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                    <h3 className="text-xl font-semibold mb-2">Dr. John Doe</h3>
-                                    <p className="text-gray-600">Ayurvedic Expert</p>
+                    <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">Meet Our Team</h2>
+
+                    {/* Team Member 1 */}
+                    <div className="max-w-7xl mx-auto mb-16 md:mb-24">
+                        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                            <div className="w-full md:w-1/2">
+                                <div className="relative h-[300px] md:h-[500px] rounded-2xl overflow-hidden">
+                                    <Image
+                                        src={img1}
+                                        alt="Dr. Sarah Johnson"
+                                        fill
+                                        className="object-cover"
+                                    />
                                 </div>
-                            ))}
+                            </div>
+                            <div className="w-full md:w-1/2 space-y-4">
+                                <h3 className="text-2xl md:text-4xl font-bold text-[#2A6177]">Dr. Sarah Johnson</h3>
+                                <p className="text-xl text-[#43c3ff] font-semibold">Chief Ayurvedic Officer</p>
+                                <p className="text-gray-600 text-lg leading-relaxed">
+                                    With over 15 years of experience in Ayurvedic medicine, Dr. Johnson leads our research
+                                    and product development team. Her innovative approach to combining traditional wisdom
+                                    with modern science has been instrumental in creating our effective natural solutions.
+                                </p>
+                                <div className="flex gap-4 pt-4">
+                                    <Button className="bg-[rgb(76,238,84)] hover:bg-[#43c3ff]">Read More</Button>
+                                    <Button className="bg-[#2A6177] hover:bg-[#43c3ff]">Contact</Button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Team Member 2 */}
+                    <div className="max-w-7xl mx-auto mb-16 md:mb-24">
+                        <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-16">
+                            <div className="w-full md:w-1/2 space-y-4">
+                                <h3 className="text-2xl md:text-4xl font-bold text-[#2A6177]">Dr. Michael Chen</h3>
+                                <p className="text-xl text-[#43c3ff] font-semibold">Research Director</p>
+                                <p className="text-gray-600 text-lg leading-relaxed">
+                                    Dr. Chen specializes in integrating traditional herbal medicine with modern
+                                    wellness practices. His groundbreaking research has helped establish new
+                                    standards in natural digestive health solutions.
+                                </p>
+                                <div className="flex gap-4 pt-4">
+                                    <Button className="bg-[rgb(76,238,84)] hover:bg-[#43c3ff]">Read More</Button>
+                                    <Button className="bg-[#2A6177] hover:bg-[#43c3ff]">Contact</Button>
+                                </div>
+                            </div>
+                            <div className="w-full md:w-1/2">
+                                <div className="relative h-[300px] md:h-[500px] rounded-2xl overflow-hidden">
+                                    <Image
+                                        src={img2}
+                                        alt="Dr. Michael Chen"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Team Member 3 */}
+                    <div className="max-w-7xl mx-auto">
+                        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                            <div className="w-full md:w-1/2">
+                                <div className="relative h-[300px] md:h-[500px] rounded-2xl overflow-hidden">
+                                    <Image
+                                        src={img3}
+                                        alt="Dr. Priya Patel"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                            </div>
+                            <div className="w-full md:w-1/2 space-y-4">
+                                <h3 className="text-2xl md:text-4xl font-bold text-[#2A6177]">Dr. Priya Patel</h3>
+                                <p className="text-xl text-[#43c3ff] font-semibold">Product Development Head</p>
+                                <p className="text-gray-600 text-lg leading-relaxed">
+                                    Dr. Patel brings her extensive knowledge of herbal formulations and modern
+                                    pharmaceutical standards to ensure our products meet the highest quality
+                                    benchmarks while maintaining their natural effectiveness.
+                                </p>
+                                <div className="flex gap-4 pt-4">
+                                    <Button className="bg-[rgb(76,238,84)] hover:bg-[#43c3ff]">Read More</Button>
+                                    <Button className="bg-[#2A6177] hover:bg-[#43c3ff]">Contact</Button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                {/* CTA Section */}
-                <div className="py-16 md:py-24 px-4 md:px-8 bg-[rgb(83,247,83)]">
-                    <div className="max-w-4xl mx-auto text-center text-white">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6">Join Our Journey</h2>
-                        <p className="text-xl mb-8">
-                            Experience the power of natural healing with Sampoorna Arogya
-                        </p>
-                        <button
-                            onClick={() => router.push('/')}
-                            className="bg-white text-[rgb(83,247,83)] px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-colors duration-300"
-                        >
-                            Explore Our Products
-                        </button>
+                {/* Video Section 2 */}
+                <div className="w-full min-h-[50vh] relative bg-black">
+                    <div className="absolute inset-0">
+                        <iframe
+                            src="https://www.youtube.com/embed/AR0LKoBvSs0?enablejsapi=1&autoplay=1&mute=1&controls=0&rel=0&loop=1&playlist=AR0LKoBvSs0&playsinline=1"
+                            title="Our Process"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            className="w-full h-full"
+                        />
                     </div>
                 </div>
+
+                {/* Banner Section 2 */}
+                <div className="relative w-full">
+                    <div className="aspect-[16/9] md:aspect-[21/9] relative">
+                        <Image
+                            src={aboutBanner2}
+                            alt="Join Our Journey"
+                            fill
+                            className="object-cover"
+                        />
+                        <div className="absolute inset-0 z-10 flex items-center justify-end">
+                            <div className="p-4 md:p-10 w-full md:w-1/2 text-white">
+                                <h2 className="text-2xl md:text-4xl font-bold mb-4">Join Our Journey</h2>
+                                <p className="text-sm md:text-lg mb-6">
+                                    Be part of our mission to promote natural wellness
+                                </p>
+                                <Button
+                                    onClick={() => router.push('/product')}
+                                    className="bg-[rgb(76,238,84)] hover:bg-[#43c3ff]"
+                                >
+                                    Contact Us
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <Footer />
             </div>
         </div>
     );

@@ -1,29 +1,35 @@
 "use client";
+import { Plus, Minus } from "lucide-react"; // Add this import at the top
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation'; // Add this import
 import Navbar from '../components/elements/Navbar'
 import { Button } from "@/components/ui/button"
 import Image from 'next/image'
-import logo from './just_logo.png'
 import { useEffect, useRef, useState } from 'react';
-import harbel from '../assets/harbel.svg'
-import heart from '../assets/heart.svg'
-import relief from '../assets/relief.svg'
-import bloating from '../assets/bloating.svg'
-import product1 from '../assets/product_des.jpg'
-import { Plus, Minus } from "lucide-react"; // Add this import at the top
+import { useInView } from 'react-intersection-observer'; // Add this import
+
 import ReviewSection from '../components/elements/ReviewSection';
 import BenefitsTimeline from '@/components/sections/BenefitsTimeline';
 import AwardsSection from '@/components/sections/AwardsSection';
 import ComparisonTable from '@/components/sections/ComparisonTable';
 import Footer from '@/components/elements/Footer';
-import { useInView } from 'react-intersection-observer'; // Add this import
+
+import logo from './just_logo.png'
+import harbel from '../assets/harbel.png'
+import heart from '../assets/heart.png'
+import relief from '../assets/relief.png'
+import bloating from '../assets/bloating.png'
+import product1 from '../assets/product_des.jpg'
 import heroLarge from '../assets/test/1400x400.jpg';
 import heroMedium from '../assets/test/480x250.jpg';
 import heroSmall from '../assets/test/1920x1281.jpg';
 import Slider from '../components/elements/Slider';
 import smallbanner from '../assets/test/1400x400.jpg';
 import smallbanner1 from '../assets/test/1400x400_1.jpg';
+import banner1 from '@/assets/1.jpg';
+import banner2 from '@/assets/2.jpg';
+
+
 
 // Add this dynamic import
 const DigestiveSystem = dynamic(() => import('../components/elements/DigestiveSystem'), {
@@ -236,46 +242,40 @@ export default function Home() {
   };
 
   return (
-    <div className="flex relative  overflow-x-hidden min-h-screen">
-      {/* Navbar container - Updated background */}
-      <div className='fixed left-0 top-0 md:w-1/5 w-full md:h-screen bg-transparent z-[999]'>
+    <div className="flex relative overflow-x-hidden min-h-screen">
+      {/* Navbar container */}
+      <div className='fixed left-0 top-0 md:w-1/5 w-full h-auto md:h-screen bg-transparent z-[999]'>
         <Navbar />
       </div>
 
-      {/* Main Content - Update top margin for mobile */}
+      {/* Main Content */}
       <div className="flex-1 md:ml-[20%] ml-0 mt-[60px] md:mt-0 relative" data-scroll-container>
         <main className="w-full flex flex-col">
           {/* Hero Section */}
-          <section className='relative w-full h-[100dvh] md:h-screen bg-black'>
+          <section className='relative w-full h-[30vh] md:h-screen'>
             {/* Background Image Container */}
             <div className="absolute inset-0 w-full h-full">
-              <picture className="w-full h-full">
+              <picture className="w-full h-full block">
+                {/* Desktop image */}
                 <source
-                  media="(min-width: 1400px)"
-                  srcSet={heroLarge.src}
+                  media="(min-width: 768px)"
+                  srcSet={heroSmall.src}
                 />
+                {/* Mobile image */}
                 <source
-                  media="(min-width: 480px)"
+                  media="(max-width: 767px)"
                   srcSet={heroMedium.src}
                 />
-                <div className="relative w-full h-full">
-                  <Image
-                    src={heroSmall}
-                    alt="Sampoorna Arogya Hero Background"
-                    fill
-                    priority
-                    className="object-cover"
-                    sizes="100vw"
-                    quality={85}
-                    style={{
-                      objectFit: 'cover',
-                      objectPosition: 'center'
-                    }}
-                  />
-                </div>
+                <Image
+                  src={heroSmall}
+                  alt="Sampoorna Arogya Hero Background"
+                  fill
+                  priority
+                  className=" brightness-75"
+                  sizes="(max-width: 767px) 480px, 1920px"
+                  quality={85}
+                />
               </picture>
-              {/* Dark overlay */}
-              <div className="absolute inset-0 bg-black/20" />
             </div>
 
             {/* Content Container */}
@@ -286,55 +286,47 @@ export default function Home() {
                   <Image
                     src={logo}
                     alt="Sampoorna Arogya Logo"
-                    className='w-16 md:w-20 h-auto'
+                    className='w-12 md:w-32 hidden md:block h-auto relative z-10'
                     priority
                   />
                 </div>
                 {/* Navigation - Desktop only */}
-                <nav className='hidden md:flex items-center space-x-8'>
-                  {/* <Button
-                    className="bg-orange-500 hover:bg-orange-400 text-white text-sm px-6"
-                    onClick={() => router.push('/contact')}
+                <nav className='flex items-center'>
+                  <Button
+                    onClick={() => router.push('/product')}
+                    className="bg-[#6CFC6C] hover:bg-[#43c3ff] text-black px-4 py-2 md:px-10 md:py-7 rounded-full transition-all duration-300 text-sm md:text-xl whitespace-nowrap"
                   >
-                    Contact Us
-                  </Button> */}
-                  <Button onClick={() => router.push('/product')} className="bg-[rgb(76,238,84)] hover:bg-[#43c3ff] text-white px-6 py-2.5 md:px-10 md:py-7 rounded-full transition-all duration-300 text-lg md:text-xl">
                     Order Now
                   </Button>
                 </nav>
               </header>
-
-              {/* Hero Content - Centered */}
-              <div className='flex-1 flex flex-col items-center justify-center text-center max-w-4xl mx-auto'>
-                {/* <h1 className='text-white font-bold'>
-                  <span className='block text-3xl sm:text-5xl md:text-6xl lg:text-7xl'>
-                    Sampoorn Arogya
-                  </span>
-                  <span className='block text-lg sm:text-xl md:text-2xl text-white/90 font-normal mt-4'>
-                    Your Digestive Health Solution
-                  </span>
-                </h1>
-                <p className='text-white/80 text-sm md:text-base max-w-2xl mx-auto mt-6 mb-8'>
-                  Discover the Secret to a Healthy Digestive System with Sampoorna Arogya!
-                </p> */}
-
-              </div>
             </div>
           </section>
 
-          {/* Video Section - Updated for mobile stacking */}
-          <div className='w-full min-h-screen flex-none relative'>
-            {/* Mobile Layout - Text Content */}
-            <div className="md:hidden w-full space-y-8 px-4 py-8 bg-white">
-              <div className="text-center space-y-4">
-                <h3 className='text-2xl font-semibold text-black'>Your Health Journey</h3>
-                <p className='text-lg text-gray-600'>
-                  Experience the power of natural healing with our holistic approach to digestive wellness.
-                </p>
+          {/* Awards Section - Make it responsive */}
+          <div className="px-4 md:px-0">
+            <AwardsSection />
+          </div>
+
+          {/* Video Section */}
+          <div className='w-full min-h-[50vh] md:min-h-screen flex-none relative'>
+            {/* Mobile Layout */}
+            <div className="md:hidden w-full space-y-6 px-4 py-8 bg-white">
+              <div className="grid grid-cols-2 gap-4 justify-items-center">
+                <Image
+                  src={harbel}
+                  alt="Natural Herbal Ingredients Icon"
+                  className='w-16 h-16 object-contain'
+                />
+                <Image
+                  src={heart}
+                  alt="Heart Health Icon"
+                  className='w-16 h-16 object-contain'
+                />
               </div>
 
               {/* Mobile Video Container */}
-              <div className="w-full h-[300px] relative">
+              <div className="w-full aspect-video relative rounded-lg overflow-hidden">
                 <iframe
                   ref={videoRef}
                   src="https://www.youtube.com/embed/AR0LKoBvSs0?enablejsapi=1&autoplay=1&mute=1&controls=0&rel=0&loop=1&playlist=AR0LKoBvSs0&playsinline=1"
@@ -342,15 +334,21 @@ export default function Home() {
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  className='w-full h-full'
+                  className='absolute inset-0 w-full h-full'
                 ></iframe>
               </div>
 
-              <div className="text-center space-y-4">
-                <h3 className='text-2xl font-semibold text-[#2E6572]'>Natural Solutions</h3>
-                <p className='text-lg text-gray-600'>
-                  Discover traditional remedies combined with modern wellness practices for optimal digestive health.
-                </p>
+              <div className="grid grid-cols-2 gap-4 justify-items-center">
+                <Image
+                  src={relief}
+                  alt="Quick Relief Icon"
+                  className='w-16 h-16 object-contain'
+                />
+                <Image
+                  src={bloating}
+                  alt="Anti-Bloating Icon"
+                  className='w-20 h-20 object-contain'
+                />
               </div>
             </div>
 
@@ -359,12 +357,27 @@ export default function Home() {
               {/* Left text */}
               <div
                 ref={leftTextRef}
-                className='absolute left-10 top-1/2 -translate-y-1/2 max-w-[300px] text-black space-y-4 opacity-0 transition-opacity duration-300 z-[60] pointer-events-none'
+                className='absolute left-10 top-1/2 -translate-y-1/2 max-w-[300px]  text-black space-y-4 opacity-0 transition-opacity duration-300 z-[60] pointer-events-none'
               >
-                <h3 className='text-2xl font-semibold'>Your Health Journey</h3>
-                <p className='text-lg'>
+                {/* <p className='text-lg'>
                   Experience the power of natural healing with our holistic approach to digestive wellness.
-                </p>
+                </p> */}
+                <div className='flex items-center gap-2'>
+                  <Image
+                    src={relief}
+                    alt="Quick Relief Icon"
+                    className='w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300'
+                  />
+                  <h3 className='text-2xl font-semibold'>Your Health Journey</h3>
+                </div>
+                <div className='flex items-center gap-2'>
+                  <Image
+                    src={bloating}
+                    alt="Anti-Bloating Icon"
+                    className='w-28 h-28 object-contain group-hover:scale-110 transition-transform duration-300'
+                  />
+                  <h3 className='text-2xl font-semibold'>Your Health Journey</h3>
+                </div>
               </div>
 
               {/* YouTube video container with custom controls */}
@@ -410,10 +423,29 @@ export default function Home() {
                 ref={rightTextRef}
                 className='absolute right-10 top-1/2 -translate-y-1/2 max-w-[300px] text-[#2E6572] space-y-4 text-right opacity-0 transition-opacity duration-300 z-[60] pointer-events-none'
               >
-                <h3 className='text-2xl font-semibold'>Natural Solutions</h3>
+                {/* <h3 className='text-2xl font-semibold'>Natural Solutions</h3>
                 <p className='text-lg'>
                   Discover traditional remedies combined with modern wellness practices for optimal digestive health.
-                </p>
+                </p> */}
+                <div className="flex items-center gap-2 justify-end">
+
+                  <Image
+                    src={harbel}
+                    alt="Natural Herbal Ingredients Icon"
+                    className='w-16 h-16 object-contain group-hover:scale-110 transition-transform duration-300'
+                  />
+                  <h3 className='text-2xl w-1/2 font-semibold'>Your Health Journey</h3>
+
+                </div>
+                <div className="flex items-center gap-2 justify-end">
+                  <Image
+                    src={heart}
+                    alt="Heart Health Icon"
+                    className='w-16 h-16 object-contain group-hover:scale-110 transition-transform duration-300'
+                  />
+                  <h3 className='text-2xl w-1/2 font-semibold'>Your Health Journey</h3>
+                </div>
+
               </div>
 
               {/* Scrollability overlay */}
@@ -427,25 +459,27 @@ export default function Home() {
             </div>
           </div>
 
-          <div className='relative w-full h-[300px]'>
-            <Image src={smallbanner} alt="Promotional Banner" className="absolute w-full z-0 inset-0" />
-            <div className='relative p-10 z-10 w-1/2 text-white'>
-              <h1 className='text-3xl font-bold'>Content</h1>
-              <p className='text-xl '>This error occurs because you're trying to access the window object during server-side rendering (SSR) in Next.js. The window object is only available in the browser environment, not during server-side rendering.</p>
-              <Button onClick={() => router.push('/product')} className="bg-[rgb(76,238,84)] mt-5 hover:bg-[#43c3ff] text-white px-6 py-2.5 md:px-10 md:py-7 rounded-full transition-all duration-300 text-lg md:text-3xl">
-                Order Now
-              </Button>
-            </div>
-          </div>
-          <div className='relative w-full h-[400px]'>
-            <Image src={smallbanner1} alt="Secondary Promotional Banner" className="absolute w-full z-0 inset-0" />
-            <div className='relative z-10 h-full flex justify-end'>
-              <div className='p-10 w-4/12 text-white'>
-                <h1 className='text-3xl font-bold'>Content</h1>
-                <p className='text-xl '>This error occurs because you're trying to access the window object during server-side rendering.</p>
-                <Button onClick={() => router.push('/product')} className="bg-[rgb(76,238,84)] mt-5 hover:bg-[#43c3ff] text-white px-6 py-2.5 md:px-10 md:py-7 rounded-full transition-all duration-300 text-lg md:text-3xl">
-                  Order Now
-                </Button>
+
+
+          <div className='relative w-full'>
+            <div className="aspect-[16/9] md:aspect-[21/9] relative">
+              <Image
+                src={smallbanner1}
+                alt="Secondary Promotional Banner"
+                fill
+                className="object-cover"
+              />
+              <div className='absolute inset-0 z-10 flex justify-end'>
+                <div className='p-4 md:p-10 w-full md:w-4/12 text-white'>
+                  <h1 className='text-2xl md:text-3xl font-bold'>Content</h1>
+                  <p className='text-base md:text-xl mt-2'>This error occurs because you're trying to access the window object during server-side rendering.</p>
+                  <Button
+                    onClick={() => router.push('/product')}
+                    className="bg-[rgb(76,238,84)] mt-4 md:mt-5 hover:bg-[#43c3ff] text-white px-4 py-2 md:px-10 md:py-7 rounded-full transition-all duration-300 text-sm md:text-3xl"
+                  >
+                    Order Now
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
@@ -458,67 +492,6 @@ export default function Home() {
           {/* Swiper Section - Updated to fix overlapping */}
           <Slider />
 
-          {/* Features Grid - Updated for mobile */}
-          <div ref={featureRef} className={`flex-none px-4 py-5 ${fadeInUp}`} style={{ transform: featureInView ? 'translateY(0)' : 'translateY(50px)', opacity: featureInView ? 1 : 0, }}>
-            <div className='flex flex-col justify-start items-center gap-8 md:gap-10'>
-              {/* <h1 className='text-3xl md:text-5xl text-center'>The Problem which it Solves</h1> */}
-              <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-20'>
-                <div className='flex flex-col items-center gap-4'>
-                  <div className='relative w-32 h-32 rounded-full bg-[#8de8f825] flex justify-center items-center group cursor-pointer hover:bg-[#8de8f850] transition-all duration-300'>
-                    <Image
-                      src={harbel}
-                      alt="Natural Herbal Ingredients Icon"
-                      className='w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300'
-                    />
-                  </div>
-                  {/* <h3 className='text-xl font-semibold text-[#2A6177]'>Natural Herbs</h3>
-                  <p className='text-center text-sm text-gray-600 max-w-[200px]'> Pure herbal ingredients sourced from nature best resources </p> */}
-                </div>
-
-                <div className='flex flex-col items-center gap-4'>
-                  <div className='relative w-32 h-32 rounded-full bg-[#8de8f825] flex justify-center items-center group cursor-pointer hover:bg-[#8de8f850] transition-all duration-300'>
-                    <Image
-                      src={heart}
-                      alt="Heart Health Icon"
-                      className='w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300'
-                    />
-                  </div>
-                  {/* <h3 className='text-xl font-semibold text-[#2A6177]'>Heart Health</h3>
-                  <p className='text-center text-sm text-gray-600 max-w-[200px]'>
-                    Supports cardiovascular health and overall well-being
-                  </p> */}
-                </div>
-
-                <div className='flex flex-col items-center gap-4'>
-                  <div className='relative w-32 h-32 rounded-full bg-[#8de8f825] flex justify-center items-center group cursor-pointer hover:bg-[#8de8f850] transition-all duration-300'>
-                    <Image
-                      src={relief}
-                      alt="Quick Relief Icon"
-                      className='w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300'
-                    />
-                  </div>
-                  {/* <h3 className='text-xl font-semibold text-[#2A6177]'>Quick Relief</h3>
-                  <p className='text-center text-sm text-gray-600 max-w-[200px]'>
-                    Fast-acting formula for digestive discomfort
-                  </p> */}
-                </div>
-
-                <div className='flex flex-col items-center gap-4'>
-                  <div className='relative w-32 h-32 rounded-full bg-[#8de8f825] flex justify-center items-center group cursor-pointer hover:bg-[#8de8f850] transition-all duration-300'>
-                    <Image
-                      src={bloating}
-                      alt="Anti-Bloating Icon"
-                      className='w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300'
-                    />
-                  </div>
-                  {/* <h3 className='text-xl font-semibold text-[#2A6177]'>Anti-Bloating</h3>
-                  <p className='text-center text-sm text-gray-600 max-w-[200px]'>
-                    Reduces bloating and improves digestive comfort
-                  </p> */}
-                </div>
-              </div>
-            </div>
-          </div>
 
 
 
@@ -533,12 +506,12 @@ export default function Home() {
               }}
             >
               <div className='w-full md:w-1/2'>
-                <Image src={product1} alt="Sampoorna Arogya Product" className='w-full' />
+                <Image src={banner1} alt="Sampoorna Arogya Product" className='w-full rounded-lg' />
               </div>
-              <div className='w-full md:w-1/2'>
-                <h1 className='text-3xl'>Tailwind CSS Component</h1>
-                <p>Yes, there are several alternative tools related to Google that can help with PPC campaign management, keyword research, and competitor analysis. These tools leverage Google’s data and insights to help businesses optimize their digital advertising strategies. Here’s a list of alternatives:</p>
-                <Button className="bg-[#cf1cff] px-9 py-5 text-xl">Buy Now</Button>
+              <div className='w-full md:w-1/2 space-y-4'>
+                <h1 className='text-2xl md:text-3xl font-bold'>Tailwind CSS Component</h1>
+                <p className='text-sm md:text-base'>Yes, there are several alternative tools related to Google that can help with PPC campaign management, keyword research, and competitor analysis.</p>
+                <Button className="bg-[#cf1cff] px-6 py-3 md:px-9 md:py-5 text-base md:text-xl w-full md:w-auto">Buy Now</Button>
               </div>
             </div>
             <div
@@ -555,14 +528,17 @@ export default function Home() {
                 <Button className="bg-[#cf1cff] px-9 py-5 text-xl">Buy Now</Button>
               </div>
               <div className='w-full md:w-1/2'>
-                <Image src={product1} alt="Sampoorna Arogya Product" className='w-full' />
+                <Image src={banner2} alt="Sampoorna Arogya Product" className='w-full' />
               </div>
             </div>
           </div>
 
 
+
+
+
           {/* Add this before the FAQ section */}
-          <div className="w-full py-16">
+          <div className="w-full">
             <ReviewSection />
           </div>
 
@@ -573,11 +549,37 @@ export default function Home() {
             style={{
               transform: benefitsInView ? 'translateY(0)' : 'translateY(50px)',
               opacity: benefitsInView ? 1 : 0,
-            }}
-          >
+            }}>
             <BenefitsTimeline />
           </div>
-          <AwardsSection />
+
+          {/* Replace the banner section with this code */}
+          <div className='relative w-full'>
+            <div className="aspect-[16/7] md:aspect-[21/7] relative">
+              <Image
+                src={smallbanner}
+                alt="Promotional Banner"
+                fill
+                className="object-cover"
+              />
+              <div className='absolute inset-0 z-10 flex items-center'>
+                <div className='px-4 md:p-10 w-full md:w-1/2 text-white'>
+                  <h1 className='text-2xl md:text-3xl font-bold'>Content</h1>
+                  <p className='text-sm md:text-xl mt-2 md:mt-4'>
+                    This error occurs because you're trying to access the window object during server-side rendering (SSR) in Next.js. The window object is only available in the browser environment, not during server-side rendering.
+                  </p>
+                  <Button
+                    onClick={() => router.push('/product')}
+                    className="w-full md:w-auto mt-4 md:mt-5 bg-[rgb(76,238,84)] hover:bg-[#43c3ff] text-white px-4 py-2 md:px-10 md:py-7 rounded-full transition-all duration-300 text-base md:text-3xl"
+                  >
+                    Order Now
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
           <ComparisonTable />
 
           {/* FAQ Section - Updated for mobile */}

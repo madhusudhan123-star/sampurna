@@ -141,7 +141,7 @@ export default function ShippingPolicy() {
                 },
                 {
                     subtitle: "Phone",
-                    content: <span className="phone-number">+91 990-852-6444</span>
+                    content: <span className="phone-number">+91 903-052-8333</span>
                 },
                 {
                     subtitle: "Response time",

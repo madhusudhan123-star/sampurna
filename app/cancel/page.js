@@ -28,7 +28,7 @@ export default function CancellationPolicy() {
             content: [
                 "To cancel your order, please follow these steps:",
                 "Contact Us Immediately: Reach out to our customer support team at ",
-                <span key="phone" className="phone-number">+91 990-852-6444</span>,
+                <span key="phone" className="phone-number">+91 903-052-8333</span>,
                 " within 24 hours of your order.",
                 "Provide Order Details: Include your order number and reason for cancellation in your message to help us process your request faster."
             ]

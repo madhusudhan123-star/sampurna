@@ -77,14 +77,14 @@ const Navbar = () => {
                         <div className="flex flex-col">
                             <button
                                 onClick={() => handleNavigation('/product')}
-                                className={`px-4 py-3 text-left hover:bg-gray-50 ${pathname === '/product' ? 'text-[#43c3ff] font-semibold' : 'text-gray-600'
+                                className={`px-4 py-3 text-left hover:bg-gray-50 ${pathname === '/product' ? 'text-[#5fccff] font-semibold' : 'text-gray-600'
                                     }`}
                             >
                                 {getDisplayText('product')}
                             </button>
                             <button
                                 onClick={() => handleNavigation('/about')}
-                                className={`px-4 py-3 text-left hover:bg-gray-50 ${pathname === '/about' ? 'text-[rgb(83,247,83)] font-semibold' : 'text-gray-600'
+                                className={`px-4 py-3 text-left hover:bg-gray-50 ${pathname === '/about' ? 'text-[#6cfc6c] font-semibold' : 'text-gray-600'
                                     }`}
                             >
                                 {getDisplayText('about')}
@@ -99,7 +99,7 @@ const Navbar = () => {
                 {/* Product section */}
                 <div
                     className={`w-12/12 h-screen flex items-end justify-center py-36 cursor-pointer transition-all duration-300
-                        ${pathname === '/product' ? 'bg-[#43c3ff]' : 'bg-[#43c3ff] backdrop-blur-sm hover:bg-[#43c3ff]/10'}`}
+                        ${pathname === '/product' ? 'bg-[#5fccff]' : 'bg-[#5fccff] backdrop-blur-sm hover:bg-[#43c3ff]/10'}`}
                     onClick={() => handleNavigation('/product')}
                 >
                     <span className={`transform rotate-[270deg] text-[3vw] font-semibold
@@ -111,7 +111,7 @@ const Navbar = () => {
                 {/* About section */}
                 <div
                     className={`w-12/12 h-screen flex items-end justify-center py-16 cursor-pointer transition-all duration-300
-                        ${pathname === '/about' ? 'bg-[rgb(83,247,83)]' : 'bg-[rgb(83,247,83)] backdrop-blur-sm hover:bg-[rgb(83,247,83)]/10'}`}
+                        ${pathname === '/about' ? 'bg-[#6cfc6c]' : 'bg-[#6cfc6c] backdrop-blur-sm hover:bg-[rgb(83,247,83)]/10'}`}
                     onClick={() => handleNavigation('/about')}
                 >
                     <span className={`transform rotate-[270deg] text-[3vw] font-semibold

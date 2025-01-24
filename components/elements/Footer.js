@@ -81,7 +81,7 @@ export default function Footer() {
                                 Email: israelitesshopping171@gmail.com
                             </li>
                             <li className="text-xs md:text-sm font-mono text-gray-600">
-                                Phone: +91 990-852-6444
+                                Phone: +91 903-052-8333
                             </li>
                             <li className="text-xs md:text-sm text-gray-600">
                                 Location: Bangalore, India

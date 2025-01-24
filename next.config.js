@@ -1,11 +1,13 @@
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    eslint: {
-        ignoreDuringBuilds: true,
-    },
-    // Add this to help with hydration
-    reactStrictMode: true
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  reactStrictMode: true,
+  output: 'export',
+  images: {
+    unoptimized: true
+  }
 };
 
 module.exports = nextConfig;

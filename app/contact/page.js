@@ -22,7 +22,7 @@ export default function Contact() {
         {
             icon: <Phone className="w-6 h-6" />,
             title: "Phone",
-            details: ["+91 990-852-6444"],
+            details: ["+91 903-052-8333"],
             action: "tel:+919908526444",
             isPhone: true
         },

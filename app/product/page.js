@@ -3,19 +3,24 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Button } from "@/components/ui/button"
 import Navbar from '@/components/elements/Navbar';
-import product1 from '../../assets/product_des.jpg';
+import product1 from '../../assets/1.jpg';
+import product2 from '../../assets/2.jpg'; // Add more product images
+import product3 from '../../assets/5.jpg'; // Add more product images
+import product4 from '../../assets/10.jpg'; // Add more product images
 import { Star, Minus, Plus } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
 export default function Product() {
     const [quantity, setQuantity] = useState(1);
     const [gradientPosition, setGradientPosition] = useState(0);
+    const [selectedImage, setSelectedImage] = useState(0);
     const router = useRouter();
 
-    // Product details (you can replace with actual data)
+    // Product details with multiple images
     const product = {
         name: "Sampoorna Digestive Health Supplement",
         price: 3999.00,
+        images: [product1, product2, product3, product4],
         description: "A natural supplement that promotes digestive health and overall wellness. Made with premium Ayurvedic ingredients.",
         features: [
             "100% Natural Ingredients",
@@ -55,14 +60,34 @@ export default function Product() {
                 <div className="max-w-7xl mx-auto px-4 py-8">
                     {/* Product Section */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        {/* Product Image */}
-                        <div className="relative h-[500px] rounded-2xl overflow-hidden">
-                            <Image
-                                src={product1}
-                                alt={product.name}
-                                fill
-                                className="object-cover"
-                            />
+                        {/* Product Image Gallery */}
+                        <div className="space-y-4">
+                            <div className="relative h-[500px] rounded-2xl overflow-hidden">
+                                <Image
+                                    src={product.images[selectedImage]}
+                                    alt={`${product.name} - View ${selectedImage + 1}`}
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
+                            {/* Thumbnails */}
+                            <div className="flex gap-4 overflow-x-auto pb-2">
+                                {product.images.map((img, index) => (
+                                    <button
+                                        key={index}
+                                        onClick={() => setSelectedImage(index)}
+                                        className={`relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden ${selectedImage === index ? 'ring-2 ring-[#43c3ff]' : ''
+                                            }`}
+                                    >
+                                        <Image
+                                            src={img}
+                                            alt={`${product.name} thumbnail ${index + 1}`}
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    </button>
+                                ))}
+                            </div>
                         </div>
 
                         {/* Product Details */}

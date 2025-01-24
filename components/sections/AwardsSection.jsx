@@ -8,42 +8,75 @@ import six from '@/assets/t_six.png'
 import seven from '@/assets/t_seven.avif'
 
 export default function AwardsSection() {
+  // const awards = [
+  //   {
+  //     title: "GMP Certified",
+  //     image: one,
+  //     description: "Good Manufacturing Practice Certified"
+  //   },
+  //   {
+  //     title: "ISO 9001:2015",
+  //     image: two,
+  //     description: "Quality Management System"
+  //   },
+  //   {
+  //     title: "Made in India",
+  //     image: three,
+  //     description: "100% Natural Ingredients and Made in India"
+  //   },
+  //   {
+  //     title: "FSSAI Certified",
+  //     image: four,
+  //     description: "Food Safety Certification",
+  //     customSize: true // Add this flag for FSSAI certificate
+  //   },
+  //   {
+  //     title: "Halal Certified",
+  //     image: five,
+  //     description: "Halal Certification"
+  //   },
+  //   {
+  //     title: "Quality Assured",
+  //     image: six,
+  //     description: "Premium Quality Products"
+  //   },
+  //   {
+  //     title: "Research Backed",
+  //     image: seven,
+  //     description: "Scientifically Proven Results"
+  //   }
+  // ];
   const awards = [
     {
       title: "GMP Certified",
-      image: one,
+      image: six,
       description: "Good Manufacturing Practice Certified"
     },
     {
       title: "ISO 9001:2015",
-      image: two,
+      image: three,
       description: "Quality Management System"
     },
     {
       title: "Made in India",
-      image: three,
+      image: one,
       description: "100% Natural Ingredients and Made in India"
     },
     {
-      title: "FSSAI Certified",
+      title: "No Side Effects",
+      image: two,
+      description: "You can trust us",
+    },
+    {
+      title: "Ayush Certified",
       image: four,
-      description: "Food Safety Certification",
+      description: "Premium Quality Products",
       customSize: true // Add this flag for FSSAI certificate
     },
     {
-      title: "Halal Certified",
-      image: five,
-      description: "Halal Certification"
-    },
-    {
-      title: "Quality Assured",
-      image: six,
-      description: "Premium Quality Products"
-    },
-    {
-      title: "Research Backed",
+      title: "Cruelty Free",
       image: seven,
-      description: "Scientifically Proven Results"
+      description: "Not tested on animals"
     }
   ];
 
@@ -64,7 +97,7 @@ export default function AwardsSection() {
               className="flex-none w-[300px] mx-4 bg-white rounded-xl p-6 text-center"
               style={{ animation: 'none' }}
             >
-              <div className={`mx-auto mb-4 relative ${award.customSize ? 'w-20 h-20 mb-10' : 'w-24 h-24'}`}>
+              <div className={`mx-auto mb-4 relative ${award.customSize ? 'w-20 h-16 mb-16' : 'w-24 h-24'}`}>
                 <Image
                   src={award.image}
                   alt={`${award.title} - ${award.description}`}

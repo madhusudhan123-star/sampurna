@@ -14,6 +14,7 @@ import eight from '../../assets/face/eight.avif'
 import nine from '../../assets/face/nine.avif'
 import ten from '../../assets/face/ten.avif'
 import ten_one from '../../assets/face/ten_one.jpg'
+import ten_two from '../../assets/face/ten_two.jpeg'
 
 const reviews = [
     {
@@ -194,7 +195,7 @@ export default function ReviewSection() {
     }, []);
 
     return (
-        <div className="relative w-full rounded-br-[200px] overflow-hidden bg-black/95 py-8 md:py-16">
+        <div className="relative w-full md:rounded-br-[200px] rounded-br-[100px] overflow-hidden bg-black/95 py-8 md:py-16">
             <div className="absolute inset-0 z-0">
                 <div ref={sceneRef} className="w-full h-[300px]" />
             </div>
@@ -206,9 +207,9 @@ export default function ReviewSection() {
 
                 <div className="flex flex-col md:flex-row gap-4 md:gap-8 px-4 md:px-20">
                     {/* Image Section */}
-                    <div className="md:w-1/3 relative min-h-[200px] md:min-h-[400px] rounded-xl md:rounded-2xl overflow-hidden">
+                    <div className="md:w-2/5 hidden md:block relative min-h-[200px] md:min-h-[400px] rounded-xl md:rounded-2xl overflow-hidden">
                         <Image
-                            src={reviewImage}
+                            src={ten_two}
                             alt="Customer Review Showcase"
                             fill
                             className="object-cover"
@@ -221,7 +222,7 @@ export default function ReviewSection() {
                     </div>
 
                     {/* Reviews Grid */}
-                    <div className="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+                    <div className="md:w-3/5 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
                         {reviews.slice(0, 6).map((review, index) => ( // Reduced to 6 reviews for mobile
                             <div
                                 key={index}

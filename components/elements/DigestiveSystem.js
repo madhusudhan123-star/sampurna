@@ -7,11 +7,11 @@ import dia from './diagustive.png';
 const DigestiveSystem = () => {
   const [activeOrgan, setActiveOrgan] = useState(null);
   const [isMobile, setIsMobile] = useState(false); // Add this state
-  
+
   // Add this useEffect to handle window check
   useEffect(() => {
     setIsMobile(window.innerWidth <= 768);
-    
+
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
@@ -19,13 +19,13 @@ const DigestiveSystem = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  
+
   const organs = [
     {
       id: 'mouth',
       name: 'Mouth & Esophagus',
       description: 'Start of digestion - Chewing, enzyme release, and food passage.',
-      position: { 
+      position: {
         desktop: { top: '20%', left: '50%' },
         mobile: { top: '15%', left: '50%' }
       },
@@ -36,7 +36,7 @@ const DigestiveSystem = () => {
       id: 'stomach',
       name: 'Stomach',
       description: 'Food breakdown using acid and enzymes. Key for protein digestion.',
-      position: { 
+      position: {
         desktop: { top: '42%', left: '52%' },
         mobile: { top: '35%', left: '52%' }
       },
@@ -47,7 +47,7 @@ const DigestiveSystem = () => {
       id: 'smallIntestine',
       name: 'Small Intestine',
       description: 'Nutrient absorption powerhouse. 90% of digestion happens here.',
-      position: { 
+      position: {
         desktop: { top: '58%', left: '48%' },
         mobile: { top: '55%', left: '48%' }
       },
@@ -58,7 +58,7 @@ const DigestiveSystem = () => {
       id: 'largeIntestine',
       name: 'Large Intestine',
       description: 'Water absorption and final processing. Important for gut health.',
-      position: { 
+      position: {
         desktop: { top: '72%', left: '50%' },
         mobile: { top: '70%', left: '50%' }
       },
@@ -73,7 +73,7 @@ const DigestiveSystem = () => {
   }
 
   return (
-    <div className="relative w-full min-h-screen rounded-b-[70px] z-10 pt-10 md:pt-20 bg-gradient-to-r from-[#988967] via-[#F7E9CC] to-[#AB9C7A]">
+    <div className="relative w-full rounded-b-[70px] z-10 pt-10 md:pt-20 bg-gradient-to-r from-[#988967] via-[#F7E9CC] to-[#AB9C7A]">
       <div className="w-full max-w-[1920px] mx-auto px-2 md:px-8">
         <h2 className="text-2xl md:text-6xl font-bold text-center text-[#2A6177] mb-2 md:mb-4">
           Interactive Digestive System Guide
@@ -150,8 +150,8 @@ const DigestiveSystem = () => {
               {((isMobile && activeOrgan === organ.id) || !isMobile) && (
                 <div
                   className={`absolute p-3 md:p-6 bg-white rounded-lg shadow-xl border-l-4
-                    ${isMobile 
-                      ? 'w-[280px] -translate-x-1/2 left-1/2 top-[120%]' 
+                    ${isMobile
+                      ? 'w-[280px] -translate-x-1/2 left-1/2 top-[120%]'
                       : `${organ.side === 'left' ? '-left-[400px]' : '-right-[400px]'} 
                          top-1/2 -translate-y-1/2 w-[380px]`
                     } z-40`}
