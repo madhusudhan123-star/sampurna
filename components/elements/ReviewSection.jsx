@@ -3,16 +3,16 @@ import { useEffect, useRef } from 'react';
 import Matter from 'matter-js';
 import Image from 'next/image';
 import reviewImage from '../../assets/face/two.jpg'; // Add your image to assets folder
-import one from '../../assets/face/one.avif'
-import two from '../../assets/face/two.jpg'
-import three from '../../assets/face/three.avif'
-import four from '../../assets/face/four.avif'
+// import one from '../../assets/face/one.avif'
+// import two from '../../assets/face/two.jpg'
+import three from '../../assets/face/three.png'
+import four from '../../assets/face/four.png'
 import five from '../../assets/face/five.jpg'
 import six from '../../assets/face/six.jpg'
-import seven from '../../assets/face/seven.avif'
-import eight from '../../assets/face/eight.avif'
+import seven from '../../assets/face/seven.png'
+import eight from '../../assets/face/eight.png'
 import nine from '../../assets/face/nine.avif'
-import ten from '../../assets/face/ten.avif'
+import ten from '../../assets/face/ten.png'
 import ten_one from '../../assets/face/ten_one.jpg'
 import ten_two from '../../assets/face/ten_two.jpeg'
 

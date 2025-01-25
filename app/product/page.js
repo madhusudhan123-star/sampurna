@@ -6,7 +6,7 @@ import Navbar from '@/components/elements/Navbar';
 import product1 from '../../assets/1.jpg';
 import product2 from '../../assets/2.jpg'; // Add more product images
 import product3 from '../../assets/5.jpg'; // Add more product images
-import product4 from '../../assets/10.jpg'; // Add more product images
+import product4 from '../../assets/6.jpg'; // Add more product images
 import { Star, Minus, Plus } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 

@@ -5,7 +5,7 @@ import three from '@/assets/t_three.svg'
 import four from '@/assets/t_four.png'
 import five from '@/assets/hala.png'
 import six from '@/assets/t_six.png'
-import seven from '@/assets/t_seven.avif'
+import seven from '@/assets/t_seven.png'
 
 export default function AwardsSection() {
   // const awards = [
@@ -101,9 +101,7 @@ export default function AwardsSection() {
                 <Image
                   src={award.image}
                   alt={`${award.title} - ${award.description}`}
-                  layout="responsive"
-                  width={100}
-                  height={100}
+                  fill
                   className="object-contain"
                 />
               </div>

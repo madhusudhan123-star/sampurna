@@ -60,10 +60,10 @@ export default function Footer() {
                     <div className="w-full">
                         <h4 className="text-base md:text-lg font-semibold mb-3">Quick Links</h4>
                         <ul className="space-y-1.5">
-                            {["Home", "About Us", "Products", "Contact"].map((item) => (
+                            {["Home", "About", "Product", "Contact"].map((item) => (
                                 <li key={item}>
                                     <button
-                                        onClick={() => router.push(`/${item.toLowerCase().replace(' ', '')}`)}
+                                        onClick={() => router.push(item === "Home" ? "/" : `/${item.toLowerCase().replace(' ', '')}`)}
                                         className="text-sm text-gray-600 hover:text-[#43c3ff] transition-colors duration-200"
                                     >
                                         {item}
