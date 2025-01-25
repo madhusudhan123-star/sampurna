@@ -54,25 +54,41 @@ export default function Home() {
 
   // Add this new state for FAQ
   const [openFaq, setOpenFaq] = useState(null);
-
   const faqData = [
     {
       question: "What are the main benefits of Sampoorna Arogya?",
-      answer: "Sampoorna Arogya offers comprehensive digestive health support through natural ingredients, helping with issues like bloating, indigestion, and maintaining overall gut health."
+      answer: "Sampoorn Arogya provides comprehensive digestive health support through a blend of Ayurvedic herbs. It helps alleviate bloating, indigestion, and supports a healthy gut microbiome."
     },
     {
       question: "How should I take Sampoorna Arogya products?",
-      answer: "The recommended dosage varies by product. Generally, our supplements should be taken with meals. Please refer to the specific product instructions or consult with your healthcare provider."
+      answer: "Our syrup and tablets are best consumed before meals with lukewarm water. Detailed instructions are provided with each product, or you can consult your healthcare provider."
     },
     {
       question: "Are there any side effects?",
-      answer: "Our products are made from natural ingredients and are generally safe for consumption. However, as with any supplement, some individuals may experience mild digestive adjustment initially."
+      answer: "Sampoorn Arogya is made from 100% natural ingredients and is generally safe for consumption. However, in rare cases, mild digestive adjustments may occur as your body adapts."
     },
     {
       question: "How long does it take to see results?",
-      answer: "Most users report improvements within 2-3 weeks of regular use. However, individual results may vary depending on specific conditions and consistency of use."
+      answer: "Most users notice initial improvements within the first week. Consistent use over 2-3 weeks enhances results, with significant benefits evident after one month."
+    },
+    {
+      question: "Can Sampoorn Arogya be used for chronic digestive issues?",
+      answer: "While our products support overall gut health, individuals with chronic conditions should consult a healthcare provider before use. Our supplements work best as part of a holistic health regimen."
+    },
+    {
+      question: "Is Sampoorn Arogya safe for children and elderly individuals?",
+      answer: "Yes, Sampoorn Arogya is formulated with natural ingredients and is generally safe for all age groups. However, dosage recommendations may vary. Please refer to product guidelines or consult a healthcare provider."
+    },
+    {
+      question: "What makes Sampoorn Arogya different from other digestive supplements?",
+      answer: "Our products are rooted in Ayurvedic traditions, using time-tested herbs and natural ingredients. Unlike synthetic supplements, Sampoorn Arogya offers a gentle yet effective approach to digestive wellness."
+    },
+    {
+      question: "Can I take Sampoorn Arogya alongside other medications?",
+      answer: "Generally, Sampoorn Arogya can be taken with other medications. However, it's always advisable to consult your doctor to ensure no potential interactions."
     }
   ];
+
 
   // Add scroll instance ref
   const locomotiveScrollRef = useRef(null);
@@ -368,7 +384,7 @@ export default function Home() {
                     alt="Quick Relief Icon"
                     className='w-20 h-20 object-contain group-hover:scale-110 transition-transform duration-300'
                   />
-                  <h3 className='text-2xl font-semibold'>Your Health Journey</h3>
+                  <h3 className='text-2xl font-semibold'>Secure Payment</h3>
                 </div>
                 <div className='flex items-center gap-2'>
                   <Image
@@ -376,7 +392,7 @@ export default function Home() {
                     alt="Anti-Bloating Icon"
                     className='w-28 h-28 object-contain group-hover:scale-110 transition-transform duration-300'
                   />
-                  <h3 className='text-2xl font-semibold'>Your Health Journey</h3>
+                  <h3 className='text-2xl font-semibold'>100% Guarentee</h3>
                 </div>
               </div>
 
@@ -434,7 +450,7 @@ export default function Home() {
                     alt="Natural Herbal Ingredients Icon"
                     className='w-16 h-16 object-contain group-hover:scale-110 transition-transform duration-300'
                   />
-                  <h3 className='text-2xl w-1/2 font-semibold'>Your Health Journey</h3>
+                  <h3 className='text-2xl w-1/2 font-semibold'>Trusted by Professionals</h3>
 
                 </div>
                 <div className="flex items-center gap-2 justify-end">
@@ -443,7 +459,7 @@ export default function Home() {
                     alt="Heart Health Icon"
                     className='w-16 h-16 object-contain group-hover:scale-110 transition-transform duration-300'
                   />
-                  <h3 className='text-2xl w-1/2 font-semibold'>Your Health Journey</h3>
+                  <h3 className='text-2xl w-1/2 font-semibold'>Fast Delivery</h3>
                 </div>
 
               </div>
@@ -469,13 +485,15 @@ export default function Home() {
                 fill
                 className="object-cover"
               />
-              <div className='absolute inset-0 z-10 flex justify-end'>
-                <div className='p-4 md:p-10 w-full md:w-4/12 text-white'>
-                  <h1 className='text-2xl md:text-3xl font-bold'>Content</h1>
-                  <p className='text-base md:text-xl mt-2'>This error occurs because you're trying to access the window object during server-side rendering.</p>
+              <div className="absolute inset-0 z-10 flex justify-end">
+                <div className="p-4 md:p-10 w-full md:w-4/12 text-black">
+                  <h1 className="text-2xl md:text-5xl font-bold">Improve Your Digestion</h1>
+                  <p className="text-base md:text-xl mt-2">
+                    Sampoorn Arogya offers Ayurvedic solutions for better digestion and overall wellness. Experience the power of nature with our syrups and tablets.
+                  </p>
                   <Button
                     onClick={() => router.push('/product')}
-                    className="bg-[rgb(76,238,84)] mt-4 md:mt-5 hover:bg-[#43c3ff] text-white px-4 py-2 md:px-10 md:py-7 rounded-full transition-all duration-300 text-sm md:text-3xl"
+                    className="bg-green-400 mt-4 md:mt-5 hover:bg-blue-400 text-white px-4 py-2 md:px-10 md:py-7 rounded-full transition-all duration-300 text-sm md:text-3xl"
                   >
                     Order Now
                   </Button>
@@ -496,7 +514,7 @@ export default function Home() {
 
 
           {/* Product Sections - Updated for mobile */}
-          <div ref={productRef} className='w-full p-4 md:p-6' >
+          {/* <div ref={productRef} className='w-full p-4 md:p-6' >
             <div
               className={`flex flex-col md:flex-row justify-center gap-6 md:gap-10 items-center ${fadeInUp}`}
               style={{
@@ -531,7 +549,49 @@ export default function Home() {
                 <Image src={banner2} alt="Sampoorna Arogya Product" className='w-full' />
               </div>
             </div>
+          </div> */}
+          <div ref={productRef} className='w-full p-4 md:p-6'>
+            <div
+              className={`flex flex-col md:flex-row justify-center gap-6 md:gap-10 items-center ${fadeInUp}`}
+              style={{
+                transform: productInView ? 'translateY(0)' : 'translateY(50px)',
+                opacity: productInView ? 1 : 0,
+                transitionDelay: '200ms'
+              }}
+            >
+              <div className='w-full md:w-1/2'>
+                <Image src={banner1} alt="Sampoorn Arogya Syrup" className='w-full rounded-lg' />
+              </div>
+              <div className='w-full md:w-1/2 space-y-4'>
+                <h1 className='text-2xl md:text-5xl font-bold'>Boost Your Digestion Naturally</h1>
+                <p className='text-sm md:text-2xl'>   Sampoorn Arogya offers a holistic Ayurvedic solution to improve your digestion and enhance gut health. Our syrup and tablet formulations are designed to provide natural, effective relief from common digestive issues.
+                  Enriched with powerful Ayurvedic ingredients like Triphala, Jeera, and Ajwain, Sampoorn Arogya not only soothes your digestive system but also helps detoxify the body, regulate metabolism, and strengthen your immunity.
+                  Whether you face bloating, indigestion, or irregular bowel movements, our products provide a safe, natural, and long-lasting solution for all your digestive concerns.</p>
+                <Button className="bg-[#cf1cff] px-6 py-3 md:px-9 md:py-5 text-base md:text-xl w-full md:w-auto"><a href="/product"> Buy Now</a></Button>
+              </div>
+            </div>
+            <div
+              className={`flex flex-col md:flex-row justify-center gap-6 md:gap-10 items-center mt-10 ${fadeInUp}`}
+              style={{
+                transform: productInView ? 'translateY(0)' : 'translateY(50px)',
+                opacity: productInView ? 1 : 0,
+                transitionDelay: '400ms'
+              }}
+            >
+              <div className='w-full md:w-1/2'>
+                <h1 className='text-3xl md:text-5xl font-bold'>Ayurvedic Wellness for All</h1>
+                <p className="text-sm md:text-2xl">
+                  Embrace the ancient wisdom of Ayurveda with Sampoorn Arogya. Crafted with 100% natural ingredients, our products are formulated to nurture your digestive health and support overall well-being. By harnessing the power of time-tested herbs, Sampoorn Arogya helps reduce acidity, combat bloating, and maintain a balanced gut microbiome. Trust in nature’s remedies for a healthier and happier lifestyle.
+                </p>
+                <Button className="bg-[#cf1cff] px-9 py-5 text-xl"><a href="/product"> Buy Now</a></Button>
+              </div>
+              <div className='w-full md:w-1/2'>
+                <Image src={banner2} alt="Sampoorn Arogya Tablets" className='w-full' />
+              </div>
+            </div>
           </div>
+
+
 
 
 
@@ -554,7 +614,7 @@ export default function Home() {
           </div>
 
           {/* Replace the banner section with this code */}
-          <div className='relative w-full'>
+          {/* <div className='relative w-full'>
             <div className="aspect-[16/7] md:aspect-[21/7] relative">
               <Image
                 src={smallbanner}
@@ -567,6 +627,30 @@ export default function Home() {
                   <h1 className='text-2xl md:text-3xl font-bold'>Content</h1>
                   <p className='text-sm md:text-xl mt-2 md:mt-4'>
                     This error occurs because you're trying to access the window object during server-side rendering (SSR) in Next.js. The window object is only available in the browser environment, not during server-side rendering.
+                  </p>
+                  <Button
+                    onClick={() => router.push('/product')}
+                    className="w-full md:w-auto mt-4 md:mt-5 bg-[rgb(76,238,84)] hover:bg-[#43c3ff] text-white px-4 py-2 md:px-10 md:py-7 rounded-full transition-all duration-300 text-base md:text-3xl"
+                  >
+                    Order Now
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div> */}
+          <div className='relative w-full'>
+            <div className="aspect-[16/7] md:aspect-[21/7] relative">
+              <Image
+                src={smallbanner}
+                alt="Promotional Banner"
+                fill
+                className="object-cover"
+              />
+              <div className='absolute inset-0 z-10 flex items-center'>
+                <div className='px-4 md:p-10 w-full md:w-1/2 text-white'>
+                  <h1 className='text-2xl md:text-3xl font-bold'>Transform Your Digestive Health</h1>
+                  <p className='text-sm md:text-xl mt-2 md:mt-4'>
+                    Discover the power of Ayurveda with Sampoorn Arogya. Designed to alleviate digestive discomfort and support gut health, our products combine natural ingredients to bring balance and vitality to your daily life. Experience improved digestion, reduced bloating, and enhanced overall wellness with every dose.
                   </p>
                   <Button
                     onClick={() => router.push('/product')}

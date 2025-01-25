@@ -2,44 +2,85 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 export default function BenefitsTimeline() {
+  // const timelineData = [
+  //   {
+  //     day: "Day 1-7",
+  //     benefit: "Initial digestive comfort improvement",
+  //     description: "Experience reduced bloating and better digestion",
+  //     additionalContent: {
+  //       details: [
+  //         "Reduced stomach discomfort",
+  //         "Better nutrient absorption",
+  //         "Improved gut flora balance"
+  //       ],
+  //       tips: "Take with warm water before meals for best results"
+  //     }
+  //   },
+  //   {
+  //     day: "Week 2-3",
+  //     benefit: "Enhanced Gut Health",
+  //     description: "Notice improved nutrient absorption and regular bowel movements",
+  //     additionalContent: {
+  //       details: [
+  //         "Regular bowel movements",
+  //         "Reduced acid reflux",
+  //         "Better appetite control"
+  //       ],
+  //       tips: "Maintain consistent timing for supplement intake"
+  //     }
+  //   },
+  //   {
+  //     day: "Month 1",
+  //     benefit: "Overall Wellness",
+  //     description: "Feel more energetic and experience better immunity",
+  //     additionalContent: {
+  //       details: [
+  //         "Increased energy levels",
+  //         "Stronger immune system",
+  //         "Better mental clarity"
+  //       ],
+  //       tips: "Combine with healthy diet for optimal results"
+  //     }
+  //   }
+  // ];
   const timelineData = [
     {
       day: "Day 1-7",
-      benefit: "Initial digestive comfort improvement",
-      description: "Experience reduced bloating and better digestion",
+      benefit: "Initial Digestive Relief",
+      description: "Feel relief from bloating and improved digestion",
       additionalContent: {
         details: [
           "Reduced stomach discomfort",
-          "Better nutrient absorption",
-          "Improved gut flora balance"
+          "Improved nutrient absorption",
+          "Better balance of gut flora"
         ],
-        tips: "Take with warm water before meals for best results"
+        tips: "Take with lukewarm water before meals for best results."
       }
     },
     {
       day: "Week 2-3",
-      benefit: "Enhanced Gut Health",
-      description: "Notice improved nutrient absorption and regular bowel movements",
+      benefit: "Strengthened Gut Health",
+      description: "Experience regular bowel movements and enhanced digestion",
       additionalContent: {
         details: [
-          "Regular bowel movements",
           "Reduced acid reflux",
-          "Better appetite control"
+          "Improved appetite regulation",
+          "Consistent bowel movements"
         ],
-        tips: "Maintain consistent timing for supplement intake"
+        tips: "Maintain consistent timings for taking the supplements."
       }
     },
     {
       day: "Month 1",
-      benefit: "Overall Wellness",
-      description: "Feel more energetic and experience better immunity",
+      benefit: "Enhanced Overall Wellness",
+      description: "Feel revitalized with better energy levels and immunity",
       additionalContent: {
         details: [
-          "Increased energy levels",
-          "Stronger immune system",
-          "Better mental clarity"
+          "Boosted energy levels",
+          "Stronger immune response",
+          "Improved mental clarity"
         ],
-        tips: "Combine with healthy diet for optimal results"
+        tips: "Pair with a balanced diet and regular exercise for optimal results."
       }
     }
   ];

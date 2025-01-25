@@ -29,10 +29,13 @@ export default function Product() {
             "GMP Certified"
         ],
         ingredients: [
-            "Triphala",
-            "Yashtimadhu",
-            "Amalaki",
-            "Haritaki"
+            "Amla",
+            "Chitrak",
+            "Nagarmotha",
+            "Harad",
+            "Giloy",
+            "Nisoth",
+            "Adrak"
         ]
     };
 

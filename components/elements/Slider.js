@@ -34,56 +34,107 @@ const Slider = () => {
         }
     }, []);
 
+    // const ingredients = [
+    //     {
+    //         image: { src: img1.src, width: dimensions.width, height: dimensions.height },
+    //         title: "Amla",
+    //         description: "Powerful adaptogenic herb that helps reduce stress and anxiety",
+    //         alt: "Ashwaganda herb illustration"
+    //     },
+    //     {
+    //         image: { src: img2.src, width: dimensions.width, height: dimensions.height },
+    //         title: "Chitrak",
+    //         description: "Ancient blend that supports digestive health and detoxification",
+    //         alt: "Triphala blend illustration"
+    //     },
+    //     {
+    //         image: { src: img3.src, width: dimensions.width, height: dimensions.height },
+    //         title: "Nagarmotha",
+    //         description: "Rich in Vitamin C, supports immunity and digestion",
+    //         alt: "Amla fruit illustration"
+    //     },
+    //     {
+    //         image: { src: img5.src, width: dimensions.width, height: dimensions.height },
+    //         title: "Harad",
+    //         description: "Natural digestive cleanser and rejuvenator",
+    //         alt: "Haritaki fruit illustration"
+    //     },
+    //     {
+    //         image: { src: img6.src, width: dimensions.width, height: dimensions.height },
+    //         title: "Giloy",
+    //         description: "Holy basil with powerful anti-inflammatory properties",
+    //         alt: "Tulsi plant illustration"
+    //     },
+    //     {
+    //         image: { src: img7.src, width: dimensions.width, height: dimensions.height },
+    //         title: "Nisoth",
+    //         description: "Holy basil with powerful anti-inflammatory properties",
+    //         alt: "Tulsi plant illustration"
+    //     },
+    //     {
+    //         image: { src: img8.src, width: dimensions.width, height: dimensions.height },
+    //         title: "Adrak",
+    //         description: "Holy basil with powerful anti-inflammatory properties",
+    //         alt: "Tulsi plant illustration"
+    //     },
+    //     {
+    //         image: { src: img9.src, width: dimensions.width, height: dimensions.height },
+    //         title: "Jeera",
+    //         description: "Holy basil with powerful anti-inflammatory properties",
+    //         alt: "Tulsi plant illustration"
+    //     },
+    // ];
     const ingredients = [
         {
             image: { src: img1.src, width: dimensions.width, height: dimensions.height },
             title: "Amla",
-            description: "Powerful adaptogenic herb that helps reduce stress and anxiety",
-            alt: "Ashwaganda herb illustration"
+            description: "A rich source of Vitamin C, known for boosting immunity, improving skin health, and reducing stress.",
+            alt: "Amla fruit illustration"
         },
         {
             image: { src: img2.src, width: dimensions.width, height: dimensions.height },
             title: "Chitrak",
-            description: "Ancient blend that supports digestive health and detoxification",
-            alt: "Triphala blend illustration"
+            description: "An Ayurvedic herb that supports digestive health, aids detoxification, and boosts metabolism.",
+            alt: "Chitrak root illustration"
         },
         {
             image: { src: img3.src, width: dimensions.width, height: dimensions.height },
             title: "Nagarmotha",
-            description: "Rich in Vitamin C, supports immunity and digestion",
-            alt: "Amla fruit illustration"
+            description: "An aromatic herb that enhances digestion, balances metabolism, and supports overall well-being.",
+            alt: "Nagarmotha plant illustration"
         },
         {
             image: { src: img5.src, width: dimensions.width, height: dimensions.height },
             title: "Harad",
-            description: "Natural digestive cleanser and rejuvenator",
-            alt: "Haritaki fruit illustration"
+            description: "A traditional digestive aid that cleanses the body, rejuvenates cells, and promotes longevity.",
+            alt: "Harad fruit illustration"
         },
         {
             image: { src: img6.src, width: dimensions.width, height: dimensions.height },
             title: "Giloy",
-            description: "Holy basil with powerful anti-inflammatory properties",
-            alt: "Tulsi plant illustration"
+            description: "A versatile herb known for its anti-inflammatory, immunity-boosting, and detoxifying properties.",
+            alt: "Giloy stem illustration"
         },
         {
             image: { src: img7.src, width: dimensions.width, height: dimensions.height },
             title: "Nisoth",
-            description: "Holy basil with powerful anti-inflammatory properties",
-            alt: "Tulsi plant illustration"
+            description: "A potent herb that supports digestive cleansing, reduces bloating, and promotes healthy metabolism.",
+            alt: "Nisoth root illustration"
         },
         {
             image: { src: img8.src, width: dimensions.width, height: dimensions.height },
             title: "Adrak",
-            description: "Holy basil with powerful anti-inflammatory properties",
-            alt: "Tulsi plant illustration"
+            description: "A powerful spice with anti-inflammatory properties, known for aiding digestion and relieving nausea.",
+            alt: "Ginger root illustration"
         },
         {
             image: { src: img9.src, width: dimensions.width, height: dimensions.height },
             title: "Jeera",
-            description: "Holy basil with powerful anti-inflammatory properties",
-            alt: "Tulsi plant illustration"
+            description: "A fragrant spice that aids in digestion, reduces acidity, and promotes overall gut health.",
+            alt: "Cumin seed illustration"
         },
     ];
+
     console.log(ingredients[0].image);
 
     return (
