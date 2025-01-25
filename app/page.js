@@ -280,7 +280,7 @@ export default function Home() {
                 {/* Mobile image */}
                 <source
                   media="(max-width: 767px)"
-                  srcSet={heroMedium.src}
+                  srcSet={heroSmall.src}
                 />
                 <Image
                   src={heroSmall}
@@ -485,8 +485,8 @@ export default function Home() {
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 z-10 flex justify-end">
-                <div className="p-4 md:p-10 w-full md:w-4/12 text-black">
+              <div className="absolute inset-0 z-10 justify-end hidden md:flex">
+                <div className="p-4 md:p-10 w-full md:w-4/12 text-black flex justify-end items-end flex-col ">
                   <h1 className="text-2xl md:text-5xl font-bold">Improve Your Digestion</h1>
                   <p className="text-base md:text-xl mt-2">
                     Sampoorn Arogya offers Ayurvedic solutions for better digestion and overall wellness. Experience the power of nature with our syrups and tablets.
@@ -646,7 +646,7 @@ export default function Home() {
                 fill
                 className="object-cover"
               />
-              <div className='absolute inset-0 z-10 flex items-center'>
+              <div className='absolute inset-0 z-10 items-center hidden md:flex'>
                 <div className='px-4 md:p-10 w-full md:w-1/2 text-white'>
                   <h1 className='text-2xl md:text-3xl font-bold'>Transform Your Digestive Health</h1>
                   <p className='text-sm md:text-xl mt-2 md:mt-4'>

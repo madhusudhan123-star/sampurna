@@ -34,56 +34,6 @@ const Slider = () => {
         }
     }, []);
 
-    // const ingredients = [
-    //     {
-    //         image: { src: img1.src, width: dimensions.width, height: dimensions.height },
-    //         title: "Amla",
-    //         description: "Powerful adaptogenic herb that helps reduce stress and anxiety",
-    //         alt: "Ashwaganda herb illustration"
-    //     },
-    //     {
-    //         image: { src: img2.src, width: dimensions.width, height: dimensions.height },
-    //         title: "Chitrak",
-    //         description: "Ancient blend that supports digestive health and detoxification",
-    //         alt: "Triphala blend illustration"
-    //     },
-    //     {
-    //         image: { src: img3.src, width: dimensions.width, height: dimensions.height },
-    //         title: "Nagarmotha",
-    //         description: "Rich in Vitamin C, supports immunity and digestion",
-    //         alt: "Amla fruit illustration"
-    //     },
-    //     {
-    //         image: { src: img5.src, width: dimensions.width, height: dimensions.height },
-    //         title: "Harad",
-    //         description: "Natural digestive cleanser and rejuvenator",
-    //         alt: "Haritaki fruit illustration"
-    //     },
-    //     {
-    //         image: { src: img6.src, width: dimensions.width, height: dimensions.height },
-    //         title: "Giloy",
-    //         description: "Holy basil with powerful anti-inflammatory properties",
-    //         alt: "Tulsi plant illustration"
-    //     },
-    //     {
-    //         image: { src: img7.src, width: dimensions.width, height: dimensions.height },
-    //         title: "Nisoth",
-    //         description: "Holy basil with powerful anti-inflammatory properties",
-    //         alt: "Tulsi plant illustration"
-    //     },
-    //     {
-    //         image: { src: img8.src, width: dimensions.width, height: dimensions.height },
-    //         title: "Adrak",
-    //         description: "Holy basil with powerful anti-inflammatory properties",
-    //         alt: "Tulsi plant illustration"
-    //     },
-    //     {
-    //         image: { src: img9.src, width: dimensions.width, height: dimensions.height },
-    //         title: "Jeera",
-    //         description: "Holy basil with powerful anti-inflammatory properties",
-    //         alt: "Tulsi plant illustration"
-    //     },
-    // ];
     const ingredients = [
         {
             image: { src: img1.src, width: dimensions.width, height: dimensions.height },
@@ -138,7 +88,7 @@ const Slider = () => {
     console.log(ingredients[0].image);
 
     return (
-        <div className='w-full relative -top-16 pt-5 md:pt-0  flex justify-center items-center flex-col px-2 md:px-20 py-16 md:py-28 bg-black/95'>
+        <div className='w-full relative -top-16 pt-20  flex justify-center items-center flex-col px-2 md:px-20 py-16 md:py-28 bg-black/95'>
             <h1 className='text-2xl md:text-6xl text-center mb-8 md:mb-16 text-white'>KEY INGREDIENTS</h1>
             <div className='w-full h-[300px] md:h-[500px]'>
                 <Swiper
@@ -210,13 +160,13 @@ const Slider = () => {
                                 } relative rounded-xl overflow-hidden [transform-style:preserve-3d] [backface-visibility:hidden]`}
                         >
                             <div
-                                className={`absolute inset-0 bg-cover bg-center ${isMobile
+                                className={`absolute inset-0 bg-cover bg-no-repeat ${isMobile
                                     ? 'transition-transform duration-1000 ease-in-out scale-105'
                                     : 'transition-transform duration-300 hover:scale-110'
                                     } [transform-style:preserve-3d] [backface-visibility:hidden] [perspective:1000px]`}
                                 style={{
                                     backgroundImage: `url(${ingredient.image.src})`,
-                                    filter: isMobile ? 'brightness(0.9)' : 'none',
+                                    filter: isMobile ? 'brightness(1.0)' : 'none',
                                     willChange: 'transform',
                                     width: ingredient.image.width,
                                     height: ingredient.image.height,
@@ -225,8 +175,8 @@ const Slider = () => {
                                 aria-label={ingredient.alt}
                             />
                             <div className={`absolute inset-0 ${isMobile
-                                ? 'bg-gradient-to-t from-black/95 via-black/60 to-transparent'
-                                : 'bg-gradient-to-t from-black/90 via-black/50 to-transparent'
+                                ? 'bg-gradient-to-t from-black/70 via-black/40 to-transparent'
+                                : 'bg-gradient-to-t from-black/60 via-black/30 to-transparent'
                                 } flex flex-col justify-end p-4 md:p-8`}>
                                 <h3 className="text-white text-lg md:text-2xl font-bold mb-2">
                                     {ingredient.title}

@@ -17,16 +17,20 @@ const Navbar = () => {
         setIsLoading(true);
         setIsMobileMenuOpen(false);
 
-        const targetPath = path === '/about' && pathname === '/about' ? '/' :
-            path === '/product' && pathname === '/product' ? '/' : path;
+        // Remove trailing slashes from paths
+        const currentPath = pathname.replace(/\/$/, '');
+        const targetPath = path.replace(/\/$/, '');
 
-        const transitionColor = targetPath === '/about' ? 'rgb(83,247,83)' :
-            targetPath === '/product' ? '#43c3ff' : '#ffffff';
+        // Determine navigation target
+        const navigateTo = currentPath === targetPath ? '/' : targetPath;
+
+        const transitionColor = navigateTo === '/' ? '#ffffff' :
+            targetPath === '/about' ? 'rgb(83,247,83)' : '#43c3ff';
 
         document.documentElement.style.setProperty('--nav-bg-color', transitionColor);
 
         setTimeout(() => {
-            router.push(targetPath);
+            router.push(navigateTo);
             setTimeout(() => {
                 setIsTransitioning(false);
                 setIsLoading(false);
@@ -34,13 +38,16 @@ const Navbar = () => {
         }, 1000);
     };
 
-    // Get display text based on current path and section
     const getDisplayText = (section) => {
+        // Remove trailing slash for comparison
+        const currentPath = pathname.replace(/\/$/, '');
+
         if (section === 'product') {
-            return pathname === '/product' ? 'Home' : 'Product';
+            return currentPath === '/product' ? 'Home' : 'Product';
         } else if (section === 'about') {
-            return pathname === '/about' ? 'Home' : 'About';
+            return currentPath === '/about' ? 'Home' : 'About';
         }
+        return '';
     };
 
     return (
@@ -50,14 +57,16 @@ const Navbar = () => {
             <div className="md:hidden fixed top-0 left-0 w-full bg-white z-[999]">
                 <div className="flex justify-between items-center px-4 py-3">
                     <div className="flex items-center">
-                        <Image
-                            src={logo}
-                            alt="Logo"
-                            width={40}
-                            height={40}
-                            className="h-10 w-auto"
-                            priority
-                        />
+                        <a href="/">
+                            <Image
+                                src={logo}
+                                alt="Logo"
+                                width={40}
+                                height={40}
+                                className="h-10 w-auto"
+                                priority
+                            />
+                        </a>
                     </div>
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
