@@ -936,21 +936,6 @@ body{
 .w-full{
   width: 100%;
 }
-.w-6\/12{
-  width: 50%;
-}
-.w-1\/12{
-  width: 8.333333%;
-}
-.w-5\/12{
-  width: 41.666667%;
-}
-.w-4\/12{
-  width: 33.333333%;
-}
-.w-2\/12{
-  width: 16.666667%;
-}
 .max-w-2xl{
   max-width: 42rem;
 }
@@ -1328,6 +1313,10 @@ body{
   --tw-bg-opacity: 1;
   background-color: rgb(248 249 250 / var(--tw-bg-opacity, 1));
 }
+.bg-\[\#ff6c6c\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 108 108 / var(--tw-bg-opacity, 1));
+}
 .bg-\[rgb\(76\2c 238\2c 84\)\]{
   --tw-bg-opacity: 1;
   background-color: rgb(76 238 84 / var(--tw-bg-opacity, 1));
@@ -1380,9 +1369,13 @@ body{
   --tw-bg-opacity: 1;
   background-color: rgb(24 24 27 / var(--tw-bg-opacity, 1));
 }
-.bg-\[\#ff6c6c\]{
+.bg-\[\#FF8C42\]{
   --tw-bg-opacity: 1;
-  background-color: rgb(255 108 108 / var(--tw-bg-opacity, 1));
+  background-color: rgb(255 140 66 / var(--tw-bg-opacity, 1));
+}
+.bg-\[\#7D4FFF\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(125 79 255 / var(--tw-bg-opacity, 1));
 }
 .bg-gradient-to-b{
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
@@ -1511,13 +1504,13 @@ body{
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+.py-20{
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
 .py-3{
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-}
-.py-36{
-  padding-top: 9rem;
-  padding-bottom: 9rem;
 }
 .py-4{
   padding-top: 1rem;
@@ -1530,14 +1523,6 @@ body{
 .py-8{
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-.py-1{
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-}
-.py-20{
-  padding-top: 5rem;
-  padding-bottom: 5rem;
 }
 .pb-2{
   padding-bottom: 0.5rem;
@@ -1590,8 +1575,8 @@ body{
 .text-\[22px\]{
   font-size: 22px;
 }
-.text-\[3vw\]{
-  font-size: 3vw;
+.text-\[2vw\]{
+  font-size: 2vw;
 }
 .text-base{
   font-size: 1rem;
@@ -1612,9 +1597,6 @@ body{
 .text-xs{
   font-size: 0.75rem;
   line-height: 1rem;
-}
-.text-\[2vw\]{
-  font-size: 2vw;
 }
 .font-bold{
   font-weight: 700;
@@ -1652,6 +1634,10 @@ body{
 .text-\[\#6cfc6c\]{
   --tw-text-opacity: 1;
   color: rgb(108 252 108 / var(--tw-text-opacity, 1));
+}
+.text-\[\#ff6c6c\]{
+  --tw-text-opacity: 1;
+  color: rgb(255 108 108 / var(--tw-text-opacity, 1));
 }
 .text-black{
   --tw-text-opacity: 1;
@@ -1722,9 +1708,15 @@ body{
   --tw-text-opacity: 1;
   color: rgb(24 24 27 / var(--tw-text-opacity, 1));
 }
-.text-\[\#ff6c6c\]{
+.text-\[v\]{
+  color: v;
+}
+.text-\[\#FF8C42\]{
   --tw-text-opacity: 1;
-  color: rgb(255 108 108 / var(--tw-text-opacity, 1));
+  color: rgb(255 140 66 / var(--tw-text-opacity, 1));
+}
+.text-\[\]{
+  color: ;
 }
 .underline-offset-4{
   text-underline-offset: 4px;
@@ -2408,6 +2400,10 @@ main > div:last-child {
   background-color: rgb(67 195 255 / 0.9);
 }
 
+.hover\:bg-\[\#ff6c6c\]\/10:hover{
+  background-color: rgb(255 108 108 / 0.1);
+}
+
 .hover\:bg-\[rgb\(83\2c 247\2c 83\)\]\/10:hover{
   background-color: rgb(83 247 83 / 0.1);
 }
@@ -2448,10 +2444,6 @@ main > div:last-child {
   background-color: rgb(24 24 27 / 0.9);
 }
 
-.hover\:bg-\[\#ff6c6c\]\/10:hover{
-  background-color: rgb(255 108 108 / 0.1);
-}
-
 .hover\:text-\[\#2A6177\]:hover{
   --tw-text-opacity: 1;
   color: rgb(42 97 119 / var(--tw-text-opacity, 1));
@@ -2465,6 +2457,11 @@ main > div:last-child {
 .hover\:text-zinc-900:hover{
   --tw-text-opacity: 1;
   color: rgb(24 24 27 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-black:hover{
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
 }
 
 .hover\:underline:hover{
@@ -2680,40 +2677,20 @@ main > div:last-child {
     margin-left: 20%;
   }
 
-  .md\:mt-0{
-    margin-top: 0px;
-  }
-
-  .md\:mt-8{
-    margin-top: 2rem;
-  }
-
-  .md\:ml-\[25\%\]{
-    margin-left: 25%;
-  }
-
-  .md\:ml-\[24\%\]{
-    margin-left: 24%;
-  }
-
-  .md\:ml-\[23\.\%\]{
-    margin-left: 23.%;
+  .md\:ml-\[23\.5\%\]{
+    margin-left: 23.5%;
   }
 
   .md\:ml-\[23\.8\%\]{
     margin-left: 23.8%;
   }
 
-  .md\:ml-\[2\%\]{
-    margin-left: 2%;
+  .md\:mt-0{
+    margin-top: 0px;
   }
 
-  .md\:ml-\[23\.5\%\]{
-    margin-left: 23.5%;
-  }
-
-  .md\:ml-\[23\%\]{
-    margin-left: 23%;
+  .md\:mt-8{
+    margin-top: 2rem;
   }
 
   .md\:block{
@@ -2824,10 +2801,6 @@ main > div:last-child {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .md\:grid-cols-4{
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
   .md\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -2921,11 +2894,6 @@ main > div:last-child {
     padding-right: 2.25rem;
   }
 
-  .md\:py-12{
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-
   .md\:py-16{
     padding-top: 4rem;
     padding-bottom: 4rem;
@@ -2964,11 +2932,6 @@ main > div:last-child {
   .md\:py-8{
     padding-top: 2rem;
     padding-bottom: 2rem;
-  }
-
-  .md\:py-10{
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
   }
 
   .md\:pl-12{

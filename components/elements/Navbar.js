@@ -102,7 +102,7 @@ const Navbar = () => {
                             </button>
                             <button
                                 onClick={() => handleNavigation('/contact')}
-                                className={`px-4 py-3 text-left hover:bg-gray-50 ${pathname === '/contact' ? 'text-[#ff6c6c] font-semibold' : 'text-gray-600'
+                                className={`px-4 py-3 text-left hover:bg-gray-50 ${pathname === '/contact' ? 'text-[#FF8C42] font-semibold' : 'text-gray-600'
                                     }`}
                             >
                                 {getDisplayText('contact')}
@@ -117,11 +117,11 @@ const Navbar = () => {
                 {/* Contact Us section */}
                 <div
                     className={`w-12/12 h-screen flex  items-end justify-center py-20 cursor-pointer transition-all duration-300
-                        ${pathname === '/contact' ? 'bg-[#ff6c6c]' : 'bg-[#ff6c6c] backdrop-blur-sm hover:bg-[#ff6c6c]/10'}`}
+                        ${pathname === '/contact' ? 'bg-[#FF8C42]' : 'bg-[#7D4FFF] backdrop-blur-sm hover:bg-[#ff6c6c]/10'}`}
                     onClick={() => handleNavigation('/contact')}
                 >
                     <span className={`transform rotate-[270deg] text-[2vw] font-semibold
-                        ${pathname === '/contact' ? 'text-white' : 'text-[#2A6177]'}`}>
+                        ${pathname === '/contact' ? 'text-white' : 'text-white'}`}>
                         {getDisplayText('contact')}
                     </span>
                 </div>
