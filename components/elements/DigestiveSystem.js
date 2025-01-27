@@ -200,7 +200,9 @@ const DigestiveSystem = () => {
                 </ul>
               </div>
 
-              <button className="mt-4 sm:mt-6 md:mt-8 bg-[#2A6177] text-white 
+              <button
+                onClick={() => router.push('/product')}
+                className="mt-4 sm:mt-6 md:mt-8 bg-[#2A6177] text-white 
                 px-5 sm:px-6 md:px-8 
                 py-2 sm:py-3 md:py-4 
                 text-sm sm:text-base md:text-lg
