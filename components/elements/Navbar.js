@@ -46,6 +46,8 @@ const Navbar = () => {
             return currentPath === '/product' ? 'Home' : 'Product';
         } else if (section === 'about') {
             return currentPath === '/about' ? 'Home' : 'About';
+        } else if (section === 'contact') {
+            return currentPath === '/contact' ? 'Home' : 'Contact Us';
         }
         return '';
     };
@@ -98,6 +100,13 @@ const Navbar = () => {
                             >
                                 {getDisplayText('about')}
                             </button>
+                            <button
+                                onClick={() => handleNavigation('/contact')}
+                                className={`px-4 py-3 text-left hover:bg-gray-50 ${pathname === '/contact' ? 'text-[#ff6c6c] font-semibold' : 'text-gray-600'
+                                    }`}
+                            >
+                                {getDisplayText('contact')}
+                            </button>
                         </div>
                     </div>
                 )}
@@ -105,13 +114,24 @@ const Navbar = () => {
 
             {/* Desktop Navbar */}
             <div className="hidden md:flex h-screen fixed top-0 left-0 w-auto">
+                {/* Contact Us section */}
+                <div
+                    className={`w-12/12 h-screen flex  items-end justify-center py-20 cursor-pointer transition-all duration-300
+                        ${pathname === '/contact' ? 'bg-[#ff6c6c]' : 'bg-[#ff6c6c] backdrop-blur-sm hover:bg-[#ff6c6c]/10'}`}
+                    onClick={() => handleNavigation('/contact')}
+                >
+                    <span className={`transform rotate-[270deg] text-[2vw] font-semibold
+                        ${pathname === '/contact' ? 'text-white' : 'text-[#2A6177]'}`}>
+                        {getDisplayText('contact')}
+                    </span>
+                </div>
                 {/* Product section */}
                 <div
-                    className={`w-12/12 h-screen flex items-end justify-center py-36 cursor-pointer transition-all duration-300
+                    className={`w-12/12 h-screen flex items-end justify-center py-16 cursor-pointer transition-all duration-300
                         ${pathname === '/product' ? 'bg-[#5fccff]' : 'bg-[#5fccff] backdrop-blur-sm hover:bg-[#43c3ff]/10'}`}
                     onClick={() => handleNavigation('/product')}
                 >
-                    <span className={`transform rotate-[270deg] text-[3vw] font-semibold
+                    <span className={`transform rotate-[270deg] text-[2vw] font-semibold
                         ${pathname === '/product' ? 'text-white' : 'text-[#2A6177]'}`}>
                         {getDisplayText('product')}
                     </span>
@@ -123,11 +143,13 @@ const Navbar = () => {
                         ${pathname === '/about' ? 'bg-[#6cfc6c]' : 'bg-[#6cfc6c] backdrop-blur-sm hover:bg-[rgb(83,247,83)]/10'}`}
                     onClick={() => handleNavigation('/about')}
                 >
-                    <span className={`transform rotate-[270deg] text-[3vw] font-semibold
+                    <span className={`transform rotate-[270deg] text-[2vw] font-semibold
                         ${pathname === '/about' ? 'text-white' : 'text-[#2A6177]'}`}>
                         {getDisplayText('about')}
                     </span>
                 </div>
+
+
 
                 {/* Overlay */}
                 {isTransitioning && (

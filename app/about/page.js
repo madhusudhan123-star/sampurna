@@ -12,8 +12,8 @@ import logo from '../just_logo.png'
 import aboutHero from '../../assets/test/1920x1281_1.jpg';
 import aboutBanner1 from '../../assets/test/1400x400.jpg';
 import aboutBanner2 from '../../assets/test/1400x400_1.jpg';
-import img1 from '../../assets/5.jpg';
-import img2 from '../../assets/6.jpg';
+import img1 from '../../assets/3.jpg';
+import img2 from '../../assets/7.jpg';
 import img3 from '../../assets/7.jpg';
 import img4 from '../../assets/8.jpg';
 import Footer from '@/components/elements/Footer';
@@ -67,16 +67,16 @@ export default function About() {
             </div>
 
             {/* Main Content */}
-            <div className="flex-1 md:ml-[20%] ml-0 mt-[60px] md:mt-0">
+            <div className="flex-1 md:ml-[23.5%] ml-0 mt-[60px] md:mt-0">
                 {/* Hero Section */}
-                <section className='relative w-full h-[30vh] md:h-screen'>
+                <section className='relative w-full h-[30vh] md:h-[50vh]'>
                     <div className="absolute inset-0">
                         <Image
-                            src={aboutHero}
+                            src={aboutBanner1}
                             alt="About Us Hero"
                             fill
                             priority
-                            className="object-cover brightness-75"
+                            className="object-fit"
                         />
                     </div>
 
@@ -105,10 +105,10 @@ export default function About() {
 
                         {/* Hero Content */}
                         <div className="flex-1 flex flex-col justify-end items-center px-4">
-                            <h1 className="text-4xl md:text-7xl font-bold text-white text-center mb-6">
+                            <h1 className="text-4xl md:text-3xl font-bold text-black text-center mb-6">
                                 Step into a Healthier Life with Sampoorna Arogya
                             </h1>
-                            <p className="text-lg md:text-xl text-white text-center max-w-2xl">
+                            <p className="text-lg md:text-xl text-black text-center max-w-2xl">
                                 Redefining digestive health through the power of Ayurveda.
                             </p>
                         </div>
@@ -131,35 +131,8 @@ export default function About() {
                     </div>
                 </div>
 
-                {/* Banner Section 1 */}
-                <div className="relative w-full">
-                    <div className="aspect-[16/9] md:aspect-[21/9] relative">
-                        <Image
-                            src={aboutBanner1}
-                            alt="Our Vision"
-                            fill
-                            className="object-cover"
-                        />
-                        <div className="absolute inset-0 z-10 flex items-center">
-                            <div className="p-4 md:p-10 w-full md:w-1/2 text-white">
-                                <h2 className="text-2xl md:text-4xl font-bold mb-4">Our Vision</h2>
-                                <p className="text-sm md:text-lg mb-6">
-                                    To bring balance and vitality to lives with authentic Ayurvedic solutions.
-                                </p>
-                                <Button className="bg-[rgb(76,238,84)] hover:bg-[#43c3ff]">
-                                    <a href='/product'>
-                                        Buy Now
-                                    </a>
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 {/* Product Information Section */}
                 <div className="py-16 md:py-24 px-4 md:px-8 bg-[#f8f9fa]">
-                    <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">Our Products</h2>
-
                     {/* Product 1 */}
                     <div className="max-w-7xl mx-auto mb-16 md:mb-24">
                         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">

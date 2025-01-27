@@ -71,7 +71,7 @@ export default function AwardsSection() {
       title: "Ayush Certified",
       image: four,
       description: "Premium Quality Products",
-      customSize: true // Add this flag for FSSAI certificate
+      // customSize: true // Add this flag for FSSAI certificate
     },
     {
       title: "Cruelty Free",

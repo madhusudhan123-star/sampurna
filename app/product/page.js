@@ -1,190 +1,581 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';  // Changed from 'next/router'
 import { Button } from "@/components/ui/button"
 import Navbar from '@/components/elements/Navbar';
 import product1 from '../../assets/1.jpg';
-import product2 from '../../assets/2.jpg'; // Add more product images
-import product3 from '../../assets/5.jpg'; // Add more product images
-import product4 from '../../assets/6.jpg'; // Add more product images
-import { Star, Minus, Plus } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { Minus, Plus } from 'lucide-react';
+import visa from '../../assets/visa.svg';  // You'll need to add these images
+import mastercard from '../../assets/mastercard.svg';
+import rupay from '../../assets/upi-id.png';
+import razorpay from '../../assets/paypal.svg';
+import logo from '../just_logo.png'
+import Product from './product';
+import AwardsSection from '@/components/sections/AwardsSection';
 
-export default function Product() {
-    const [quantity, setQuantity] = useState(1);
-    const [gradientPosition, setGradientPosition] = useState(0);
-    const [selectedImage, setSelectedImage] = useState(0);
+
+const PAYMENT_IMAGES = {
+    visa: "../assets/visa.svg",
+    mastercard: "../assets/mastercard.svg",
+    rupay: "../assets/amex.svg",
+    razorpay: "https://razorpay.com/assets/razorpay-glyph.svg",
+    secure: "https://cdn-icons-png.flaticon.com/512/6195/6195702.png",
+    pci: "https://cdn-icons-png.flaticon.com/512/6107/6107137.png",
+    ssl: "https://cdn-icons-png.flaticon.com/512/7947/7947657.png"
+};
+
+const COUNTRY_CURRENCY_MAP = {
+    'India': { currency: 'INR', symbol: '₹', rate: 1 },
+    'United States': { currency: 'USD', symbol: '$', rate: 0.012 },
+    'United Kingdom': { currency: 'GBP', symbol: '£', rate: 0.0097 },
+    // ...add more countries as needed
+};
+
+const RAZORPAY_KEY = 'rzp_test_vjJuid6KjiD8Nz'; // Replace with your actual key  rzp_live_tGJjXr7rvi6keg
+
+export default function Checkout() {
     const router = useRouter();
+    const [quantity, setQuantity] = useState(1);
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        country: 'India',
+        streetAddress: '',
+        apartment: '',
+        townCity: '',
+        paymentMode: ''
+    });
+    const [formErrors, setFormErrors] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [currentCurrency, setCurrentCurrency] = useState(COUNTRY_CURRENCY_MAP['India']);
+    const [convertedAmount, setConvertedAmount] = useState(0);
+    const [paymentSuccess, setPaymentSuccess] = useState(false);
+    const [orderNumber, setOrderNumber] = useState(1);
+    const [razorpayLoaded, setRazorpayLoaded] = useState(false);
 
-    // Product details with multiple images
     const product = {
         name: "Sampoorna Digestive Health Supplement",
         price: 3999.00,
-        images: [product1, product2, product3, product4],
-        description: "A natural supplement that promotes digestive health and overall wellness. Made with premium Ayurvedic ingredients.",
-        features: [
-            "100% Natural Ingredients",
-            "Clinically Tested",
-            "No Side Effects",
-            "GMP Certified"
-        ],
-        ingredients: [
-            "Amla",
-            "Chitrak",
-            "Nagarmotha",
-            "Harad",
-            "Giloy",
-            "Nisoth",
-            "Adrak"
-        ]
+        description: "A natural supplement for digestive health"
     };
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setGradientPosition((prev) => (prev + 1) % 360);
-        }, 50);
-        return () => clearInterval(interval);
+        // Calculate initial converted amount
+        const baseAmount = product.price * quantity;
+        const converted = (baseAmount * currentCurrency.rate).toFixed(2);
+        setConvertedAmount(converted);
+    }, [quantity, currentCurrency, product.price]);
+
+    useEffect(() => {
+        const loadRazorpay = async () => {
+            try {
+                if (window.Razorpay) {
+                    setRazorpayLoaded(true);
+                    return;
+                }
+
+                const script = document.createElement('script');
+                script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+                script.async = true;
+
+                script.onload = () => {
+                    setRazorpayLoaded(true);
+                };
+
+                script.onerror = () => {
+                    console.error('Failed to load Razorpay');
+                    setFormErrors(prev => ({
+                        ...prev,
+                        payment: 'Failed to load payment system. Please try again.'
+                    }));
+                };
+
+                document.body.appendChild(script);
+            } catch (error) {
+                console.error('Razorpay loading error:', error);
+                setFormErrors(prev => ({
+                    ...prev,
+                    payment: 'Payment system initialization failed.'
+                }));
+            }
+        };
+
+        loadRazorpay();
     }, []);
 
-    const handleAddToCart = () => {
-        // You can add cart logic here if needed
-        router.push('/checkout');
+    const handleQuantityChange = (action) => {
+        if (action === 'increase') {
+            setQuantity(prev => prev + 1);
+        } else if (action === 'decrease' && quantity > 1) {
+            setQuantity(prev => prev - 1);
+        }
     };
 
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+
+        if (name === 'country') {
+            setCurrentCurrency(COUNTRY_CURRENCY_MAP[value]);
+        }
+    };
+
+    const validateForm = () => {
+        const errors = {};
+        if (!formData.firstName) errors.firstName = 'First name is required';
+        if (!formData.lastName) errors.lastName = 'Last name is required';
+        if (!formData.email) errors.email = 'Email is required';
+        if (!formData.phone) errors.phone = 'Phone is required';
+        if (!formData.streetAddress) errors.streetAddress = 'Address is required';
+        if (!formData.townCity) errors.townCity = 'City is required';
+        if (!formData.paymentMode) errors.paymentMode = 'Please select a payment method';
+        return errors;
+    };
+
+    const handleRazorpayPayment = async () => {
+        if (!razorpayLoaded) {
+            setFormErrors(prev => ({
+                ...prev,
+                payment: 'Payment system is still loading. Please try again.'
+            }));
+            return;
+        }
+
+        try {
+            const options = {
+                key: RAZORPAY_KEY,
+                amount: Math.round(convertedAmount * 100),
+                currency: currentCurrency.currency,
+                name: 'Sampoorna Arogya',
+                description: `Order for ${product.name}`,
+                prefill: {
+                    name: `${formData.firstName} ${formData.lastName}`,
+                    email: formData.email,
+                    contact: formData.phone
+                },
+                handler: async function (response) {
+                    try {
+                        const formattedData = {
+                            _subject: `New Order #${orderNumber} - Online Payment`,
+                            _template: "table",
+                            _captcha: "false",
+                            orderNumber: orderNumber,
+                            orderDate: new Date().toISOString(),
+                            customerName: `${formData.firstName} ${formData.lastName}`,
+                            email: formData.email,
+                            phone: formData.phone,
+                            shippingAddress: `${formData.streetAddress}, ${formData.apartment || ''}, ${formData.townCity}, ${formData.country}`,
+                            productName: product.name,
+                            quantity: quantity,
+                            amount: `${currentCurrency.symbol} ${convertedAmount}`,
+                            paymentMethod: "Online Payment (Razorpay)",
+                            paymentId: response.razorpay_payment_id,
+                            orderStatus: "Paid"
+                        };
+
+                        // Send order details to your endpoint
+                        const formResponse = await fetch('https://formsubmit.co/ajax/israelitesshopping171@gmail.com', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify(formattedData)
+                        });
+
+                        if (!formResponse.ok) {
+                            throw new Error(`HTTP error! status: ${formResponse.status}`);
+                        }
+
+                        const result = await formResponse.json();
+                        if (result.success) {
+                            setPaymentSuccess(true);
+                        } else {
+                            throw new Error("Failed to submit order details");
+                        }
+                    } catch (error) {
+                        console.error("Order submission error:", error);
+                        setFormErrors(prev => ({
+                            ...prev,
+                            submit: "Payment successful but failed to send order details. Please contact support."
+                        }));
+                    } finally {
+                        setIsSubmitting(false);
+                    }
+                },
+                modal: {
+                    ondismiss: function () {
+                        setIsSubmitting(false);
+                    }
+                }
+            };
+
+            const razorpayInstance = new window.Razorpay(options);
+            razorpayInstance.open();
+        } catch (error) {
+            console.error('Razorpay initialization error:', error);
+            setFormErrors(prev => ({
+                ...prev,
+                payment: 'Failed to initialize payment. Please try again.'
+            }));
+            setIsSubmitting(false);
+        }
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const errors = validateForm();
+        setFormErrors(errors);
+
+        if (Object.keys(errors).length === 0) {
+            setIsSubmitting(true);
+            try {
+                if (formData.paymentMode === 'online') {
+                    await handleRazorpayPayment();
+                } else if (formData.paymentMode === 'cod') {
+                    const formattedData = {
+                        _subject: `New Order #${orderNumber} - Cash on Delivery`,
+                        _template: "table",
+                        _captcha: "false",
+                        orderNumber: orderNumber,
+                        orderDate: new Date().toISOString(),
+                        customerName: `${formData.firstName} ${formData.lastName}`,
+                        email: formData.email,
+                        phone: formData.phone,
+                        shippingAddress: `${formData.streetAddress}, ${formData.apartment || ''}, ${formData.townCity}, ${formData.country}`,
+                        productName: product.name,
+                        quantity: quantity,
+                        amount: `${currentCurrency.symbol} ${convertedAmount}`,
+                        paymentMethod: "Cash on Delivery",
+                        orderStatus: "Pending"
+                    };
+
+                    const response = await fetch('https://formsubmit.co/ajax/israelitesshopping171@gmail.com', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(formattedData)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    if (result.success) {
+                        setPaymentSuccess(true);
+                    } else {
+                        throw new Error("Failed to submit order details");
+                    }
+                }
+            } catch (error) {
+                console.error('Submission error:', error);
+                setFormErrors(prev => ({
+                    ...prev,
+                    submit: error.message || 'Failed to process order. Please try again.'
+                }));
+            } finally {
+                setIsSubmitting(false);
+            }
+        }
+    };
+
+    if (paymentSuccess) {
+        return (
+            <div className="flex relative bg-white min-h-screen">
+                <div className='fixed left-0 top-0 w-1/5 h-screen bg-transparent z-[999]'>
+                    <Navbar />
+                </div>
+                <div className="flex-1 ml-[0%] md:ml-[20%] flex items-center justify-center">
+                    <div className="max-w-2xl mx-auto px-4 py-16 text-center">
+                        <div className="bg-green-50 rounded-lg p-8 border border-green-200">
+                            <h2 className="text-3xl font-bold text-green-600 mb-4">
+                                Order Successful!
+                            </h2>
+                            <p className="text-gray-600 mb-2">
+                                Order Number: {orderNumber}
+                            </p>
+                            <p className="text-gray-600 mb-6">
+                                Thank you for your purchase!
+                            </p>
+                            <Button
+                                onClick={() => router.push('/')}
+                                className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors"
+                            >
+                                Continue Shopping
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     return (
-        <div className="flex relative bg-white min-h-screen">
-            {/* Navbar container - Updated background */}
+        <div className="flex relative bg-white min-h-screen overflow-hidden">
             <div className='fixed left-0 top-0 w-1/5 h-screen bg-transparent z-[999]'>
                 <Navbar />
             </div>
+            <div className="flex-1 ml-[0%] md:ml-[20%] overflow-auto">
 
-            {/* Main Content */}
-            <div className="flex-1 ml-[0%] md:ml-[20%]">
                 <div className="max-w-7xl mx-auto px-4 py-8">
-                    {/* Product Section */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        {/* Product Image Gallery */}
-                        <div className="space-y-4">
-                            <div className="relative h-[500px] rounded-2xl overflow-hidden">
-                                <Image
-                                    src={product.images[selectedImage]}
-                                    alt={`${product.name} - View ${selectedImage + 1}`}
-                                    fill
-                                    className="object-cover"
+                    <div className=" w-full">
+                        {/* Product Summary */}
+                        <Product />
+                        <AwardsSection />
+                        {/* Checkout Form */}
+                        <form id="submit" onSubmit={handleSubmit} className="space-y-6 bg-gray-50 p-6 rounded-lg">
+                            <h2 className="text-xl font-semibold mb-4">Shipping Information</h2>
+
+                            {/* Name Fields */}
+                            <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                        First Name *
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="firstName"
+                                        value={formData.firstName}
+                                        onChange={handleInputChange}
+                                        className={`w-full px-3 py-2 border rounded-lg ${formErrors.firstName ? 'border-red-500' : 'border-gray-300'
+                                            }`}
+                                    />
+                                    {formErrors.firstName && (
+                                        <p className="text-red-500 text-xs mt-1">{formErrors.firstName}</p>
+                                    )}
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                        Last Name *
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="lastName"
+                                        value={formData.lastName}
+                                        onChange={handleInputChange}
+                                        className={`w-full px-3 py-2 border rounded-lg ${formErrors.lastName ? 'border-red-500' : 'border-gray-300'
+                                            }`}
+                                    />
+                                    {formErrors.lastName && (
+                                        <p className="text-red-500 text-xs mt-1">{formErrors.lastName}</p>
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* Contact Fields */}
+                            <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                        Email *
+                                    </label>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleInputChange}
+                                        className={`w-full px-3 py-2 border rounded-lg ${formErrors.email ? 'border-red-500' : 'border-gray-300'
+                                            }`}
+                                    />
+                                    {formErrors.email && (
+                                        <p className="text-red-500 text-xs mt-1">{formErrors.email}</p>
+                                    )}
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                        Phone *
+                                    </label>
+                                    <input
+                                        type="tel"
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleInputChange}
+                                        className={`w-full px-3 py-2 border rounded-lg ${formErrors.phone ? 'border-red-500' : 'border-gray-300'
+                                            }`}
+                                    />
+                                    {formErrors.phone && (
+                                        <p className="text-red-500 text-xs mt-1">{formErrors.phone}</p>
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* Address Fields */}
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    Country *
+                                </label>
+                                <select
+                                    name="country"
+                                    value={formData.country}
+                                    onChange={handleInputChange}
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                                >
+                                    {Object.keys(COUNTRY_CURRENCY_MAP).map(country => (
+                                        <option key={country} value={country}>
+                                            {country}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    Street Address *
+                                </label>
+                                <input
+                                    type="text"
+                                    name="streetAddress"
+                                    value={formData.streetAddress}
+                                    onChange={handleInputChange}
+                                    className={`w-full px-3 py-2 border rounded-lg ${formErrors.streetAddress ? 'border-red-500' : 'border-gray-300'
+                                        }`}
+                                />
+                                {formErrors.streetAddress && (
+                                    <p className="text-red-500 text-xs mt-1">{formErrors.streetAddress}</p>
+                                )}
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    Apartment, suite, etc. (optional)
+                                </label>
+                                <input
+                                    type="text"
+                                    name="apartment"
+                                    value={formData.apartment}
+                                    onChange={handleInputChange}
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-lg"
                                 />
                             </div>
-                            {/* Thumbnails */}
-                            <div className="flex gap-4 overflow-x-auto pb-2">
-                                {product.images.map((img, index) => (
-                                    <button
-                                        key={index}
-                                        onClick={() => setSelectedImage(index)}
-                                        className={`relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden ${selectedImage === index ? 'ring-2 ring-[#43c3ff]' : ''
-                                            }`}
-                                    >
-                                        <Image
-                                            src={img}
-                                            alt={`${product.name} thumbnail ${index + 1}`}
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
 
-                        {/* Product Details */}
-                        <div className="flex flex-col justify-between">
                             <div>
-                                <h1 className="text-4xl font-bold mb-4">{product.name}</h1>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    Town/City *
+                                </label>
+                                <input
+                                    type="text"
+                                    name="townCity"
+                                    value={formData.townCity}
+                                    onChange={handleInputChange}
+                                    className={`w-full px-3 py-2 border rounded-lg ${formErrors.townCity ? 'border-red-500' : 'border-gray-300'
+                                        }`}
+                                />
+                                {formErrors.townCity && (
+                                    <p className="text-red-500 text-xs mt-1">{formErrors.townCity}</p>
+                                )}
+                            </div>
 
-                                {/* Rating */}
-                                <div className="flex items-center mb-4">
-                                    {[...Array(5)].map((_, i) => (
-                                        <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                                    ))}
-                                    <span className="ml-2 text-gray-600">(125 reviews)</span>
-                                </div>
-
-                                {/* Price */}
-                                <div className="mb-6">
-                                    <span className="text-3xl font-bold">₹{product.price}</span>
-                                </div>
-
-                                {/* Description */}
-                                <p className="text-gray-600 mb-6">
-                                    {product.description}
-                                </p>
-
-                                {/* Quantity Selector */}
-                                <div className="flex items-center mb-6">
-                                    <span className="mr-4">Quantity:</span>
-                                    <Button
-                                        onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                                        className="p-2 border rounded-l"
-                                    >
-                                        <Minus className="w-4 h-4" />
-                                    </Button>
-                                    <span className="px-4 py-2 border-t border-b">
-                                        {quantity}
-                                    </span>
-                                    <Button
-                                        onClick={() => setQuantity(quantity + 1)}
-                                        className="p-2 border rounded-r"
-                                    >
-                                        <Plus className="w-4 h-4" />
-                                    </Button>
-                                </div>
-
-                                {/* Add to Cart Button */}
-                                <Button
-                                    onClick={handleAddToCart}
-                                    className="w-full bg-[#43c3ff] hover:bg-[#43c3ff]/90 text-white py-3 rounded-lg text-lg mb-6"
+                            {/* Payment Method */}
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    Payment Method *
+                                </label>
+                                <select
+                                    name="paymentMode"
+                                    value={formData.paymentMode}
+                                    onChange={handleInputChange}
+                                    className={`w-full px-3 py-2 border rounded-lg ${formErrors.paymentMode ? 'border-red-500' : 'border-gray-300'
+                                        }`}
                                 >
-                                    Add to Cart - ₹{(product.price * quantity).toFixed(2)}
+                                    <option value="">Select Payment Method</option>
+                                    <option value="cod">Cash on Delivery</option>
+                                    <option value="online">Online Payment</option>
+                                </select>
+                                {formErrors.paymentMode && (
+                                    <p className="text-red-500 text-xs mt-1">{formErrors.paymentMode}</p>
+                                )}
+                            </div>
+
+                            <div className="mt-6 space-y-4">
+                                <div className="border-t pt-4">
+                                    <p className="text-sm font-medium text-gray-700 mb-3">Secure Payment Partners</p>
+                                    <div className="flex items-center justify-between mb-4">
+                                        <Image
+                                            src={visa}
+                                            alt="Visa"
+                                            className="h-8 object-contain"
+                                            onError={(e) => {
+                                                e.target.onerror = null;
+                                                e.target.src = { visa };
+                                            }}
+                                        />
+                                        <Image
+                                            src={mastercard}
+                                            alt="Mastercard"
+                                            className="h-8 object-contain"
+                                            onError={(e) => {
+                                                e.target.onerror = null;
+                                                e.target.src = "https://via.placeholder.com/80x32?text=Mastercard";
+                                            }}
+                                        />
+                                        <Image
+                                            src={rupay}
+                                            alt="RuPay"
+                                            className="h-8 object-contain"
+                                            onError={(e) => {
+                                                e.target.onerror = null;
+                                                e.target.src = "https://via.placeholder.com/80x32?text=RuPay";
+                                            }}
+                                        />
+                                        <Image
+                                            src={razorpay}
+                                            alt="Razorpay"
+                                            className="h-8 object-contain"
+                                            onError={(e) => {
+                                                e.target.onerror = null;
+                                                e.target.src = "https://via.placeholder.com/80x32?text=Razorpay";
+                                            }}
+                                        />
+                                    </div>
+                                    <div className="flex flex-col gap-3">
+                                        <div className="flex items-center justify-center space-x-2 bg-gray-50 p-3 rounded-lg">
+                                            <img src={PAYMENT_IMAGES.secure} alt="Secure" className="h-5 w-5" />
+                                            <span className="text-sm text-gray-600">100% Secure Payments</span>
+                                        </div>
+                                        <div className="grid grid-cols-2 gap-2">
+                                            <div className="flex items-center space-x-2 bg-gray-50 p-2 rounded-lg">
+                                                <img src={PAYMENT_IMAGES.ssl} alt="SSL" className="h-4 w-4" />
+                                                <span className="text-xs text-gray-500">SSL Encrypted</span>
+                                            </div>
+                                            <div className="flex items-center space-x-2 bg-gray-50 p-2 rounded-lg">
+                                                <img src={PAYMENT_IMAGES.pci} alt="PCI" className="h-4 w-4" />
+                                                <span className="text-xs text-gray-500">PCI DSS Compliant</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Total and Submit Button */}
+                            <div className="pt-4 border-t border-gray-200">
+                                <div className="flex justify-between mb-4">
+                                    <span className="font-semibold">Total:</span>
+                                    <span className="font-semibold">
+                                        {currentCurrency.symbol}{(product.price * quantity * currentCurrency.rate).toFixed(2)}
+                                    </span>
+                                </div>
+
+                                <Button
+                                    type="submit"
+                                    className="w-full bg-[#43c3ff] hover:bg-[#43c3ff]/90 text-white py-3 rounded-lg"
+                                    disabled={isSubmitting}
+                                >
+                                    {isSubmitting ? 'Processing...' : 'Place Order'}
                                 </Button>
                             </div>
-
-                            {/* Features */}
-                            <div className="border-t pt-6">
-                                <h3 className="font-semibold mb-3">Key Features:</h3>
-                                <ul className="grid grid-cols-2 gap-2">
-                                    {product.features.map((feature, index) => (
-                                        <li key={index} className="flex items-center">
-                                            <span className="w-2 h-2 bg-[#43c3ff] rounded-full mr-2"></span>
-                                            {feature}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Additional Information */}
-                    <div className="mt-16">
-                        <h2 className="text-2xl font-bold mb-6">Product Information</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div className="bg-gray-50 p-6 rounded-lg">
-                                <h3 className="font-semibold mb-4">Key Ingredients</h3>
-                                <ul className="space-y-2">
-                                    {product.ingredients.map((ingredient, index) => (
-                                        <li key={index} className="flex items-center">
-                                            <span className="w-2 h-2 bg-[#43c3ff] rounded-full mr-2"></span>
-                                            {ingredient}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div className="bg-gray-50 p-6 rounded-lg">
-                                <h3 className="font-semibold mb-4">How to Use</h3>
-                                <p className="text-gray-600">
-                                    Take 1-2 capsules daily with warm water after meals or as directed by your healthcare professional. For best results, use consistently for at least 3 months.
-                                </p>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     );
 }
+

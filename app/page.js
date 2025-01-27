@@ -265,7 +265,7 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 md:ml-[20%] ml-0 mt-[60px] md:mt-0 relative" data-scroll-container>
+      <div className="flex-1 md:ml-[23.8%] ml-0 mt-[60px] md:mt-0 relative" data-scroll-container>
         <main className="w-full flex flex-col">
           {/* Hero Section */}
           <section className='relative w-full h-[30vh] md:h-screen'>
@@ -287,7 +287,6 @@ export default function Home() {
                   alt="Sampoorna Arogya Hero Background"
                   fill
                   priority
-                  className=" brightness-75"
                   sizes="(max-width: 767px) 480px, 1920px"
                   quality={85}
                 />
@@ -476,34 +475,6 @@ export default function Home() {
           </div>
 
 
-
-          <div className='relative w-full'>
-            <div className="aspect-[16/9] md:aspect-[21/9] relative">
-              <Image
-                src={smallbanner1}
-                alt="Secondary Promotional Banner"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 z-10 justify-end hidden md:flex">
-                <div className="p-4 md:p-10 w-full md:w-4/12 text-black flex justify-end items-end flex-col ">
-                  <h1 className="text-2xl md:text-5xl font-bold">Improve Your Digestion</h1>
-                  <p className="text-base md:text-xl mt-2">
-                    Sampoorn Arogya offers Ayurvedic solutions for better digestion and overall wellness. Experience the power of nature with our syrups and tablets.
-                  </p>
-                  <Button
-                    onClick={() => router.push('/product')}
-                    className="bg-green-400 mt-4 md:mt-5 hover:bg-blue-400 text-white px-4 py-2 md:px-10 md:py-7 rounded-full transition-all duration-300 text-sm md:text-3xl"
-                  >
-                    Order Now
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-
           <DigestiveSystem />
 
 
@@ -613,55 +584,6 @@ export default function Home() {
             <BenefitsTimeline />
           </div>
 
-          {/* Replace the banner section with this code */}
-          {/* <div className='relative w-full'>
-            <div className="aspect-[16/7] md:aspect-[21/7] relative">
-              <Image
-                src={smallbanner}
-                alt="Promotional Banner"
-                fill
-                className="object-cover"
-              />
-              <div className='absolute inset-0 z-10 flex items-center'>
-                <div className='px-4 md:p-10 w-full md:w-1/2 text-white'>
-                  <h1 className='text-2xl md:text-3xl font-bold'>Content</h1>
-                  <p className='text-sm md:text-xl mt-2 md:mt-4'>
-                    This error occurs because you're trying to access the window object during server-side rendering (SSR) in Next.js. The window object is only available in the browser environment, not during server-side rendering.
-                  </p>
-                  <Button
-                    onClick={() => router.push('/product')}
-                    className="w-full md:w-auto mt-4 md:mt-5 bg-[rgb(76,238,84)] hover:bg-[#43c3ff] text-white px-4 py-2 md:px-10 md:py-7 rounded-full transition-all duration-300 text-base md:text-3xl"
-                  >
-                    Order Now
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div> */}
-          <div className='relative w-full'>
-            <div className="aspect-[16/7] md:aspect-[21/7] relative">
-              <Image
-                src={smallbanner}
-                alt="Promotional Banner"
-                fill
-                className="object-cover"
-              />
-              <div className='absolute inset-0 z-10 items-center hidden md:flex'>
-                <div className='px-4 md:p-10 w-full md:w-1/2 text-white'>
-                  <h1 className='text-2xl md:text-3xl font-bold'>Transform Your Digestive Health</h1>
-                  <p className='text-sm md:text-xl mt-2 md:mt-4'>
-                    Discover the power of Ayurveda with Sampoorn Arogya. Designed to alleviate digestive discomfort and support gut health, our products combine natural ingredients to bring balance and vitality to your daily life. Experience improved digestion, reduced bloating, and enhanced overall wellness with every dose.
-                  </p>
-                  <Button
-                    onClick={() => router.push('/product')}
-                    className="w-full md:w-auto mt-4 md:mt-5 bg-[rgb(76,238,84)] hover:bg-[#43c3ff] text-white px-4 py-2 md:px-10 md:py-7 rounded-full transition-all duration-300 text-base md:text-3xl"
-                  >
-                    Order Now
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
 
 
           <ComparisonTable />

@@ -46,7 +46,7 @@ export default function ReturnPolicy() {
             </div>
 
             {/* Main Content */}
-            <div className="flex-1 ml-[0%] md:ml-[20%]">
+            <div className="flex-1 ml-[0%] md:ml-[23.8%]">
                 <div className="max-w-4xl mx-auto px-4 py-12">
                     {/* Header with gradient */}
                     <div className="relative mb-12 p-8 rounded-lg overflow-hidden">

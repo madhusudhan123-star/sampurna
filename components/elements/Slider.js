@@ -15,9 +15,53 @@ import img7 from '../../assets/ing/download6.jpeg';
 import img8 from '../../assets/ing/download7.jpeg';
 import img9 from '../../assets/ing/download8.jpeg';
 
+const MobileSlider = ({ ingredients }) => {
+    return (
+        <div className="block md:hidden w-full h-[300px]">
+            <Swiper
+                slidesPerView={1}
+                spaceBetween={0}
+                loop={true}
+                speed={300}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                }}
+                pagination={{
+                    clickable: true,
+                }}
+                modules={[Pagination, Autoplay]}
+                className="w-full h-full"
+            >
+                {ingredients.map((ingredient, index) => (
+                    <SwiperSlide
+                        key={index}
+                        className="w-full h-[300px] relative rounded-xl overflow-hidden"
+                    >
+                        <div
+                            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                            style={{
+                                backgroundImage: `url(${ingredient.image.src})`
+                            }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex flex-col justify-end p-4">
+                            <h3 className="text-white text-lg font-bold mb-2">
+                                {ingredient.title}
+                            </h3>
+                            <p className="text-white/90 text-sm leading-relaxed">
+                                {ingredient.description}
+                            </p>
+                        </div>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+        </div>
+    );
+};
+
 const Slider = () => {
     const [isMobile, setIsMobile] = useState(false);
-    const [dimensions, setDimensions] = useState({ width: 900, height: 900 }); // Add default dimensions
+    const [dimensions, setDimensions] = useState({ width: 500, height: 500 }); // Add default dimensions
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -88,41 +132,49 @@ const Slider = () => {
     console.log(ingredients[0].image);
 
     return (
-        <div className='w-full relative -top-16 pt-20  flex justify-center items-center flex-col px-2 md:px-20 py-16 md:py-28 bg-black/95'>
+        <div className='w-full relative -top-16 pt-20 flex justify-center items-center flex-col px-2 md:px-20 py-16 md:py-28 bg-black/95'>
+            <style jsx global>{`
+                .swiper-slide {
+                    opacity: 1 !important;
+                    filter: none !important;
+                    transition: transform 0.3s !important;
+                }
+                @media (min-width: 768px) {
+                    .swiper-slide {
+                        max-width: 500px !important;
+                        max-height: 500px !important;
+                    }
+                }
+            `}</style>
             <h1 className='text-2xl md:text-6xl text-center mb-8 md:mb-16 text-white'>KEY INGREDIENTS</h1>
-            <div className='w-full h-[300px] md:h-[500px]'>
+
+            {/* Mobile Slider */}
+            <MobileSlider ingredients={ingredients} />
+
+            {/* Desktop Slider */}
+            <div className='hidden md:block w-full h-[500px]'>
                 <Swiper
-                    effect={isMobile ? "fade" : "coverflow"}
+                    effect="coverflow"  // Remove conditional fade effect
                     grabCursor={true}
                     centeredSlides={true}
-                    loop={true} // Enable infinite loop
-                    slidesPerView={1}
-                    spaceBetween={isMobile ? 0 : 30}
+                    loop={true}
+                    slidesPerView="auto"  // Change to auto for better mobile handling
+                    spaceBetween={20}
                     initialSlide={2}
-                    speed={isMobile ? 1000 : 800} // Smooth transition speed
-                    dir="rtl" // Add this to reverse direction
+                    speed={800}
+                    dir="rtl"
                     coverflowEffect={{
                         rotate: 15,
                         stretch: 0,
-                        depth: 100,
-                        modifier: 2,
+                        depth: isMobile ? 50 : 100,
+                        modifier: isMobile ? 1 : 2,
                         slideShadows: false,
                     }}
-                    fadeEffect={{
-                        crossFade: true
-                    }}
-                    autoplay={{
-                        delay: 3000,
-                        disableOnInteraction: false,
-                        pauseOnMouseEnter: true,
-                        waitForTransition: true,
-                        reverseDirection: true // Add this to reverse autoplay direction
-                    }}
-                    pagination={{
-                        clickable: true,
-                        dynamicBullets: !isMobile, // Dynamic bullets for better UX
-                    }}
                     breakpoints={{
+                        320: {  // Add mobile breakpoint
+                            slidesPerView: 1.2,
+                            effect: "coverflow",
+                        },
                         768: {
                             effect: "coverflow",
                             slidesPerView: 1.8,
@@ -130,8 +182,8 @@ const Slider = () => {
                             coverflowEffect: {
                                 rotate: 15,
                                 stretch: 0,
-                                depth: 100,
-                                modifier: 2,
+                                depth: 50,  // Reduced from 100
+                                modifier: 1,  // Reduced from 2
                                 slideShadows: false,
                             }
                         },
@@ -142,34 +194,29 @@ const Slider = () => {
                             coverflowEffect: {
                                 rotate: 15,
                                 stretch: 0,
-                                depth: 100,
-                                modifier: 2,
+                                depth: 50,  // Reduced from 100
+                                modifier: 1,  // Reduced from 2
                                 slideShadows: false,
                             }
                         }
                     }}
                     modules={[EffectCoverflow, EffectFade, Pagination, Autoplay]}
-                    className={`swiper-container ${!isMobile ? '!overflow-visible' : '!overflow-hidden'} rtl`} // Add rtl class
+                    className="swiper-container !overflow-visible rtl"
                 >
                     {ingredients.map((ingredient, index) => (
                         <SwiperSlide
                             key={index}
-                            className={`swiper-slide ${isMobile
-                                ? '!w-full !h-[250px] transition-opacity duration-1000 ease-in-out'
-                                : '!w-[500px] !h-[400px]'
-                                } relative rounded-xl overflow-hidden [transform-style:preserve-3d] [backface-visibility:hidden]`}
+                            className={`swiper-slide ${isMobile ? 'w-[280px] h-[250px]' : '!w-[500px] !h-[500px]'
+                                } relative rounded-xl overflow-hidden`}
                         >
                             <div
-                                className={`absolute inset-0 bg-cover bg-no-repeat ${isMobile
-                                    ? 'transition-transform duration-1000 ease-in-out scale-105'
-                                    : 'transition-transform duration-300 hover:scale-110'
-                                    } [transform-style:preserve-3d] [backface-visibility:hidden] [perspective:1000px]`}
+                                className="absolute inset-0 bg-cover bg-no-repeat bg-center"
                                 style={{
                                     backgroundImage: `url(${ingredient.image.src})`,
-                                    filter: isMobile ? 'brightness(1.0)' : 'none',
-                                    willChange: 'transform',
-                                    width: ingredient.image.width,
-                                    height: ingredient.image.height,
+                                    maxWidth: '500px',
+                                    maxHeight: '500px',
+                                    width: '100%',
+                                    height: '100%'
                                 }}
                                 role="img"
                                 aria-label={ingredient.alt}

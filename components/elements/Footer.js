@@ -8,9 +8,9 @@ export default function Footer() {
     const router = useRouter();
 
     return (
-        <footer className="w-full bg-white px-4 md:px-8 lg:px-20 py-8 md:py-12">
+        <footer className="w-full bg-white px-4 md:px-8 lg:px-20 py-8 ">
             <div className="max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 lg:gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap- lg:gap-8">
                     {/* Logo, Description and Social Icons */}
                     <div className="col-span-1 max-w-xs">
                         <div className="flex items-center gap-2 mb-4">
@@ -30,7 +30,7 @@ export default function Footer() {
                         {/* Social Icons */}
                         <div className="flex gap-4 items-center">
                             <a
-                                href="https://www.facebook.com/index.php?next=https%3A%2F%2Fwww.facebook.com%2Fpages%2F%3Fcategory%3Dyour_pages%26ref%3Dbookmarks&deoia=1&no_universal_links=1"
+                                href="https://www.facebook.com/profile.php?id=61571764651288"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-gray-600 hover:text-[#43c3ff] transition-colors duration-200"
@@ -74,9 +74,9 @@ export default function Footer() {
                     </div>
 
                     {/* Contact Info */}
-                    <div className="w-full">
+                    <div className="w-full col-span-2">
                         <h4 className="text-base md:text-lg font-semibold mb-3">Contact</h4>
-                        <ul className="space-y-1.5">
+                        <ul className="space-y-1">
                             <li className="text-xs md:text-sm text-gray-600 break-words">
                                 Email: israelitesshopping171@gmail.com
                             </li>
@@ -84,7 +84,7 @@ export default function Footer() {
                                 Phone: +91 903-052-8333
                             </li>
                             <li className="text-xs md:text-sm text-gray-600">
-                                Location: Bangalore, India
+                                Location: Begumpet, Hyderabad, Telangana 500016
                             </li>
                         </ul>
                     </div>

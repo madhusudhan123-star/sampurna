@@ -23,17 +23,17 @@ const reviews = [
         rating: 5,
         designation: "Verified Buyer",
         location: "Bangalore",
-        date: "2 months ago",
+        date: "1 months ago",
         image: ten_one // Use local image
         // image: "https://ui-avatars.com/api/?name=John+Doe&background=2A6177&color=fff" // Added image URL
     },
     {
-        name: "Jane Smith",
+        name: "Sophia Davis",
         review: "Been using for 3 months, noticed great improvement.",
         rating: 4.5,
         designation: "Regular Customer",
         location: "Mumbai",
-        date: "1 month ago",
+        date: "2 month ago",
         image: ten // Use local image
     },
     {
@@ -60,7 +60,7 @@ const reviews = [
         rating: 4.5,
         designation: "Regular Customer",
         location: "Mumbai",
-        date: "1 month ago",
+        date: "4 month ago",
         image: five // Use local image
     },
     {
@@ -69,7 +69,7 @@ const reviews = [
         rating: 5,
         designation: "Health Expert",
         location: "Delhi",
-        date: "3 months ago",
+        date: "5 months ago",
         image: six // Use local image
     },
     {
@@ -78,7 +78,7 @@ const reviews = [
         rating: 5,
         designation: "Verified Buyer",
         location: "Bangalore",
-        date: "2 months ago",
+        date: "8 months ago",
         image: seven // Use local image
     },
     {
@@ -87,7 +87,7 @@ const reviews = [
         rating: 4.5,
         designation: "Regular Customer",
         location: "Mumbai",
-        date: "1 month ago",
+        date: "8 month ago",
         image: eight // Use local image
     },
     {
@@ -96,7 +96,7 @@ const reviews = [
         rating: 5,
         designation: "Health Expert",
         location: "Delhi",
-        date: "3 months ago",
+        date: "10 months ago",
         image: nine // Use local image
     }
 ];
@@ -205,7 +205,7 @@ export default function ReviewSection() {
                     What Our Customers Say
                 </h2>
 
-                <div className="flex flex-col md:flex-row gap-4 md:gap-8 px-4 md:px-20">
+                <div className="flex flex-col md:flex-row gap-4 md:gap-8 px-4">
                     {/* Image Section */}
                     <div className="md:w-2/5 hidden md:block relative min-h-[200px] md:min-h-[400px] rounded-xl md:rounded-2xl overflow-hidden">
                         <Image

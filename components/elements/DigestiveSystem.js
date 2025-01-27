@@ -74,8 +74,8 @@ const DigestiveSystem = () => {
 
   return (
     <div className="relative w-full rounded-b-[70px] z-10 pt-10 md:pt-20 bg-gradient-to-r from-[#988967] via-[#F7E9CC] to-[#AB9C7A]">
-      <div className="w-full max-w-[1920px] mx-auto px-2 md:px-8">
-        <div className="flex flex-col md:flex-row items-start gap-8 md:gap-10"> {/* Reduced gap */}
+      <div className="w-full max-w-[1920px] mx-auto px-2 md:pl-8">
+        <div className="flex flex-col md:flex-row items-start gap-8 md:gap-16"> {/* Reduced gap */}
           {/* Left side - Interactive Diagram */}
           <div className="w-full md:w-[40%] relative"> {/* Reduced width */}
             <div className="relative w-full h-[60vh] md:h-[90vh] p-2">
@@ -171,9 +171,8 @@ const DigestiveSystem = () => {
               ))}
             </div>
           </div>
-
           {/* Right side - Content and Buy Now Button */}
-          <div className="w-full md:w-[60%] px-4 md:px-12 relative z-50 md:pt-8"> {/* Increased padding, added top padding */}
+          <div className="w-full md:w-[60%] px-4 md:pl-12 relative z-50 md:pt-8"> {/* Increased padding, added top padding */}
             <h2 className="text-[22px] sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#2A6177] 
               mb-3 sm:mb-4 md:mb-6 leading-tight">
               Understanding Acidity in Your Digestive System
