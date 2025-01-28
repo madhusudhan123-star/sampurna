@@ -139,7 +139,7 @@ export default function BenefitsTimeline() {
             }}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
-            className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#cf1cff] to-[#cf1cff] hidden md:block"
+            className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#7D4FFF] to-[#7D4FFF] hidden md:block"
           />
 
           <motion.div
@@ -157,7 +157,7 @@ export default function BenefitsTimeline() {
               >
                 {/* Mobile timeline dot */}
                 <div className="flex items-center mb-4 md:hidden">
-                  <div className="w-4 h-4 bg-[#cf1cff] rounded-full mr-4" />
+                  <div className="w-4 h-4 bg-[#7D4FFF] rounded-full mr-4" />
                   <h3 className="text-xl font-bold text-[#2A6177]">{item.day}</h3>
                 </div>
 
@@ -190,7 +190,7 @@ export default function BenefitsTimeline() {
                         <ul className="space-y-2">
                           {item.additionalContent.details.map((detail, idx) => (
                             <li key={idx} className="flex items-center text-sm md:text-base text-gray-600">
-                              <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#cf1cff] rounded-full mr-2"></span>
+                              <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#7D4FFF] rounded-full mr-2"></span>
                               {detail}
                             </li>
                           ))}
@@ -215,13 +215,13 @@ export default function BenefitsTimeline() {
                         transition: { type: "spring", stiffness: 200, damping: 10 }
                       }
                     }}
-                    className="w-6 h-6 bg-[#cf1cff] rounded-full relative z-10 shadow-lg"
+                    className="w-6 h-6 bg-[#7D4FFF] rounded-full relative z-10 shadow-lg"
                     whileHover={{ scale: 1.2 }}
                   >
                     <motion.div
                       animate={{ scale: [1, 1.2, 1] }}
                       transition={{ duration: 2, repeat: Infinity }}
-                      className="absolute inset-0 bg-[#cf1cff] rounded-full opacity-50"
+                      className="absolute inset-0 bg-[#7D4FFF] rounded-full opacity-50"
                     />
                   </motion.div>
                 </div>

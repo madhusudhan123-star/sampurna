@@ -32,7 +32,7 @@ const COUNTRY_CURRENCY_MAP = {
     // ...add more countries as needed
 };
 
-const RAZORPAY_KEY = 'rzp_test_vjJuid6KjiD8Nz'; // Replace with your actual key  rzp_live_tGJjXr7rvi6keg
+const RAZORPAY_KEY = 'rzp_live_tGJjXr7rvi6keg'; // Replace with your actual key  rzp_live_tGJjXr7rvi6keg
 
 export default function Checkout() {
     const router = useRouter();

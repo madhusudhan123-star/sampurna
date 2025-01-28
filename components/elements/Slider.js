@@ -163,6 +163,10 @@ const Slider = () => {
                     initialSlide={2}
                     speed={800}
                     dir="rtl"
+                    autoplay={{
+                        delay: 1000,
+                        disableOnInteraction: false,
+                    }}
                     coverflowEffect={{
                         rotate: 15,
                         stretch: 0,

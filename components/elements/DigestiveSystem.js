@@ -200,7 +200,7 @@ const DigestiveSystem = () => {
               </div>
 
               <button
-                onClick={() => router.push('/product')}
+                onClick={() => router.push('/product/')}
                 className="mt-4 sm:mt-6 md:mt-8 bg-[#2A6177] text-white 
                 px-5 sm:px-6 md:px-8 
                 py-2 sm:py-3 md:py-4 
@@ -208,7 +208,9 @@ const DigestiveSystem = () => {
                 rounded-full font-semibold 
                 hover:bg-[#1e4757] transition-colors duration-300 
                 shadow-lg hover:shadow-xl">
-                Buy Now
+                <a href="/product/">
+                  Buy Now
+                </a>
               </button>
             </div>
           </div>

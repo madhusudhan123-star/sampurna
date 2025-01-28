@@ -65,7 +65,7 @@ export default function Home() {
     },
     {
       question: "Are there any side effects?",
-      answer: "Sampoorn Arogya is made from 100% natural ingredients and is generally safe for consumption. However, in rare cases, mild digestive adjustments may occur as your body adapts."
+      answer: "Sampoorn Arogya is made from 100% natural ingredients and is generally safe for consumption."
     },
     {
       question: "How long does it take to see results?",
@@ -76,16 +76,8 @@ export default function Home() {
       answer: "While our products support overall gut health, individuals with chronic conditions should consult a healthcare provider before use. Our supplements work best as part of a holistic health regimen."
     },
     {
-      question: "Is Sampoorn Arogya safe for children and elderly individuals?",
-      answer: "Yes, Sampoorn Arogya is formulated with natural ingredients and is generally safe for all age groups. However, dosage recommendations may vary. Please refer to product guidelines or consult a healthcare provider."
-    },
-    {
       question: "What makes Sampoorn Arogya different from other digestive supplements?",
       answer: "Our products are rooted in Ayurvedic traditions, using time-tested herbs and natural ingredients. Unlike synthetic supplements, Sampoorn Arogya offers a gentle yet effective approach to digestive wellness."
-    },
-    {
-      question: "Can I take Sampoorn Arogya alongside other medications?",
-      answer: "Generally, Sampoorn Arogya can be taken with other medications. However, it's always advisable to consult your doctor to ensure no potential interactions."
     }
   ];
 
