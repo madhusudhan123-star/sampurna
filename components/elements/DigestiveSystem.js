@@ -181,10 +181,9 @@ const DigestiveSystem = () => {
             <div className="space-y-3 sm:space-y-4 md:space-y-6">
               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 
                 leading-relaxed">
-                Acidity can affect various parts of your digestive system, causing discomfort
-                and health issues if left untreated. Our solution helps maintain optimal pH
-                levels throughout your digestive tract.
-              </p>
+                  Gaining insight into acidity and its impact on your digestive system is key to maintaining balance and comfort.
+                  Learn how to manage and prevent acidity for better digestive health.
+                </p>
 
               <div className="space-y-2 sm:space-y-3 md:space-y-4">
                 <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold text-[#2A6177]">

@@ -527,9 +527,7 @@ export default function Home() {
               </div>
               <div className='w-full md:w-1/2 space-y-4'>
                 <h1 className='text-2xl md:text-5xl font-bold'>Boost Your Digestion Naturally</h1>
-                <p className='text-sm md:text-2xl'>   Sampoorn Arogya offers a holistic Ayurvedic solution to improve your digestion and enhance gut health. Our syrup and tablet formulations are designed to provide natural, effective relief from common digestive issues.
-                  Enriched with powerful Ayurvedic ingredients like Triphala, Jeera, and Ajwain, Sampoorn Arogya not only soothes your digestive system but also helps detoxify the body, regulate metabolism, and strengthen your immunity.
-                  Whether you face bloating, indigestion, or irregular bowel movements, our products provide a safe, natural, and long-lasting solution for all your digestive concerns.</p>
+                <p className='text-sm md:text-lg'>Sampoorn Arogya provides holistic Ayurvedic remedies to support optimal digestion and enhance your overall well-being. Embrace the natural path to health with our specially crafted syrups and tablets.</p>
                 <Button className="bg-[#cf1cff] px-6 py-3 md:px-9 md:py-5 text-base md:text-xl w-full md:w-auto"><a href="/product"> Buy Now</a></Button>
               </div>
             </div>
@@ -543,8 +541,8 @@ export default function Home() {
             >
               <div className='w-full md:w-1/2'>
                 <h1 className='text-3xl md:text-5xl font-bold'>Ayurvedic Wellness for All</h1>
-                <p className="text-sm md:text-2xl">
-                  Embrace the ancient wisdom of Ayurveda with Sampoorn Arogya. Crafted with 100% natural ingredients, our products are formulated to nurture your digestive health and support overall well-being. By harnessing the power of time-tested herbs, Sampoorn Arogya helps reduce acidity, combat bloating, and maintain a balanced gut microbiome. Trust in nature’s remedies for a healthier and happier lifestyle.
+                <p className="text-sm md:text-lg">
+                Sampoorn Arogya delivers a comprehensive Ayurvedic approach to promote healthy digestion and support gut wellness. Our carefully crafted syrups and tablets, featuring potent ingredients like Triphala, Jeera, and Ajwain, offer natural relief from digestive discomforts such as bloating, indigestion, and constipation. These formulations not only aid in detoxifying the body and improving metabolism but also boost your immunity, ensuring overall health and vitality. Trust Sampoorn Arogya for a gentle, effective, and holistic solution to your digestive needs.
                 </p>
                 <Button className="bg-[#cf1cff] px-9 py-5 text-xl"><a href="/product"> Buy Now</a></Button>
               </div>
