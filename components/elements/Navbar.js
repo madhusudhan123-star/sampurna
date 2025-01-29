@@ -116,40 +116,39 @@ const Navbar = () => {
             <div className="hidden md:flex h-screen fixed top-0 left-0 w-auto">
                 {/* About section */}
                 <div
-                    className={`w-12/12 h-screen flex items-end justify-center py-16 cursor-pointer transition-all duration-300
+                    className={`w-24 h-screen flex items-end justify-center py-16 cursor-pointer transition-all duration-300
                         ${pathname === '/about' ? 'bg-[#6cfc6c]' : 'bg-[#6cfc6c] backdrop-blur-sm hover:bg-[rgb(83,247,83)]/10'}`}
                     onClick={() => handleNavigation('/about')}
                 >
-                    <span className={`transform rotate-[270deg] text-[2vw] font-semibold
+                    <span className={`transform rotate-[270deg] text-[2vw] font-semibold whitespace-nowrap
                         ${pathname === '/about' ? 'text-white' : 'text-[#2A6177]'}`}>
                         {getDisplayText('about')}
                     </span>
                 </div>
 
-
                 {/* Product section */}
                 <div
-                    className={`w-12/12 h-screen flex items-end justify-center py-16 cursor-pointer transition-all duration-300
+                    className={`w-24 h-screen flex items-end justify-center py-16 cursor-pointer transition-all duration-300
                         ${pathname === '/product' ? 'bg-[#5fccff]' : 'bg-[#5fccff] backdrop-blur-sm hover:bg-[#43c3ff]/10'}`}
                     onClick={() => handleNavigation('/product')}
                 >
-                    <span className={`transform rotate-[270deg] text-[2vw] font-semibold
+                    <span className={`transform rotate-[270deg] text-[2vw] font-semibold whitespace-nowrap
                         ${pathname === '/product' ? 'text-white' : 'text-[#2A6177]'}`}>
                         {getDisplayText('product')}
                     </span>
                 </div>
+
                 {/* Contact Us section */}
                 <div
-                    className={`w-12/12 h-screen flex  items-end justify-center py-20 cursor-pointer transition-all duration-300
+                    className={`w-24 h-screen flex items-end justify-center py-20 cursor-pointer transition-all duration-300
                         ${pathname === '/contact' ? 'bg-[#FF8C42]' : 'bg-[#7D4FFF] backdrop-blur-sm hover:bg-[#ff6c6c]/10'}`}
                     onClick={() => handleNavigation('/contact')}
                 >
-                    <span className={`transform rotate-[270deg] text-[2vw] font-semibold
+                    <span className={`transform rotate-[270deg] text-[2vw] font-semibold whitespace-nowrap
                         ${pathname === '/contact' ? 'text-white' : 'text-white'}`}>
                         {getDisplayText('contact')}
                     </span>
                 </div>
-
 
                 {/* Overlay */}
                 {isTransitioning && (

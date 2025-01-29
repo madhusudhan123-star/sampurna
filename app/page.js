@@ -257,7 +257,7 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 md:ml-[23.8%] ml-0 mt-[60px] md:mt-0 relative" data-scroll-container>
+      <div className="flex-1 md:ml-[21%] ml-0 mt-[60px] md:mt-0 relative" data-scroll-container>
         <main className="w-full flex flex-col">
           {/* Hero Section */}
           <section className='relative w-full h-[30vh] md:h-screen'>
@@ -542,7 +542,7 @@ export default function Home() {
               <div className='w-full md:w-1/2'>
                 <h1 className='text-3xl md:text-5xl font-bold'>Ayurvedic Wellness for All</h1>
                 <p className="text-sm md:text-lg">
-                Sampoorn Arogya delivers a comprehensive Ayurvedic approach to promote healthy digestion and support gut wellness. Our carefully crafted syrups and tablets, featuring potent ingredients like Triphala, Jeera, and Ajwain, offer natural relief from digestive discomforts such as bloating, indigestion, and constipation. These formulations not only aid in detoxifying the body and improving metabolism but also boost your immunity, ensuring overall health and vitality. Trust Sampoorn Arogya for a gentle, effective, and holistic solution to your digestive needs.
+                  Sampoorn Arogya delivers a comprehensive Ayurvedic approach to promote healthy digestion and support gut wellness. Our carefully crafted syrups and tablets, featuring potent ingredients like Triphala, Jeera, and Ajwain, offer natural relief from digestive discomforts such as bloating, indigestion, and constipation. These formulations not only aid in detoxifying the body and improving metabolism but also boost your immunity, ensuring overall health and vitality. Trust Sampoorn Arogya for a gentle, effective, and holistic solution to your digestive needs.
                 </p>
                 <Button className="bg-[#cf1cff] px-9 py-5 text-xl"><a href="/product"> Buy Now</a></Button>
               </div>

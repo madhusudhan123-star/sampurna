@@ -1,4 +1,4 @@
-// File: C:\Users\Admin\OneDrive\Documents\sampurna\app\about\page.js
+// File: D:\ISN\sampurna\app\about\page.js
 import * as entry from '../../../../app/about/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

@@ -67,7 +67,7 @@ export default function About() {
             </div>
 
             {/* Main Content */}
-            <div className="flex-1 md:ml-[23.5%] ml-0 mt-[60px] md:mt-0">
+            <div className="flex-1 md:ml-[21%] ml-0 mt-[60px] md:mt-0">
                 {/* Hero Section */}
                 <section className='relative w-full h-[30vh] md:h-[50vh]'>
                     <div className="absolute inset-0">
@@ -114,22 +114,6 @@ export default function About() {
                         </div>
                     </div>
                 </section>
-
-
-                {/* Video Section 1 */}
-                <div className="w-full min-h-[50vh] md:min-h-screen relative bg-white">
-                    <div className="absolute inset-0">
-                        <iframe
-                            ref={videoRef}  // Add missing ref
-                            src="https://www.youtube.com/embed/AR0LKoBvSs0?enablejsapi=1&autoplay=1&mute=1&controls=0&rel=0&loop=1&playlist=AR0LKoBvSs0&playsinline=1"
-                            title="About Sampoorn Arogya"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                            className="w-full h-full"
-                        />
-                    </div>
-                </div>
 
                 {/* Product Information Section */}
                 <div className="py-16 md:py-24 px-4 md:px-8 bg-[#f8f9fa]">
@@ -187,20 +171,6 @@ export default function About() {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                {/* Video Section 2 */}
-                <div className="w-full min-h-[50vh] relative bg-black">
-                    <div className="absolute inset-0">
-                        <iframe
-                            src="https://www.youtube.com/embed/AR0LKoBvSs0?enablejsapi=1&autoplay=1&mute=1&controls=0&rel=0&loop=1&playlist=AR0LKoBvSs0&playsinline=1"
-                            title="Our Commitment"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                            className="w-full h-full"
-                        />
                     </div>
                 </div>
 

@@ -74,10 +74,10 @@ export default function Footer() {
                     </div>
 
                     {/* Contact Info */}
-                    <div className="w-full col-span-2">
-                        <h4 className="text-base md:text-lg font-semibold mb-3">Contact</h4>
+                    <div className="w-full ">
+                        <h4 className="text-base md:text-md font-semibold mb-3">Contact</h4>
                         <ul className="space-y-1">
-                            <li className="text-xs md:text-sm text-gray-600 break-words">
+                            <li className="text-xs md:text-xs text-gray-600 break-words">
                                 Email: israelitesshopping171@gmail.com
                             </li>
                             <li className="text-xs md:text-sm font-mono text-gray-600">

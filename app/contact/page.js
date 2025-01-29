@@ -30,7 +30,8 @@ export default function Contact() {
             icon: <Mail className="w-6 h-6" />,
             title: "Email",
             details: ["israelitesshopping171@gmail.com"],
-            action: "mailto:israelitesshopping171@gmail.com"
+            action: "mailto:israelitesshopping171@gmail.com",
+            isEmail: true
         },
         {
             icon: <MapPin className="w-6 h-6" />,
@@ -112,7 +113,7 @@ export default function Contact() {
                 <Navbar />
             </div>
 
-            <div className="flex-1 ml-[0%] md:ml-[23.8%]">
+            <div className="flex-1 ml-[0%] md:ml-[21%]">
                 <div className="max-w-7xl mx-auto px-4 py-12">
                     <div className="text-center mb-12">
                         <h1 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h1>
@@ -132,11 +133,11 @@ export default function Contact() {
                                             <h3 className="font-semibold">{info.title}</h3>
                                         </div>
                                         {info.details.map((detail, idx) => (
-                                            <p key={idx} className="text-gray-600">
+                                            <p key={idx} className={`text-gray-600 ${info.isEmail ? 'break-all' : ''}`}>
                                                 {info.action ? (
                                                     <a
                                                         href={info.action}
-                                                        className={`hover:text-[#43c3ff] ${info.isPhone ? 'font-mono tracking-wider' : ''}`}
+                                                        className={`hover:text-[#43c3ff] ${info.isPhone ? 'font-mono tracking-wider' : ''} ${info.isEmail ? 'text-sm' : ''}`}
                                                     >
                                                         {detail}
                                                     </a>

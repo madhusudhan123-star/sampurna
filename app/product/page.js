@@ -474,21 +474,53 @@ export default function Checkout() {
                             </div>
 
                             {/* Payment Method */}
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">
+                            <div className="space-y-4">
+                                <label className="block text-sm font-medium text-gray-700">
                                     Payment Method *
                                 </label>
-                                <select
-                                    name="paymentMode"
-                                    value={formData.paymentMode}
-                                    onChange={handleInputChange}
-                                    className={`w-full px-3 py-2 border rounded-lg ${formErrors.paymentMode ? 'border-red-500' : 'border-gray-300'
-                                        }`}
-                                >
-                                    <option value="">Select Payment Method</option>
-                                    <option value="cod">Cash on Delivery</option>
-                                    <option value="online">Online Payment</option>
-                                </select>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div
+                                        className={`relative flex items-center p-4 rounded-lg border-2 cursor-pointer
+                                            ${formData.paymentMode === 'cod'
+                                                ? 'border-green-500 bg-green-50'
+                                                : 'border-gray-200 hover:border-green-200'}`}
+                                        onClick={() => handleInputChange({ target: { name: 'paymentMode', value: 'cod' } })}
+                                    >
+                                        <input
+                                            type="radio"
+                                            name="paymentMode"
+                                            value="cod"
+                                            checked={formData.paymentMode === 'cod'}
+                                            onChange={handleInputChange}
+                                            className="h-4 w-4 text-green-500 border-gray-300 focus:ring-green-500"
+                                        />
+                                        <label className="ml-3 flex flex-col cursor-pointer">
+                                            <span className="text-sm font-medium text-gray-900">Cash on Delivery</span>
+                                            <span className="text-xs text-gray-500">Pay when you receive</span>
+                                        </label>
+                                    </div>
+
+                                    <div
+                                        className={`relative flex items-center p-4 rounded-lg border-2 cursor-pointer
+                                            ${formData.paymentMode === 'online'
+                                                ? 'border-green-500 bg-green-50'
+                                                : 'border-gray-200 hover:border-green-200'}`}
+                                        onClick={() => handleInputChange({ target: { name: 'paymentMode', value: 'online' } })}
+                                    >
+                                        <input
+                                            type="radio"
+                                            name="paymentMode"
+                                            value="online"
+                                            checked={formData.paymentMode === 'online'}
+                                            onChange={handleInputChange}
+                                            className="h-4 w-4 text-green-500 border-gray-300 focus:ring-green-500"
+                                        />
+                                        <label className="ml-3 flex flex-col cursor-pointer">
+                                            <span className="text-sm font-medium text-gray-900">Online Payment</span>
+                                            <span className="text-xs text-gray-500">Credit/Debit Card, UPI, etc.</span>
+                                        </label>
+                                    </div>
+                                </div>
                                 {formErrors.paymentMode && (
                                     <p className="text-red-500 text-xs mt-1">{formErrors.paymentMode}</p>
                                 )}
