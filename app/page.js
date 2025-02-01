@@ -27,8 +27,8 @@ import heroSmall from '../assets/test/1920x1281.jpg';
 import Slider from '../components/elements/Slider';
 import smallbanner from '../assets/test/1400x400.jpg';
 import smallbanner1 from '../assets/test/1400x400_1.jpg';
-import banner1 from '@/assets/1.jpg';
-import banner2 from '@/assets/2.jpg';
+import banner1 from '@/assets/5.jpg';
+import banner2 from '@/assets/4.jpg';
 
 
 
