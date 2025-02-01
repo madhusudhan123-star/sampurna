@@ -1,7 +1,9 @@
 import Image from 'next/image';
 import logo from '@/app/just_logo.png';
 
-export default function LoadingScreen() {
+export default function LoadingScreen({ isVisible = true }) {
+    if (!isVisible) return null;
+
     return (
         <div className="fixed inset-0 bg-white z-[9999] flex items-center justify-center">
             <div className="relative">
